@@ -30,7 +30,11 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG").lower() == 'true'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'python-project-52-4ipl.onrender.com',
+    '127.0.0.1',
+    'localhost'
+]
 
 
 # Application definition

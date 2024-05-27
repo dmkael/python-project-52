@@ -1,46 +1,45 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block title %}
     <title>{% trans "Hexlet Task Manager" %}</title>
+    {% endblock %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
   </head>
   <body class="d-flex flex-column min-vh-100">
-  
-      <nav class="navbar navbar-expand-lg navbar-light bg-light ms-3">
-      <a class="navbar-brand" href="/">{% trans "Task Manager" %}</a>
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/users/">{% trans "Users" %}</a>
-          </li>
-          
-        </ul>
-        <ul class="navbar-nav">
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/login/">{% trans "Enter" %}</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/users/create/">{% trans "Register" %}</a>
-            </li>
-          
-        </ul>
+  {% block header %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+            <a class="navbar-brand" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFC000" class="bi bi-floppy" viewBox="0 0 16 16" style="margin-right:5px">
+                <g transform="scale(0.85)">
+  <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1m1.354 4.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                </g>
+</svg>{% trans "Task Manager" %}</a>
+            <div id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/users/">{% trans "Users" %}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login/">{% trans "Enter" %}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/users/create">{% trans "Register" %}</a></li>
+              </ul>
+            </div>
+        </nav>
+  {% endblock %}
+      <div class="container wrapper flex-grow-1">
+          {% block content %}
+          {% endblock %}
       </div>
-    </nav>
-      <div class="container">
-      <main>
-        {% block content %}
-        {% endblock %}
-      </main>
-      </div>
-      </body>
+  {% block footer %}
+    <footer>
+        <div class="container my-5 pt-4 border-top">
+          <a href="#" target="_blank">DmKael</a>
+        </div>
+    </footer>
+  {% endblock %}
+  </body>
 </html>

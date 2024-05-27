@@ -13,3 +13,7 @@ lint:
 	poetry run flake8 task_manager
 console:
 	poetry run python manage.py shell_plus --ipython
+prebuild-translation:
+	poetry run python manage.py makemessages --all
+translate:
+	poetry run django-admin compilemessages

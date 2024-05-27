@@ -13,11 +13,14 @@ dj-database-url = "^2.1.0"
 whitenoise = {extras = ["brotli"], version = "^6.6.0"}
 gunicorn = "^22.0.0"
 uvicorn = "^0.29.0"
+django-bootstrap5 = "^24.2"
 
 
 [tool.poetry.group.dev.dependencies]
 python-dotenv = "^1.0.1"
 flake8 = "^7.0.0"
+django-extensions = "^3.2.3"
+ipython = "^8.24.0"
 
 [build-system]
 requires = ["poetry-core"]

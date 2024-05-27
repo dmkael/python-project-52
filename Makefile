@@ -11,3 +11,5 @@ create-migrations:
 	poetry run python manage.py makemigrations
 lint:
 	poetry run flake8 task_manager
+console:
+	poetry run python manage.py shell_plus --ipython

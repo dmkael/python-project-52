@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-27 18:07+0000\n"
+"POT-Creation-Date: 2024-05-28 16:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,38 +20,51 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/settings.py:170
+#: task_manager/settings.py:172 task_manager/templates/layout.html:42
 msgid "English"
 msgstr "Английский"
 
-#: task_manager/settings.py:171
+#: task_manager/settings.py:173 task_manager/templates/layout.html:44
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/settings.py:172
+#: task_manager/settings.py:174 task_manager/templates/layout.html:46
 msgid "Spanish"
-msgstr ""
+msgstr "Испанский"
 
-#: task_manager/templates/layout.html:9
+#: task_manager/templates/layout.html:11
 msgid "Hexlet Task Manager"
 msgstr "Менеджер задач Hexlet"
 
-#: task_manager/templates/layout.html:15
+#: task_manager/templates/layout.html:25
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/layout.html:22
+#: task_manager/templates/layout.html:29
+#: task_manager/templates/users/users_index.html:4
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/layout.html:29
+#: task_manager/templates/layout.html:30
 msgid "Enter"
 msgstr "Вход"
 
-#: task_manager/templates/layout.html:32
+#: task_manager/templates/layout.html:31
 msgid "Register"
 msgstr "Регистрация"
 
-#: task_manager/views.py:10
+#: task_manager/templates/users/users_index.html:9
+msgid "User name"
+msgstr "Имя пользователя"
+
+#: task_manager/templates/users/users_index.html:10
+msgid "Fullname"
+msgstr "Полное имя"
+
+#: task_manager/templates/users/users_index.html:11
+msgid "Creation date"
+msgstr "Дата создания"
+
+#: task_manager/views.py:11
 msgid "Hello World"
 msgstr "Привет Мир"

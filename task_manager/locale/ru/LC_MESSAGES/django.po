@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-29 21:59+0000\n"
+"POT-Creation-Date: 2024-05-30 01:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,15 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/settings.py:172 task_manager/templates/layout.html:43
+#: task_manager/settings.py:172 task_manager/templates/layout.html:55
 msgid "English"
 msgstr "Английский"
 
-#: task_manager/settings.py:173 task_manager/templates/layout.html:45
+#: task_manager/settings.py:173 task_manager/templates/layout.html:57
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/settings.py:174 task_manager/templates/layout.html:47
+#: task_manager/settings.py:174 task_manager/templates/layout.html:59
 msgid "Spanish"
 msgstr "Испанский"
 
@@ -45,22 +45,38 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/layout.html:30 task_manager/templates/login.html:5
+#: task_manager/templates/layout.html:31
+msgid "Statuses"
+msgstr "Статусы"
+
+#: task_manager/templates/layout.html:32
+msgid "Labels"
+msgstr "Метки"
+
+#: task_manager/templates/layout.html:33
+msgid "Tasks"
+msgstr "Задачи"
+
+#: task_manager/templates/layout.html:37
+msgid "Logout"
+msgstr "Выход"
+
+#: task_manager/templates/layout.html:41 task_manager/templates/login.html:5
 msgid "Login"
 msgstr "Вход"
 
-#: task_manager/templates/layout.html:31
-#: task_manager/templates/users/create.html:11
-msgid "Register"
+#: task_manager/templates/layout.html:42
+#: task_manager/templates/users/create.html:4
+msgid "Registration"
 msgstr "Регистрация"
 
 #: task_manager/templates/login.html:11
 msgid "Sign in"
 msgstr "Войти"
 
-#: task_manager/templates/users/create.html:4
-msgid "Registration"
-msgstr "Регистрация"
+#: task_manager/templates/users/create.html:11
+msgid "Register"
+msgstr "Зарегистрировать"
 
 #: task_manager/templates/users/delete.html:5
 msgid "Delete user"
@@ -78,7 +94,7 @@ msgstr "Да,&nbsp;удалить"
 msgid "Edit user"
 msgstr "Изменение пользователя"
 
-#: task_manager/templates/users/update.html:6
+#: task_manager/templates/users/update.html:7
 #: task_manager/templates/users/users_index.html:25
 msgid "Edit"
 msgstr "Изменить"
@@ -125,7 +141,7 @@ msgstr "Для подтверждения введите, пожалуйста, 
 msgid "The entered passwords do not match."
 msgstr "Введенные пароли не совпадают."
 
-#: task_manager/views.py:10
+#: task_manager/views.py:14
 msgid "Hello World"
 msgstr "Привет Мир"
 

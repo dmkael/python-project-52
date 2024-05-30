@@ -1,4 +1,6 @@
 {% extends './layout.html' %}
 {% block content %}
   <p>{{ data }}</p>
+    <p>Current user {{ user }}</p>
+    <p>id: {{ user.id }}, username: {{ user.username }}</p>
 {% endblock %}

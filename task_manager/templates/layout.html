@@ -27,8 +27,20 @@
 
               <ul class="navbar-nav nav">
                 <li class="nav-item"><a class="nav-link" href="/users/">{% trans "Users" %}</a></li>
+              {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="/statuses/">{% trans "Statuses" %}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/labels/">{% trans "Labels" %}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tasks/">{% trans "Tasks" %}</a></li>
+                <li class="nav-item">
+                    <form method="post" action={% url 'logout' %}>
+                        {% csrf_token %}
+                        <input class="btn nav-link" type="submit" value="{% trans "Logout" %}">
+                    </form>
+                </li>
+              {% else %}
                 <li class="nav-item"><a class="nav-link" href="/login/">{% trans "Login" %}</a></li>
-                <li class="nav-item"><a class="nav-link" href="/users/create">{% trans "Register" %}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/users/create">{% trans "Registration" %}</a></li>
+              {% endif %}
                 <li class="nav-item">
                   <div class="btn-group ">
                     <button type="submit" class="btn btn-dark btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,6 +67,9 @@
         </nav>
   {% endblock %}
       <div class="container wrapper flex-grow-1">
+      {% if messages %}
+          {% bootstrap_messages %}
+      {% endif %}
           <h1 class="my-4">{% block page_header %}{% endblock %}</h1>
           {% block content %}
           {% endblock %}

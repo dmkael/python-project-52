@@ -1,12 +1,19 @@
-from django.contrib.auth.models import User
 from django import forms
-from django.utils.translation import gettext_lazy as _
 
 
-class LoginForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ['username', 'password']
-        widgets = {
-            'password': forms.PasswordInput()
-        }
+class LoginForm(forms.Form):
+    username = forms.CharField(
+        label="Username",
+        max_length=150,
+        widget=forms.TextInput(attrs={
+            'autofocus': '',
+            'autocapitalize': "none",
+            'autocomplete': 'username',
+        })
+    )
+    password = forms.CharField(
+        label="Password",
+        widget=forms.PasswordInput(attrs={
+            'autocomplete': 'current-password',
+        })
+    )

@@ -20,7 +20,7 @@ def check_authorization(func):
 class UsersIndexView(View):
 
     def get(self, request, *args, **kwargs):
-        users = User.objects.all()
+        users = User.objects.all().order_by('id')
         return render(request, 'users/users_index.html', context={'users': users})
 
 
@@ -34,6 +34,7 @@ class UserCreateView(View):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.add_message(request, messages.SUCCESS, 'User has been registered successfully.')
             return redirect('login')
         return render(request, 'users/create.html', {'form': form})
 
@@ -54,6 +55,7 @@ class UserUpdateView(View):
         form = UserCreationForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
+            messages.add_message(request, messages.SUCCESS, 'User has been updated successfully.')
             return redirect('users')
         return render(request, 'users/update.html', {'form': form, 'user_id': user_id})
 

@@ -3,11 +3,14 @@
 {% load django_bootstrap5 %}
 
 {% block page_header %}{% trans "Delete user" %}{% endblock %}
+
 {% block content %}
-<p>{% trans "Are you sure you want delete" %} "{{ user }}"?</p>
-{% trans 'Yes,&nbsp;delete' as button_text %}
-<form method="post">
-{% csrf_token %}
-  <input class="btn btn-danger" type="submit" value={{ button_text }}>
-</form>
+    <p>{% trans "Are you sure you want delete" %} "{{ user }}"?</p>
+    {% trans 'Yes,&nbsp;delete' as button_text %}
+    
+    <form method="post">
+        {% csrf_token %}
+        <input class="btn btn-danger" type="submit" value={{ button_text }}>
+    </form>
+    
 {% endblock %}

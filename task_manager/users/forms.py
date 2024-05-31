@@ -16,7 +16,8 @@ class UserCreationForm(forms.ModelForm):
 
     password2 = forms.CharField(
         error_messages={
-            'min_length': _('The entered password is too short. It must contain at least 3 characters.')
+            'min_length': _('The entered password is too short. '
+                            'It must contain at least 3 characters.')
         },
         min_length=3,
         label=_('Confirm password'),

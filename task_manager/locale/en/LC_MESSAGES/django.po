@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 01:43+0000\n"
+"POT-Creation-Date: 2024-05-31 19:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,61 +18,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/settings.py:172 task_manager/templates/layout.html:55
+#: task_manager/forms.py:7
+msgid "Username"
+msgstr ""
+
+#: task_manager/forms.py:16 task_manager/users/forms.py:9
+#: task_manager/users/forms.py:11
+msgid "Password"
+msgstr ""
+
+#: task_manager/settings.py:177 task_manager/templates/layout.html:62
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:173 task_manager/templates/layout.html:57
+#: task_manager/settings.py:178 task_manager/templates/layout.html:64
 msgid "Russian"
 msgstr ""
 
-#: task_manager/settings.py:174 task_manager/templates/layout.html:59
+#: task_manager/settings.py:179 task_manager/templates/layout.html:66
 msgid "Spanish"
 msgstr ""
 
-#: task_manager/templates/layout.html:11
+#: task_manager/templates/layout.html:12
 msgid "Hexlet Task Manager"
 msgstr ""
 
-#: task_manager/templates/layout.html:25
+#: task_manager/templates/layout.html:29
 msgid "Task Manager"
 msgstr ""
 
-#: task_manager/templates/layout.html:29
+#: task_manager/templates/layout.html:32
 #: task_manager/templates/users/users_index.html:5
 msgid "Users"
 msgstr ""
 
-#: task_manager/templates/layout.html:31
+#: task_manager/templates/layout.html:35
 msgid "Statuses"
 msgstr ""
 
-#: task_manager/templates/layout.html:32
+#: task_manager/templates/layout.html:36
 msgid "Labels"
 msgstr ""
 
-#: task_manager/templates/layout.html:33
+#: task_manager/templates/layout.html:37
 msgid "Tasks"
 msgstr ""
 
-#: task_manager/templates/layout.html:37
+#: task_manager/templates/layout.html:41
 msgid "Logout"
 msgstr ""
 
-#: task_manager/templates/layout.html:41 task_manager/templates/login.html:5
+#: task_manager/templates/layout.html:46 task_manager/templates/login.html:5
 msgid "Login"
 msgstr ""
 
-#: task_manager/templates/layout.html:42
-#: task_manager/templates/users/create.html:4
+#: task_manager/templates/layout.html:47
+#: task_manager/templates/users/create.html:5
 msgid "Registration"
 msgstr ""
 
-#: task_manager/templates/login.html:11
+#: task_manager/templates/login.html:13
 msgid "Sign in"
 msgstr ""
 
-#: task_manager/templates/users/create.html:11
+#: task_manager/templates/users/create.html:13
 msgid "Register"
 msgstr ""
 
@@ -80,41 +89,37 @@ msgstr ""
 msgid "Delete user"
 msgstr ""
 
-#: task_manager/templates/users/delete.html:7
+#: task_manager/templates/users/delete.html:8
 msgid "Are you sure you want delete"
 msgstr ""
 
-#: task_manager/templates/users/delete.html:8
+#: task_manager/templates/users/delete.html:9
 msgid "Yes,&nbsp;delete"
 msgstr ""
 
-#: task_manager/templates/users/update.html:4
+#: task_manager/templates/users/update.html:5
 msgid "Edit user"
 msgstr ""
 
-#: task_manager/templates/users/update.html:7
-#: task_manager/templates/users/users_index.html:25
+#: task_manager/templates/users/update.html:9
+#: task_manager/templates/users/users_index.html:27
 msgid "Edit"
 msgstr ""
 
-#: task_manager/templates/users/users_index.html:12
+#: task_manager/templates/users/users_index.html:13
 msgid "User name"
 msgstr ""
 
-#: task_manager/templates/users/users_index.html:13
+#: task_manager/templates/users/users_index.html:14
 msgid "Fullname"
 msgstr ""
 
-#: task_manager/templates/users/users_index.html:14
+#: task_manager/templates/users/users_index.html:15
 msgid "Creation date"
 msgstr ""
 
-#: task_manager/templates/users/users_index.html:27
+#: task_manager/templates/users/users_index.html:29
 msgid "Delete"
-msgstr ""
-
-#: task_manager/users/forms.py:9 task_manager/users/forms.py:11
-msgid "Password"
 msgstr ""
 
 #: task_manager/users/forms.py:14
@@ -126,16 +131,24 @@ msgid ""
 "The entered password is too short. It must contain at least 3 characters."
 msgstr ""
 
-#: task_manager/users/forms.py:22 task_manager/users/forms.py:24
+#: task_manager/users/forms.py:23 task_manager/users/forms.py:25
 msgid "Confirm password"
 msgstr ""
 
-#: task_manager/users/forms.py:27
+#: task_manager/users/forms.py:28
 msgid "To confirm, please enter your password again."
 msgstr ""
 
-#: task_manager/users/forms.py:40
+#: task_manager/users/forms.py:41
 msgid "The entered passwords do not match."
+msgstr ""
+
+#: task_manager/users/mixins.py:13
+msgid "You are not logged in."
+msgstr ""
+
+#: task_manager/users/mixins.py:23
+msgid "You do not have permission to perform this action."
 msgstr ""
 
 #: task_manager/views.py:14

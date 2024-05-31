@@ -25,7 +25,12 @@ class LoginView(View):
         form = LoginForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            user = authenticate(request, username=data['username'], password=data['password'])
+            user = authenticate(
+                request,
+                username=data['username'],
+                password=data['password']
+            )
+
             if user and user.is_active:
                 login(request, user)
                 return redirect('index')

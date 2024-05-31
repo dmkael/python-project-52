@@ -1,9 +1,10 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 
 class LoginForm(forms.Form):
     username = forms.CharField(
-        label="Username",
+        label=_("Username"),
         max_length=150,
         widget=forms.TextInput(attrs={
             'autofocus': '',
@@ -12,7 +13,7 @@ class LoginForm(forms.Form):
         })
     )
     password = forms.CharField(
-        label="Password",
+        label=_("Password"),
         widget=forms.PasswordInput(attrs={
             'autocomplete': 'current-password',
         })

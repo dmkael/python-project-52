@@ -17,3 +17,7 @@ prebuild-translation:
 	poetry run python manage.py makemessages --all
 translate:
 	poetry run django-admin compilemessages
+test-users:
+	poetry run pytest --cov=task_manager.users
+test-coverage:
+	poetry run pytest --cov=task.manager.users --cov-report xml

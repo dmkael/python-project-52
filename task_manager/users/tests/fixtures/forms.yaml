@@ -1,0 +1,17 @@
+user1:
+  first_name: David
+  last_name: Copperfield
+  username: super_magician
+  password1: magical
+  password2: magical
+user2:
+  first_name: Calvin
+  last_name: Klein
+  password1: pants
+  password2: pants
+user3:
+  first_name: Pasha
+  last_name: Tehnik
+  username: mister_twister
+  password1: parol
+  password2: PAROL

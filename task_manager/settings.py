@@ -14,6 +14,7 @@ from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
 from django.utils.translation import gettext_lazy as _
+import sys
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -99,6 +100,10 @@ DATABASES = {
     )
 }
 
+# Covers regular testing and django-coverage
+# if 'test' in sys.argv or 'test_coverage' in sys.argv:
+#     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -177,3 +182,4 @@ LANGUAGES = (
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'task_manager/locale/'),
 )
+

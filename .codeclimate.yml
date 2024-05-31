@@ -1,0 +1,7 @@
+version: "2"
+exclude_patterns:
+  - "**/manage.py"
+  - "**/asgi.py"
+  - "**/wsgi.py"
+  - "**/settings.py"
+  - "**/static/"

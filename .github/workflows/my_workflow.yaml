@@ -3,6 +3,9 @@ name: django-test
 on:
   - push
 
+env:
+  GIT_DB: Enabled
+
 jobs:
   build:
     runs-on: ubuntu-latest

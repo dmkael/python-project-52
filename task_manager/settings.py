@@ -101,8 +101,8 @@ DATABASES = {
 }
 
 
-# Covers regular testing and django-coverage
-if any("pytest" in arg for arg in sys.argv):
+# Covers regular testing and django-coverage for GitHub Actions
+if os.getenv("GIT_DB") == "Enabled":
     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 

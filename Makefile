@@ -20,6 +20,6 @@ translate:
 test-users:
 	poetry run pytest --cov=task_manager.users
 test-coverage:
-	poetry run pytest --cov=task.manager.users --cov-report=xml:coverage.xml
+	poetry run pytest --cov=task_manager.users --cov-report=xml:coverage.xml
 collect-static:
 	poetry run python manage.py collectstatic

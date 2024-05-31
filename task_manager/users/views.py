@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.contrib.auth import update_session_auth_hash
 from .mixins import AuthorizedOnlyMixin
 from django.shortcuts import render, redirect
 from django.views import View
@@ -71,6 +72,7 @@ class UserUpdateView(AuthorizedOnlyMixin, View):
         form = UserCreationForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
+            update_session_auth_hash(request, user)
             messages.add_message(
                 request,
                 messages.SUCCESS,

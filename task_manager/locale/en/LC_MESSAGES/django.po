@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 19:50+0000\n"
+"POT-Creation-Date: 2024-05-31 23:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,15 +27,15 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: task_manager/settings.py:177 task_manager/templates/layout.html:62
+#: task_manager/settings.py:178 task_manager/templates/layout.html:62
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:178 task_manager/templates/layout.html:64
+#: task_manager/settings.py:179 task_manager/templates/layout.html:64
 msgid "Russian"
 msgstr ""
 
-#: task_manager/settings.py:179 task_manager/templates/layout.html:66
+#: task_manager/settings.py:180 task_manager/templates/layout.html:66
 msgid "Spanish"
 msgstr ""
 
@@ -77,7 +77,7 @@ msgstr ""
 msgid "Registration"
 msgstr ""
 
-#: task_manager/templates/login.html:13
+#: task_manager/templates/login.html:18
 msgid "Sign in"
 msgstr ""
 
@@ -151,6 +151,20 @@ msgstr ""
 msgid "You do not have permission to perform this action."
 msgstr ""
 
-#: task_manager/views.py:14
+#: task_manager/views.py:15
 msgid "Hello World"
+msgstr ""
+
+#: task_manager/views.py:37
+msgid "You are logged in"
+msgstr ""
+
+#: task_manager/views.py:39
+msgid ""
+"Please enter the correct username and password. Both fields can be case "
+"sensitive."
+msgstr ""
+
+#: task_manager/views.py:49
+msgid "You are logged out"
 msgstr ""

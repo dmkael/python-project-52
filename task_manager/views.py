@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.views import View
@@ -33,13 +34,17 @@ class LoginView(View):
 
             if user and user.is_active:
                 login(request, user)
+                messages.add_message(request, messages.SUCCESS, _('You are logged in'))
                 return redirect('index')
+        error_message = _('Please enter the correct username and password. '
+                          'Both fields can be case sensitive.')
         form = LoginForm()
-        return render(request, 'login.html', {'form': form})
+        return render(request, 'login.html', {'form': form, 'error': error_message})
 
 
 class LogoutView(View):
 
     def post(self, request):
         logout(request)
+        messages.add_message(request, messages.INFO, _('You are logged out'))
         return redirect('index')

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 23:28+0000\n"
+"POT-Creation-Date: 2024-05-31 23:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,6 +154,18 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 msgid "You do not have permission to perform this action."
 msgstr "У вас нет прав для изменения другого пользователя."
 
+#: task_manager/users/views.py:54
+msgid "User has been registered successfully."
+msgstr "Вы зарегистрированы"
+
+#: task_manager/users/views.py:80
+msgid "User has been updated successfully."
+msgstr "Пользователь успешно изменен"
+
+#: task_manager/users/views.py:106
+msgid "User has been deleted successfully."
+msgstr "Пользователь успешно удален"
+
 #: task_manager/views.py:15
 msgid "Hello World"
 msgstr "Привет Мир"
@@ -166,9 +178,9 @@ msgstr "Вы залогинены"
 msgid ""
 "Please enter the correct username and password. Both fields can be case "
 "sensitive."
-msgstr "" 
-"Пожалуйста, введите правильные имя пользователя и пароль. "
-"Оба поля могут быть чувствительны к регистру."
+msgstr ""
+"Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут "
+"быть чувствительны к регистру."
 
 #: task_manager/views.py:49
 msgid "You are logged out"

@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
 from task_manager.users.forms import UserCreationForm
+from django.utils.translation import gettext as _
 
 
 # def authorized_only(func):
@@ -50,7 +51,7 @@ class UserCreateView(View):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                'User has been registered successfully.'
+                _('User has been registered successfully.')
             )
             return redirect('login')
         return render(request, 'users/create.html', {'form': form}, status=400)
@@ -76,7 +77,7 @@ class UserUpdateView(AuthorizedOnlyMixin, View):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                'User has been updated successfully.'
+                _('User has been updated successfully.')
             )
             return redirect('users')
         return render(
@@ -99,4 +100,8 @@ class UserDeleteView(AuthorizedOnlyMixin, View):
         user_id = kwargs.get('id')
         user = User.objects.get(id=user_id)
         user.delete()
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            _('User has been deleted successfully.'))
         return redirect('users')

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 23:28+0000\n"
+"POT-Creation-Date: 2024-05-31 23:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,6 +154,18 @@ msgstr "¡Usted no está autorizado! Por favor Iniciar sesión."
 msgid "You do not have permission to perform this action."
 msgstr "No tienes permiso para cambiar otro usuario."
 
+#: task_manager/users/views.py:54
+msgid "User has been registered successfully."
+msgstr "El usuario ha sido registrado exitosamente."
+
+#: task_manager/users/views.py:80
+msgid "User has been updated successfully."
+msgstr "El usuario se ha actualizado correctamente."
+
+#: task_manager/users/views.py:106
+msgid "User has been deleted successfully."
+msgstr "El usuario ha sido eliminado con éxito."
+
 #: task_manager/views.py:15
 msgid "Hello World"
 msgstr "Hola Mundo"
@@ -166,9 +178,9 @@ msgstr "Has iniciado sesión"
 msgid ""
 "Please enter the correct username and password. Both fields can be case "
 "sensitive."
-msgstr "" 
-"Por favor ingrese el nombre de usuario y contraseña correctos. "
-"Ambos campos pueden distinguir entre mayúsculas y minúsculas."
+msgstr ""
+"Por favor ingrese el nombre de usuario y contraseña correctos. Ambos campos "
+"pueden distinguir entre mayúsculas y minúsculas."
 
 #: task_manager/views.py:49
 msgid "You are logged out"

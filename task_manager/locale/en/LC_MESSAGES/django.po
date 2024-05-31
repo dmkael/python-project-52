@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 23:28+0000\n"
+"POT-Creation-Date: 2024-05-31 23:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -149,6 +149,18 @@ msgstr ""
 
 #: task_manager/users/mixins.py:23
 msgid "You do not have permission to perform this action."
+msgstr ""
+
+#: task_manager/users/views.py:54
+msgid "User has been registered successfully."
+msgstr ""
+
+#: task_manager/users/views.py:80
+msgid "User has been updated successfully."
+msgstr ""
+
+#: task_manager/users/views.py:106
+msgid "User has been deleted successfully."
 msgstr ""
 
 #: task_manager/views.py:15

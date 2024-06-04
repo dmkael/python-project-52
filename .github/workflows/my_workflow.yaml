@@ -5,6 +5,7 @@ on:
 
 env:
   GIT_DB: Enabled
+  SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
 jobs:
   build:

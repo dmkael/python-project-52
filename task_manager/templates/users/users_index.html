@@ -22,7 +22,7 @@
             <tr>
                 <td class="align-middle text-center">{{ user.id }}</td>
                 <td class="align-middle">{{ user.username }}</td>
-                <td class="align-middle">{{ user.first_name }} {{ user.last_name }}</td>
+                <td class="align-middle">{{ user.get_full_name }}</td>
                 <td class="align-middle">{{ user.date_joined }}</td>
                 <td class="align-middle"><a href="{% url 'user_update' user.id %}">{% trans "Edit" %}</a>
                     <br>

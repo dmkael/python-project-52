@@ -19,10 +19,10 @@ class UsersViewTestCase(TestCase):
         self.users = User.objects
         self.test_user = self.users.get(username='max_payne')
         self.test_user2 = User.objects.get(username='Hermione')
-        self.user_update_url = reverse('user_update', kwargs={'id': self.test_user.id})
-        self.user2_update_url = reverse('user_update', kwargs={'id': self.test_user2.id})
-        self.user_delete_url = reverse('user_delete', kwargs={'id': self.test_user.id})
-        self.user2_delete_url = reverse('user_delete', kwargs={'id': self.test_user2.id})
+        self.user_update_url = reverse('user_update', kwargs={'pk': self.test_user.id})
+        self.user2_update_url = reverse('user_update', kwargs={'pk': self.test_user2.id})
+        self.user_delete_url = reverse('user_delete', kwargs={'pk': self.test_user.id})
+        self.user2_delete_url = reverse('user_delete', kwargs={'pk': self.test_user2.id})
 
     def test_users_index_GET(self):
         response = self.client.get(self.users_url)
@@ -69,13 +69,13 @@ class UsersViewTestCase(TestCase):
 
     def test_anonymous_client_users_delete_GET(self):
         response = self.client.get(self.user_delete_url, {
-            'id': self.test_user.id,
+            'pk': self.test_user.id,
         })
         self.assertEqual(response.status_code, 302)
 
     def test_anonymous_client_users_delete_POST(self):
         response = self.client.post(self.user_delete_url, {
-            'id': self.test_user.id,
+            'pk': self.test_user.id,
         })
         self.assertEqual(self.users.count(), 2)
         self.assertEqual(response.status_code, 302)

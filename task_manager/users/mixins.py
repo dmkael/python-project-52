@@ -14,7 +14,7 @@ class AuthorizedOnlyMixin(AccessMixin):
             )
             return redirect('login')
 
-        if request.user.id == kwargs.get('id'):
+        if request.user.id == kwargs.get('pk'):
             return super().dispatch(request, *args, **kwargs)
 
         messages.add_message(

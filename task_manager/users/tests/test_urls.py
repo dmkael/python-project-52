@@ -19,9 +19,9 @@ class UsersUrlTestCase(TestCase):
         self.assertEqual(resolve(url).func.view_class, UserCreateView)
 
     def test_user_update_url(self):
-        url = reverse('user_update', kwargs={'id': 1})
+        url = reverse('user_update', kwargs={'pk': 1})
         self.assertEqual(resolve(url).func.view_class, UserUpdateView)
 
     def test_user_delete_url(self):
-        url = reverse('user_delete', kwargs={'id': 1})
+        url = reverse('user_delete', kwargs={'pk': 1})
         self.assertEqual(resolve(url).func.view_class, UserDeleteView)

@@ -18,7 +18,7 @@ class UsersViewTestCase(TestCase):
         self.user_create_url = reverse('user_create')
         self.users = User.objects
         self.test_user = self.users.get(username='max_payne')
-        self.test_user2 = User.objects.get(username='Hermione')
+        self.test_user2 = self.users.get(username='Hermione')
         self.user_update_url = reverse('user_update', kwargs={'pk': self.test_user.id})
         self.user2_update_url = reverse('user_update', kwargs={'pk': self.test_user2.id})
         self.user_delete_url = reverse('user_delete', kwargs={'pk': self.test_user.id})
@@ -27,7 +27,7 @@ class UsersViewTestCase(TestCase):
     def test_users_index_GET(self):
         response = self.client.get(self.users_url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'users/users_index.html')
+        self.assertTemplateUsed(response, 'users/index.html')
 
     def test_user_create_GET(self):
         response = self.client.get(self.user_create_url)

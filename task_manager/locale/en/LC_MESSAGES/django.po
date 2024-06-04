@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 23:52+0000\n"
+"POT-Creation-Date: 2024-06-04 16:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,15 +27,15 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: task_manager/settings.py:178 task_manager/templates/layout.html:62
+#: task_manager/settings.py:179 task_manager/templates/layout.html:62
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:179 task_manager/templates/layout.html:64
+#: task_manager/settings.py:180 task_manager/templates/layout.html:64
 msgid "Russian"
 msgstr ""
 
-#: task_manager/settings.py:180 task_manager/templates/layout.html:66
+#: task_manager/settings.py:181 task_manager/templates/layout.html:66
 msgid "Spanish"
 msgstr ""
 
@@ -48,7 +48,7 @@ msgid "Task Manager"
 msgstr ""
 
 #: task_manager/templates/layout.html:32
-#: task_manager/templates/users/users_index.html:5
+#: task_manager/users/templates/users/index.html:5
 msgid "Users"
 msgstr ""
 
@@ -73,53 +73,12 @@ msgid "Login"
 msgstr ""
 
 #: task_manager/templates/layout.html:47
-#: task_manager/templates/users/create.html:5
+#: task_manager/users/templates/users/create.html:5
 msgid "Registration"
 msgstr ""
 
 #: task_manager/templates/login.html:18
 msgid "Sign in"
-msgstr ""
-
-#: task_manager/templates/users/create.html:13
-msgid "Register"
-msgstr ""
-
-#: task_manager/templates/users/delete.html:5
-msgid "Delete user"
-msgstr ""
-
-#: task_manager/templates/users/delete.html:8
-msgid "Are you sure you want delete"
-msgstr ""
-
-#: task_manager/templates/users/delete.html:9
-msgid "Yes,&nbsp;delete"
-msgstr ""
-
-#: task_manager/templates/users/update.html:5
-msgid "Edit user"
-msgstr ""
-
-#: task_manager/templates/users/update.html:9
-#: task_manager/templates/users/users_index.html:27
-msgid "Edit"
-msgstr ""
-
-#: task_manager/templates/users/users_index.html:13
-msgid "User name"
-msgstr ""
-
-#: task_manager/templates/users/users_index.html:14
-msgid "Fullname"
-msgstr ""
-
-#: task_manager/templates/users/users_index.html:15
-msgid "Creation date"
-msgstr ""
-
-#: task_manager/templates/users/users_index.html:29
-msgid "Delete"
 msgstr ""
 
 #: task_manager/users/forms.py:14
@@ -151,15 +110,80 @@ msgstr ""
 msgid "You do not have permission to perform this action."
 msgstr ""
 
-#: task_manager/users/views.py:54
+#: task_manager/users/templates/users/create.html:13
+msgid "Register"
+msgstr ""
+
+#: task_manager/users/templates/users/delete.html:5
+msgid "Delete user"
+msgstr ""
+
+#: task_manager/users/templates/users/delete.html:8
+msgid "Are you sure you want delete"
+msgstr ""
+
+#: task_manager/users/templates/users/delete.html:9
+msgid "Yes,&nbsp;delete"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:13
+msgid "User name"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:14
+msgid "Fullname"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:15
+msgid "Creation date"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:27
+#: task_manager/users/templates/users/update.html:9
+msgid "Edit"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:29
+msgid "Delete"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:40
+msgid "first"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:41
+msgid "previous"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:45
+msgid "Page"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:45
+msgid "of"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:49
+msgid "next"
+msgstr ""
+
+#: task_manager/users/templates/users/index.html:50
+msgid "last"
+msgstr ""
+
+#: task_manager/users/templates/users/update.html:5
+msgid "Edit user"
+msgstr ""
+
+#: task_manager/users/views.py:34
 msgid "User has been registered successfully."
 msgstr ""
 
-#: task_manager/users/views.py:80
+#: task_manager/users/views.py:55
 msgid "User has been updated successfully."
 msgstr ""
 
-#: task_manager/users/views.py:106
+#: task_manager/users/views.py:74
 msgid "User has been deleted successfully."
 msgstr ""
 

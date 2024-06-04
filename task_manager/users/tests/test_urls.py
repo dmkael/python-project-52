@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from task_manager.users.views import (
     UsersIndexView,
     UserCreateView,
@@ -8,6 +8,9 @@ from task_manager.users.views import (
 from django.urls import reverse, resolve
 
 
+@override_settings(
+    SECRET_KEY='fake-key'
+)
 class UsersUrlTestCase(TestCase):
 
     def test_users_index_url(self):

@@ -29,7 +29,7 @@ class AuthorizedCreatorOnlyMixin(LoginRequireMixin):
             messages.add_message(
                 request,
                 messages.ERROR,
-                _("You do not have permission to perform this action.")
+                _("You do not have permission to edit another user")
             )
             return redirect('users')
         return super().dispatch(request, *args, **kwargs)

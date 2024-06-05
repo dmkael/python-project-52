@@ -82,13 +82,19 @@ class StatusViewsTestCase(TestCase):
         response = self.client.get(self.status_update_url1)
         self.assertRedirects(response, self.login_url)
 
-    def test_auth_user_status_update_POST(self):
+    def test_auth_user_status_update_success_POST(self):
         self.client.force_login(self.user)
         self.assertEqual(self.statuses.count(), 2)
         response = self.client.post(self.status_update_url1, {"name": "updated1"})
         self.assertEqual(self.statuses.count(), 2)
         self.assertEqual(self.statuses.get(name="updated1").name, "updated1")
         self.assertRedirects(response, self.statuses_url)
+
+    def test_auth_user_status_update_fail_POST(self):
+        self.client.force_login(self.user)
+        response = self.client.post(self.status_update_url1, {"name": ""})
+        self.assertEqual(self.statuses.get(name="In progress").name, "In progress")
+        self.assertEqual(response.status_code, 400)
 
     def test_anonym_user_status_update_POST(self):
         self.assertEqual(self.statuses.count(), 2)

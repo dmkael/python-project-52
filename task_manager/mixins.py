@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
@@ -13,7 +14,7 @@ class LoginRequireMixin(LoginRequiredMixin):
             messages.add_message(
                 request,
                 messages.ERROR,
-                _(self.permission_denied_message)
+                _("You are not authorized! Please log in.")
             )
             return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
@@ -30,5 +31,5 @@ class AuthorizedCreatorOnlyMixin(LoginRequireMixin):
                 messages.ERROR,
                 _(self.permission_denied_message)
             )
-            return self.handle_no_permission()
+            return redirect(reverse_lazy('users'))
         return super().dispatch(request, *args, **kwargs)

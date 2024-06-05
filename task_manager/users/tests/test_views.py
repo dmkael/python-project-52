@@ -125,6 +125,6 @@ class UsersViewTestCase(TestCase):
         self.client.force_login(self.test_user)
         self.assertEqual(auth.get_user(self.client).is_authenticated, True)
         response = self.client.post(self.user2_delete_url)
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 302)
         self.assertEqual(self.users.count(), 2)
         self.assertEqual(auth.get_user(self.client).is_authenticated, True)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-04 22:23+0000\n"
+"POT-Creation-Date: 2024-06-05 15:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,13 +28,9 @@ msgstr "Nombre de usuario"
 msgid "Password"
 msgstr "Contraseña"
 
-#: task_manager/mixins.py:17
+#: task_manager/mixins.py:17 task_manager/statuses/views.py:16
 msgid "You are not authorized! Please log in."
 msgstr "¡Usted no está autorizado! Por favor Iniciar sesión."
-
-#: task_manager/mixins.py:32
-msgid "You do not have permission to edit another user"
-msgstr "No tienes permiso para cambiar otro usuario."
 
 #: task_manager/settings.py:179 task_manager/templates/layout.html:62
 msgid "English"
@@ -136,15 +132,15 @@ msgstr "última"
 msgid "Edit status"
 msgstr "Editar estado"
 
-#: task_manager/statuses/views.py:29
+#: task_manager/statuses/views.py:33
 msgid "Status has been created successfully."
 msgstr "El estado se ha creado correctamente."
 
-#: task_manager/statuses/views.py:47
+#: task_manager/statuses/views.py:48
 msgid "Status has been updated successfully."
 msgstr "El estado se ha actualizado correctamente."
 
-#: task_manager/statuses/views.py:64
+#: task_manager/statuses/views.py:65
 msgid "Status has been deleted successfully."
 msgstr "El estado se ha eliminado correctamente."
 
@@ -229,15 +225,19 @@ msgstr "Nombre completo"
 msgid "Edit user"
 msgstr "Editar usuario"
 
-#: task_manager/users/views.py:31
+#: task_manager/users/views.py:30
 msgid "User has been registered successfully."
 msgstr "El usuario ha sido registrado exitosamente."
+
+#: task_manager/users/views.py:44 task_manager/users/views.py:65
+msgid "You do not have permission to edit another user"
+msgstr "No tienes permiso para cambiar otro usuario."
 
 #: task_manager/users/views.py:50
 msgid "User has been updated successfully."
 msgstr "El usuario se ha actualizado correctamente."
 
-#: task_manager/users/views.py:70
+#: task_manager/users/views.py:71
 msgid "User has been deleted successfully."
 msgstr "El usuario ha sido eliminado con éxito."
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-05 15:12+0000\n"
+"POT-Creation-Date: 2024-06-05 15:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,10 @@ msgstr ""
 
 #: task_manager/mixins.py:17 task_manager/statuses/views.py:16
 msgid "You are not authorized! Please log in."
+msgstr ""
+
+#: task_manager/mixins.py:32
+msgid "You do not have permission to edit another user"
 msgstr ""
 
 #: task_manager/settings.py:179 task_manager/templates/layout.html:62
@@ -226,15 +230,11 @@ msgstr ""
 msgid "User has been registered successfully."
 msgstr ""
 
-#: task_manager/users/views.py:44 task_manager/users/views.py:65
-msgid "You do not have permission to edit another user"
-msgstr ""
-
-#: task_manager/users/views.py:50
+#: task_manager/users/views.py:49
 msgid "User has been updated successfully."
 msgstr ""
 
-#: task_manager/users/views.py:71
+#: task_manager/users/views.py:69
 msgid "User has been deleted successfully."
 msgstr ""
 

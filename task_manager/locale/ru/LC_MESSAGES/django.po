@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-05 15:12+0000\n"
+"POT-Creation-Date: 2024-06-05 15:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,10 @@ msgstr "Пароль"
 #: task_manager/mixins.py:17 task_manager/statuses/views.py:16
 msgid "You are not authorized! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: task_manager/mixins.py:32
+msgid "You do not have permission to edit another user"
+msgstr "У вас нет прав для изменения другого пользователя."
 
 #: task_manager/settings.py:179 task_manager/templates/layout.html:62
 msgid "English"
@@ -130,10 +134,8 @@ msgid "last"
 msgstr "последняя"
 
 #: task_manager/statuses/templates/statuses/update.html:5
-#, fuzzy
-#| msgid "Edit user"
 msgid "Edit status"
-msgstr "Изменение пользователя"
+msgstr "Изменение статуса"
 
 #: task_manager/statuses/views.py:33
 msgid "Status has been created successfully."
@@ -231,17 +233,11 @@ msgstr "Изменение пользователя"
 msgid "User has been registered successfully."
 msgstr "Вы зарегистрированы"
 
-#: task_manager/users/views.py:44 task_manager/users/views.py:65
-#, fuzzy
-#| msgid "You do not have permission to edit another user."
-msgid "You do not have permission to edit another user"
-msgstr "У вас нет прав для изменения другого пользователя."
-
-#: task_manager/users/views.py:50
+#: task_manager/users/views.py:49
 msgid "User has been updated successfully."
 msgstr "Пользователь успешно изменен"
 
-#: task_manager/users/views.py:71
+#: task_manager/users/views.py:69
 msgid "User has been deleted successfully."
 msgstr "Пользователь успешно удален"
 

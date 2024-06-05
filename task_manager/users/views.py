@@ -41,7 +41,6 @@ class UserUpdateView(AuthorizedCreatorOnlyMixin, UpdateView):
     form_class = UserCreationForm
     template_name = 'users/update.html'
     success_url = reverse_lazy('users')
-    permission_denied_message = _("You do not have permission to edit another user")
 
     def form_valid(self, form):
         messages.add_message(
@@ -62,7 +61,6 @@ class UserDeleteView(AuthorizedCreatorOnlyMixin, DeleteView):
     model = get_user_model()
     template_name = 'users/delete.html'
     success_url = reverse_lazy('users')
-    permission_denied_message = _("You do not have permission to edit another user")
 
     def get_success_url(self):
         messages.add_message(

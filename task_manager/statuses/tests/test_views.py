@@ -1,6 +1,5 @@
 from django.test import TestCase, Client, override_settings
 from django.urls import reverse
-from django.contrib.auth.models import User
 from django.contrib import auth
 from task_manager.statuses.models import Status
 import os
@@ -16,8 +15,9 @@ class StatusViewsTestCase(TestCase):
     def setUp(self):
         self.client = Client()
         self.statuses = Status.objects
-        self.user = User.objects.get(pk=1)
-        self.user2 = User.objects.get(pk=2)
+        self.users_model = auth.get_user_model()
+        self.user = self.users_model.objects.get(pk=1)
+        self.user2 = self.users_model.objects.get(pk=2)
         self.login_url = reverse('login')
         self.status_create_url = reverse('status_create')
         self.status_update_url1 = reverse('status_update', kwargs={'pk': 1})

@@ -1,6 +1,5 @@
 from django.test import TestCase, Client, override_settings
 from django.urls import reverse
-from django.contrib.auth.models import User
 from django.contrib import auth
 import os
 
@@ -16,7 +15,7 @@ class UsersViewTestCase(TestCase):
         self.client = Client()
         self.users_url = reverse('users')
         self.user_create_url = reverse('user_create')
-        self.users = User.objects
+        self.users = auth.get_user_model().objects
         self.test_user = self.users.get(username='max_payne')
         self.test_user2 = self.users.get(username='Hermione')
         self.user_update_url = reverse('user_update', kwargs={'pk': self.test_user.id})
@@ -43,8 +42,8 @@ class UsersViewTestCase(TestCase):
             'password2': '<PASSWORD>'
         })
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(User.objects.count(), 3)
-        self.assertEqual(User.objects.get(username="johndoe").first_name, 'John')
+        self.assertEqual(self.users.count(), 3)
+        self.assertEqual(self.users.get(username="johndoe").first_name, 'John')
 
     def test_user_create_no_data_POST(self):
         response = self.client.post(self.user_create_url)
@@ -126,6 +125,6 @@ class UsersViewTestCase(TestCase):
         self.client.force_login(self.test_user)
         self.assertEqual(auth.get_user(self.client).is_authenticated, True)
         response = self.client.post(self.user2_delete_url)
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 403)
         self.assertEqual(self.users.count(), 2)
         self.assertEqual(auth.get_user(self.client).is_authenticated, True)

@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.forms import Form
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
@@ -9,18 +10,21 @@ from task_manager.mixins import LoginRequireMixin
 
 
 # Create your views here.
-class StatusIndexView(LoginRequireMixin, ListView):
+class StatusAbstractView(LoginRequireMixin):
     model = Status
+    form_class = StatusForm
+    permission_denied_message = _("You are not authorized! Please log in.")
+    success_url = reverse_lazy('statuses')
+
+
+class StatusIndexView(StatusAbstractView, ListView):
     template_name = 'statuses/index.html'
     context_object_name = 'statuses'
     ordering = ['pk']
 
 
-class StatusCreateView(LoginRequireMixin, CreateView):
-    model = Status
+class StatusCreateView(StatusAbstractView, CreateView):
     template_name = 'statuses/create.html'
-    form_class = StatusForm
-    success_url = reverse_lazy('statuses')
 
     def form_valid(self, form):
         messages.add_message(
@@ -34,11 +38,8 @@ class StatusCreateView(LoginRequireMixin, CreateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class StatusUpdateView(LoginRequireMixin, UpdateView):
-    model = Status
+class StatusUpdateView(StatusAbstractView, UpdateView):
     template_name = 'statuses/update.html'
-    form_class = StatusForm
-    success_url = reverse_lazy('statuses')
 
     def form_valid(self, form):
         messages.add_message(
@@ -52,12 +53,12 @@ class StatusUpdateView(LoginRequireMixin, UpdateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class StatusDeleteView(LoginRequireMixin, DeleteView):
-    model = Status
+class StatusDeleteView(StatusAbstractView, DeleteView):
     template_name = 'statuses/delete.html'
-    success_url = reverse_lazy('statuses')
+    form_class = Form
 
     def get_success_url(self):
+        print(self.request)
         messages.add_message(
             self.request,
             messages.SUCCESS,

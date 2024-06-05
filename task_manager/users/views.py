@@ -1,16 +1,15 @@
-from django.contrib.auth.models import User
-from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
+from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.urls import reverse_lazy
-from task_manager.mixins import AuthorizedCreatorOnlyMixin
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib import messages
 from task_manager.users.forms import UserCreationForm
-from django.utils.translation import gettext_lazy as _
+from task_manager.mixins import AuthorizedCreatorOnlyMixin
 
 
 class UsersIndexView(ListView):
-    model = User
+    model = get_user_model()
     template_name = 'users/index.html'
     context_object_name = 'users'
     ordering = ['pk']
@@ -19,7 +18,7 @@ class UsersIndexView(ListView):
 
 class UserCreateView(CreateView):
 
-    model = User
+    model = get_user_model()
     form_class = UserCreationForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('login')
@@ -38,10 +37,11 @@ class UserCreateView(CreateView):
 
 class UserUpdateView(AuthorizedCreatorOnlyMixin, UpdateView):
 
-    model = User
+    model = get_user_model()
     form_class = UserCreationForm
     template_name = 'users/update.html'
     success_url = reverse_lazy('users')
+    permission_denied_message = _("You do not have permission to edit another user")
 
     def form_valid(self, form):
         messages.add_message(
@@ -59,9 +59,10 @@ class UserUpdateView(AuthorizedCreatorOnlyMixin, UpdateView):
 
 class UserDeleteView(AuthorizedCreatorOnlyMixin, DeleteView):
 
-    model = User
+    model = get_user_model()
     template_name = 'users/delete.html'
     success_url = reverse_lazy('users')
+    permission_denied_message = _("You do not have permission to edit another user")
 
     def get_success_url(self):
         messages.add_message(

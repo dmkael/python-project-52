@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 18:50+0000\n"
+"POT-Creation-Date: 2024-06-06 22:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,15 +31,15 @@ msgstr ""
 msgid "You are not authorized! Please log in."
 msgstr ""
 
-#: task_manager/settings.py:180 task_manager/templates/layout.html:68
+#: task_manager/settings.py:180 task_manager/templates/layout.html:71
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:181 task_manager/templates/layout.html:70
+#: task_manager/settings.py:181 task_manager/templates/layout.html:73
 msgid "Russian"
 msgstr ""
 
-#: task_manager/settings.py:182 task_manager/templates/layout.html:72
+#: task_manager/settings.py:182 task_manager/templates/layout.html:75
 msgid "Spanish"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgid "Yes,&nbsp;delete"
 msgstr ""
 
 #: task_manager/statuses/templates/statuses/index.html:5
-#: task_manager/templates/layout.html:36
+#: task_manager/templates/layout.html:39
 msgid "Statuses"
 msgstr ""
 
@@ -204,12 +204,12 @@ msgid "Author"
 msgstr ""
 
 #: task_manager/tasks/templates/tasks/detail.html:34
-#: task_manager/templates/layout.html:37
+#: task_manager/templates/layout.html:40
 msgid "Labels"
 msgstr ""
 
 #: task_manager/tasks/templates/tasks/index.html:5
-#: task_manager/templates/layout.html:38
+#: task_manager/templates/layout.html:41
 msgid "Tasks"
 msgstr ""
 
@@ -241,37 +241,53 @@ msgstr ""
 msgid "Task has been deleted successfully."
 msgstr ""
 
+#: task_manager/templates/404.html:20
+msgid "Oops!"
+msgstr ""
+
+#: task_manager/templates/404.html:20
+msgid "Page not found."
+msgstr ""
+
+#: task_manager/templates/404.html:22
+msgid "The page you’re looking for doesn’t exist."
+msgstr ""
+
+#: task_manager/templates/404.html:24
+msgid "Go Home"
+msgstr ""
+
 #: task_manager/templates/layout.html:12
 msgid "Hexlet Task Manager"
 msgstr ""
 
-#: task_manager/templates/layout.html:30
+#: task_manager/templates/layout.html:29
 msgid "Task Manager"
 msgstr ""
 
-#: task_manager/templates/layout.html:33
+#: task_manager/templates/layout.html:36
 #: task_manager/users/templates/users/index.html:5
 msgid "Users"
 msgstr ""
 
-#: task_manager/templates/layout.html:42
+#: task_manager/templates/layout.html:45
 msgid "Logout"
 msgstr ""
 
-#: task_manager/templates/layout.html:47 task_manager/templates/login.html:5
+#: task_manager/templates/layout.html:50 task_manager/templates/login.html:5
 msgid "Login"
 msgstr ""
 
-#: task_manager/templates/layout.html:48
+#: task_manager/templates/layout.html:51
 #: task_manager/users/templates/users/create.html:5
 msgid "Registration"
 msgstr ""
 
-#: task_manager/templates/layout.html:54
+#: task_manager/templates/layout.html:57
 msgid "My Tasks"
 msgstr ""
 
-#: task_manager/templates/layout.html:63
+#: task_manager/templates/layout.html:66
 msgid "Language"
 msgstr ""
 

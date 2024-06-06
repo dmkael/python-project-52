@@ -13,7 +13,6 @@ from task_manager.mixins import LoginRequireMixin
 class StatusAbstractView(LoginRequireMixin):
     model = Status
     form_class = StatusForm
-    permission_denied_message = _("You are not authorized! Please log in.")
     success_url = reverse_lazy('statuses')
 
 

@@ -181,7 +181,7 @@ msgstr "Исполнитель"
 
 #: task_manager/tasks/forms.py:34
 msgid "A task with that name already exists."
-msgstr "Статус с таким именем уже существует."
+msgstr "Задача с таким именем уже существует."
 
 #: task_manager/tasks/forms.py:50
 msgid "Only your tasks"

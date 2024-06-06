@@ -21,15 +21,22 @@
         if (executorField) {
             executorField.selectedIndex = 0;
         }
+
+        // Очищаем поле "author", если это чекбокс
+        let self_tasksField = form.querySelector('input[name="self_tasks"]');
+        if (self_tasksField) {
+            self_tasksField.checked = false;
+        }
     }
-</script>   
+</script>
+    <style></style>
     <a class="btn btn-warning mb-3" href="/tasks/create/">{% trans "Create task" %}</a>
     <div class="card mb-3">
         <div class="card-body bg-light">
             <form id="taskForm" class="form-inline center">
                 {% bootstrap_form form %}
-                <input class="btn btn-warning" type="submit" value="Show">
-                <input type="submit" class="btn btn-secondary" onclick="clearSpecificFields()" value="Reset">
+                <input class="btn btn-warning" type="submit" value={% trans "Show" %}>
+                <input class="btn btn-secondary" type="submit" onclick="clearSpecificFields()" value={% trans "Reset" %}>
             </form>
         </div>
     </div>
@@ -51,7 +58,7 @@
         {% for task in tasks %}
             <tr>
                 <td class="align-middle text-center">{{ task.id }}</td>
-                <td class="align-middle">{{ task.name }}</td>
+                <td class="align-middle"><a href="{% url 'task_detail' task.id %}">{{ task.name }}</a></td>
                 <td class="align-middle">{{ task.status }}</td>
                 <td class="align-middle">{{ task.author.get_full_name }}</td>
                 <td class="align-middle">{{ task.executor.get_full_name }}</td>

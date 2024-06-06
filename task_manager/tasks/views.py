@@ -3,7 +3,7 @@ from django.forms import Form
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.forms import TaskForm, TaskSearchForm
 from task_manager.tasks.models import Task
@@ -33,15 +33,26 @@ class TasksIndexView(TasksAbstractView, ListView):
         return queryset
 
     def get(self, request, *args, **kwargs):
+        form = TaskSearchForm(request.GET) \
+            if any(request.GET.values()) \
+            else TaskSearchForm()
+
         status = request.GET.get('status')
         executor = request.GET.get('executor')
-        form = TaskSearchForm(request.GET) if status or executor else TaskSearchForm()
+        self_tasks = request.GET.get('self_tasks')
+
         tasks = self.get_queryset()
         if status:
             tasks = tasks.filter(status=status)
         if executor:
             tasks = tasks.filter(executor=executor)
+        if self_tasks:
+            tasks = tasks.filter(author=request.user)
         return render(request, self.template_name, {'tasks': tasks, 'form': form})
+
+
+class TaskDetailView(TasksAbstractView, DetailView):
+    template_name = 'tasks/detail.html'
 
 
 class TasksCreateView(TasksAbstractView, CreateView):

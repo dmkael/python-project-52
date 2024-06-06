@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-05 22:10+0000\n"
+"POT-Creation-Date: 2024-06-06 18:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,22 +32,22 @@ msgstr "Contraseña"
 msgid "You are not authorized! Please log in."
 msgstr "¡Usted no está autorizado! Por favor Iniciar sesión."
 
-#: task_manager/settings.py:180 task_manager/templates/layout.html:62
+#: task_manager/settings.py:180 task_manager/templates/layout.html:68
 msgid "English"
 msgstr "Inglés"
 
-#: task_manager/settings.py:181 task_manager/templates/layout.html:64
+#: task_manager/settings.py:181 task_manager/templates/layout.html:70
 msgid "Russian"
 msgstr "Ruso"
 
-#: task_manager/settings.py:182 task_manager/templates/layout.html:66
+#: task_manager/settings.py:182 task_manager/templates/layout.html:72
 msgid "Spanish"
 msgstr "Español"
 
 #: task_manager/statuses/forms.py:11
 #: task_manager/statuses/templates/statuses/index.html:15
 #: task_manager/tasks/forms.py:29
-#: task_manager/tasks/templates/tasks/index.html:15
+#: task_manager/tasks/templates/tasks/index.html:48
 msgid "Name"
 msgstr "Nombre"
 
@@ -82,19 +82,21 @@ msgid "Yes,&nbsp;delete"
 msgstr "Si,&nbsp;eliminar"
 
 #: task_manager/statuses/templates/statuses/index.html:5
-#: task_manager/templates/layout.html:35
+#: task_manager/templates/layout.html:36
 msgid "Statuses"
 msgstr "Estados"
 
 #: task_manager/statuses/templates/statuses/index.html:16
-#: task_manager/tasks/templates/tasks/index.html:19
+#: task_manager/tasks/templates/tasks/detail.html:29
+#: task_manager/tasks/templates/tasks/index.html:52
 #: task_manager/users/templates/users/index.html:15
 msgid "Creation date"
 msgstr "Fecha de creación"
 
 #: task_manager/statuses/templates/statuses/index.html:27
 #: task_manager/statuses/templates/statuses/update.html:9
-#: task_manager/tasks/templates/tasks/index.html:33
+#: task_manager/tasks/templates/tasks/detail.html:44
+#: task_manager/tasks/templates/tasks/index.html:66
 #: task_manager/tasks/templates/tasks/update.html:9
 #: task_manager/users/templates/users/index.html:27
 #: task_manager/users/templates/users/update.html:9
@@ -102,43 +104,44 @@ msgid "Edit"
 msgstr "Editar"
 
 #: task_manager/statuses/templates/statuses/index.html:29
-#: task_manager/tasks/templates/tasks/index.html:35
+#: task_manager/tasks/templates/tasks/detail.html:46
+#: task_manager/tasks/templates/tasks/index.html:68
 #: task_manager/users/templates/users/index.html:29
 msgid "Delete"
 msgstr "Eliminar"
 
 #: task_manager/statuses/templates/statuses/index.html:40
-#: task_manager/tasks/templates/tasks/index.html:46
+#: task_manager/tasks/templates/tasks/index.html:79
 #: task_manager/users/templates/users/index.html:40
 msgid "first"
 msgstr "primera"
 
 #: task_manager/statuses/templates/statuses/index.html:41
-#: task_manager/tasks/templates/tasks/index.html:47
+#: task_manager/tasks/templates/tasks/index.html:80
 #: task_manager/users/templates/users/index.html:41
 msgid "previous"
 msgstr "anterior"
 
 #: task_manager/statuses/templates/statuses/index.html:45
-#: task_manager/tasks/templates/tasks/index.html:51
+#: task_manager/tasks/templates/tasks/index.html:84
 #: task_manager/users/templates/users/index.html:45
 msgid "Page"
 msgstr "Página"
 
 #: task_manager/statuses/templates/statuses/index.html:45
-#: task_manager/tasks/templates/tasks/index.html:51
+#: task_manager/tasks/templates/tasks/index.html:84
 #: task_manager/users/templates/users/index.html:45
 msgid "of"
 msgstr "de"
 
 #: task_manager/statuses/templates/statuses/index.html:50
-#: task_manager/tasks/templates/tasks/index.html:56
+#: task_manager/tasks/templates/tasks/index.html:89
 #: task_manager/users/templates/users/index.html:50
 msgid "next"
 msgstr "siguiente"
 
 #: task_manager/statuses/templates/statuses/index.html:51
-#: task_manager/tasks/templates/tasks/index.html:57
+#: task_manager/tasks/templates/tasks/index.html:90
 #: task_manager/users/templates/users/index.html:51
 msgid "last"
 msgstr "última"
@@ -163,13 +166,15 @@ msgstr "El estado se ha eliminado correctamente."
 msgid "Description"
 msgstr "Descripción"
 
-#: task_manager/tasks/forms.py:31
-#: task_manager/tasks/templates/tasks/index.html:16
+#: task_manager/tasks/forms.py:31 task_manager/tasks/forms.py:42
+#: task_manager/tasks/templates/tasks/detail.html:25
+#: task_manager/tasks/templates/tasks/index.html:49
 msgid "Status"
 msgstr "Estado"
 
-#: task_manager/tasks/forms.py:32
-#: task_manager/tasks/templates/tasks/index.html:18
+#: task_manager/tasks/forms.py:32 task_manager/tasks/forms.py:48
+#: task_manager/tasks/templates/tasks/detail.html:21
+#: task_manager/tasks/templates/tasks/index.html:51
 msgid "Executor"
 msgstr "Ejecutor"
 
@@ -177,8 +182,12 @@ msgstr "Ejecutor"
 msgid "A task with that name already exists."
 msgstr "Ya existe una tarea con ese nombre."
 
+#: task_manager/tasks/forms.py:50
+msgid "Only your tasks"
+msgstr "Solo tus tareas"
+
 #: task_manager/tasks/templates/tasks/create.html:5
-#: task_manager/tasks/templates/tasks/index.html:8
+#: task_manager/tasks/templates/tasks/index.html:33
 msgid "Create task"
 msgstr "Crear tarea"
 
@@ -186,32 +195,50 @@ msgstr "Crear tarea"
 msgid "Delete task"
 msgstr "Eliminar tarea"
 
-#: task_manager/tasks/templates/tasks/index.html:5
+#: task_manager/tasks/templates/tasks/detail.html:5
+msgid "Task view"
+msgstr "Vista de tarea"
+
+#: task_manager/tasks/templates/tasks/detail.html:17
+#: task_manager/tasks/templates/tasks/index.html:50
+msgid "Author"
+msgstr "Autor"
+
+#: task_manager/tasks/templates/tasks/detail.html:34
 #: task_manager/templates/layout.html:37
+msgid "Labels"
+msgstr "Etiquetas"
+
+#: task_manager/tasks/templates/tasks/index.html:5
+#: task_manager/templates/layout.html:38
 msgid "Tasks"
 msgstr "Tareas"
 
-#: task_manager/tasks/templates/tasks/index.html:17
-msgid "Author"
-msgstr "Autor"
+#: task_manager/tasks/templates/tasks/index.html:38
+msgid "Show"
+msgstr "Espectáculo"
+
+#: task_manager/tasks/templates/tasks/index.html:39
+msgid "Reset"
+msgstr "Reiniciar"
 
 #: task_manager/tasks/templates/tasks/update.html:5
 msgid "Edit task"
 msgstr "Editar tarea"
 
-#: task_manager/tasks/views.py:44
+#: task_manager/tasks/views.py:67
 msgid "Task has been created successfully."
 msgstr "La tarea se ha creado correctamente."
 
-#: task_manager/tasks/views.py:59
+#: task_manager/tasks/views.py:82
 msgid "Task has been updated successfully."
 msgstr "La tarea se ha actualizado correctamente."
 
-#: task_manager/tasks/views.py:70
+#: task_manager/tasks/views.py:93
 msgid "Only author can delete a task"
 msgstr "Sólo su autor puede eliminar una tarea."
 
-#: task_manager/tasks/views.py:77
+#: task_manager/tasks/views.py:100
 msgid "Task has been deleted successfully."
 msgstr "La tarea se ha eliminado correctamente."
 
@@ -219,31 +246,35 @@ msgstr "La tarea se ha eliminado correctamente."
 msgid "Hexlet Task Manager"
 msgstr "Administrador de tareas Hexlet"
 
-#: task_manager/templates/layout.html:29
+#: task_manager/templates/layout.html:30
 msgid "Task Manager"
 msgstr "Administrador de tareas"
 
-#: task_manager/templates/layout.html:32
+#: task_manager/templates/layout.html:33
 #: task_manager/users/templates/users/index.html:5
 msgid "Users"
 msgstr "Usuarios"
 
-#: task_manager/templates/layout.html:36
-msgid "Labels"
-msgstr "Etiquetas"
-
-#: task_manager/templates/layout.html:41
+#: task_manager/templates/layout.html:42
 msgid "Logout"
 msgstr "Salida"
 
-#: task_manager/templates/layout.html:46 task_manager/templates/login.html:5
+#: task_manager/templates/layout.html:47 task_manager/templates/login.html:5
 msgid "Login"
 msgstr "Ingresar"
 
-#: task_manager/templates/layout.html:47
+#: task_manager/templates/layout.html:48
 #: task_manager/users/templates/users/create.html:5
 msgid "Registration"
 msgstr "Registro"
+
+#: task_manager/templates/layout.html:54
+msgid "My Tasks"
+msgstr "Mis Tareas"
+
+#: task_manager/templates/layout.html:63
+msgid "Language"
+msgstr "Idioma"
 
 #: task_manager/templates/login.html:18
 msgid "Sign in"

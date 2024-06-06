@@ -172,6 +172,13 @@ class TaskViewsTest(TestCase):
         self.assertEqual(self.tasks.count(), 1)
         self.assertRedirects(response, self.tasks_url)
 
+    def test_auth_another_user_task_delete_POST(self):
+        self.client.force_login(self.user2)
+        self.assertEqual(self.tasks.count(), 2)
+        response = self.client.post(self.task_delete_url1)
+        self.assertEqual(self.tasks.count(), 2)
+        self.assertRedirects(response, self.tasks_url)
+
     def test_anonym_user_task_delete_POST(self):
         self.assertEqual(self.tasks.count(), 2)
         response = self.client.post(self.task_delete_url1)

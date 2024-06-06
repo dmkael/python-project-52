@@ -31,4 +31,3 @@ urlpatterns = [
 ]
 
 handler404 = "task_manager.views.page_not_found_view"
-

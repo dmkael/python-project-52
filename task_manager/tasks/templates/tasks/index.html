@@ -62,7 +62,7 @@
                 <td class="align-middle">{{ task.status }}</td>
                 <td class="align-middle">{{ task.author.get_full_name }}</td>
                 <td class="align-middle">{{ task.executor.get_full_name }}</td>
-                <td class="align-middle">{{ task.created_at }}</td>
+                <td class="align-middle">{{ task.created_at|date:'d.m.Y H:i' }}</td>
                 <td class="align-middle"><a href="{% url 'task_update' task.id %}">{% trans "Edit" %}</a>
                     <br>
                     <a href="{% url 'task_delete' task.id %}">{% trans "Delete" %}</a>

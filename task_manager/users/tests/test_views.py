@@ -8,7 +8,7 @@ import os
     SECRET_KEY='fake-key',
     FIXTURE_DIRS=[os.path.join(os.path.dirname(__file__), 'fixtures')]
 )
-class UsersViewTestCase(TestCase):
+class UsersViewTest(TestCase):
     fixtures = ['users.yaml']
 
     def setUp(self):

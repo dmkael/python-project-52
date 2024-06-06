@@ -9,7 +9,7 @@ import os
     SECRET_KEY='fake-key',
     FIXTURE_DIRS=[os.path.join(os.path.dirname(__file__), 'fixtures')]
 )
-class StatusViewsTestCase(TestCase):
+class StatusViewsTest(TestCase):
     fixtures = ['statuses.yaml', 'users.yaml']
 
     def setUp(self):
@@ -26,13 +26,13 @@ class StatusViewsTestCase(TestCase):
         self.status_delete_url2 = reverse('status_delete', kwargs={'pk': 2})
         self.statuses_url = reverse('statuses')
 
-    def test_auth_user_statuses_index(self):
+    def test_auth_user_status_index(self):
         self.client.force_login(self.user)
         response = self.client.get(self.statuses_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'statuses/index.html')
 
-    def test_anonym_user_statuses_index(self):
+    def test_anonym_user_status_index(self):
         response = self.client.get(self.statuses_url)
         self.assertRedirects(response, self.login_url)
 
@@ -128,14 +128,14 @@ class StatusViewsTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, self.login_url)
 
-    def test_auth_user_delete_POST(self):
+    def test_auth_user_status_delete_POST(self):
         self.client.force_login(self.user)
         self.assertEqual(self.statuses.count(), 2)
         response = self.client.post(self.status_delete_url1)
         self.assertEqual(self.statuses.count(), 1)
         self.assertRedirects(response, self.statuses_url)
 
-    def test_anonym_user_delete_POST(self):
+    def test_anonym_user_status_delete_POST(self):
         self.assertEqual(self.statuses.count(), 2)
         response = self.client.post(self.status_delete_url1)
         self.assertEqual(self.statuses.count(), 2)

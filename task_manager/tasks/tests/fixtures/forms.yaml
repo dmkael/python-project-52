@@ -1,0 +1,7 @@
+Task1:
+  name: TestTask1
+  description: task description 1
+  status: 1
+  executor: 1
+Task2:
+  data: Finished

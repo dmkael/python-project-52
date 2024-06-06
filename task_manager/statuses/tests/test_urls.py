@@ -6,21 +6,18 @@ from task_manager.statuses.views import (
     StatusUpdateView,
     StatusDeleteView
 )
-import os
 
 
 @override_settings(
     SECRET_KEY='fake-key',
-    FIXTURE_DIRS=[os.path.join(os.path.dirname(__file__), 'fixtures')]
 )
-class UsersUrlTestCase(TestCase):
-    fixtures = ['users.yaml', 'statuses.yaml']
+class StatusUrlTest(TestCase):
 
-    def test_statuses_index_url(self):
+    def test_status_index_url(self):
         url = reverse('statuses')
         self.assertEqual(resolve(url).func.view_class, StatusIndexView)
 
-    def test_statuses_create_url(self):
+    def test_status_create_url(self):
         url = reverse('status_create')
         self.assertEqual(resolve(url).func.view_class, StatusCreateView)
 

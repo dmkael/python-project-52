@@ -11,7 +11,7 @@ from django.urls import reverse, resolve
 @override_settings(
     SECRET_KEY='fake-key'
 )
-class UsersUrlTestCase(TestCase):
+class UsersUrlTest(TestCase):
 
     def test_users_index_url(self):
         url = reverse('users')

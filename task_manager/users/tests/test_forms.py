@@ -7,7 +7,7 @@ import yaml
 @override_settings(
     SECRET_KEY='fake-key'
 )
-class TestUserCreationForm(TestCase):
+class UserCreationFormTest(TestCase):
 
     def setUp(self):
         with open(

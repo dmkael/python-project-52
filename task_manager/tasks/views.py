@@ -11,13 +11,13 @@ from task_manager.mixins import LoginRequireMixin
 from task_manager.tasks.mixins import TaskCreatorOnlyMixin
 
 
-class TasksAbstractView(LoginRequireMixin):
+class TaskAbstractView(LoginRequireMixin):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy('tasks')
 
 
-class TasksIndexView(TasksAbstractView, ListView):
+class TaskIndexView(TaskAbstractView, ListView):
     template_name = 'tasks/index.html'
     context_object_name = 'tasks'
     ordering = ['pk']
@@ -51,11 +51,11 @@ class TasksIndexView(TasksAbstractView, ListView):
         return render(request, self.template_name, {'tasks': tasks, 'form': form})
 
 
-class TaskDetailView(TasksAbstractView, DetailView):
+class TaskDetailView(TaskAbstractView, DetailView):
     template_name = 'tasks/detail.html'
 
 
-class TasksCreateView(TasksAbstractView, CreateView):
+class TaskCreateView(TaskAbstractView, CreateView):
     template_name = 'tasks/create.html'
 
     def form_valid(self, form):
@@ -72,7 +72,7 @@ class TasksCreateView(TasksAbstractView, CreateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class TasksUpdateView(TasksAbstractView, UpdateView):
+class TaskUpdateView(TaskAbstractView, UpdateView):
     template_name = 'tasks/update.html'
 
     def form_valid(self, form):
@@ -87,7 +87,7 @@ class TasksUpdateView(TasksAbstractView, UpdateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class TasksDeleteView(TaskCreatorOnlyMixin, TasksAbstractView, DeleteView):
+class TaskDeleteView(TaskCreatorOnlyMixin, TaskAbstractView, DeleteView):
     template_name = 'tasks/delete.html'
     form_class = Form
     permission_denied_message = _('Only author can delete a task')

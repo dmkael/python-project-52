@@ -14,12 +14,14 @@ class TaskForm(forms.ModelForm):
     status = forms.ModelChoiceField(
         queryset=Status.objects.all(),
         widget=forms.Select,
-        required=True
+        required=True,
+        label=_('Status')
     )
     executor = CustomChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.Select,
-        required=False
+        required=False,
+        label=_('Executor')
     )
 
     class Meta:
@@ -27,9 +29,7 @@ class TaskForm(forms.ModelForm):
         fields = ['name', 'description', 'status', 'executor']
         labels = {
             "name": _("Name"),
-            "description": _("Description"),
-            "status": _("Status"),
-            "executor": _("Executor"),
+            "description": _("Description")
         }
         error_messages = {"name": {"unique": _("A task with that name already exists.")}}
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 22:50+0000\n"
+"POT-Creation-Date: 2024-06-06 23:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,7 @@ msgstr "Испанский"
 
 #: task_manager/statuses/forms.py:11
 #: task_manager/statuses/templates/statuses/index.html:15
-#: task_manager/tasks/forms.py:29
+#: task_manager/tasks/forms.py:31
 #: task_manager/tasks/templates/tasks/index.html:48
 msgid "Name"
 msgstr "Имя"
@@ -163,21 +163,21 @@ msgstr "Статус успешно изменен"
 msgid "Status has been deleted successfully."
 msgstr "Статус успешно удален"
 
-#: task_manager/tasks/forms.py:30
-msgid "Description"
-msgstr "Описание"
-
-#: task_manager/tasks/forms.py:31 task_manager/tasks/forms.py:42
+#: task_manager/tasks/forms.py:18 task_manager/tasks/forms.py:42
 #: task_manager/tasks/templates/tasks/detail.html:25
 #: task_manager/tasks/templates/tasks/index.html:49
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/forms.py:32 task_manager/tasks/forms.py:48
+#: task_manager/tasks/forms.py:24 task_manager/tasks/forms.py:48
 #: task_manager/tasks/templates/tasks/detail.html:21
 #: task_manager/tasks/templates/tasks/index.html:51
 msgid "Executor"
 msgstr "Исполнитель"
+
+#: task_manager/tasks/forms.py:32
+msgid "Description"
+msgstr "Описание"
 
 #: task_manager/tasks/forms.py:34
 msgid "A task with that name already exists."

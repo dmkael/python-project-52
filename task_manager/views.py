@@ -48,3 +48,7 @@ class LogoutView(View):
         logout(request)
         messages.add_message(request, messages.INFO, _('You are logged out'))
         return redirect('index')
+
+
+def page_not_found_view(request, *args, **kwargs):
+    return render(request, '404.html', status=404)

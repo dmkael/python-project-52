@@ -27,6 +27,12 @@
         if (self_tasksField) {
             self_tasksField.checked = false;
         }
+
+        // Очищаем поле "labels", если это чекбокс
+        let labelsField = form.querySelector('select[name="labels"]');
+        if (labelsField) {
+            labelsField.selectedIndex = 0;
+        }
     }
 </script>
     <style></style>

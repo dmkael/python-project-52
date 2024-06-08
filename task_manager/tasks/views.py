@@ -24,7 +24,7 @@ class TaskIndexView(TaskAbstractView, ListView):
 
     def get_queryset(self):
         queryset = Task.objects.prefetch_related("executor"). \
-            prefetch_related("author").all()
+            prefetch_related("author").prefetch_related('labels').all()
         ordering = self.get_ordering()
         if ordering:
             if isinstance(ordering, str):
@@ -40,12 +40,15 @@ class TaskIndexView(TaskAbstractView, ListView):
         status = request.GET.get('status')
         executor = request.GET.get('executor')
         self_tasks = request.GET.get('self_tasks')
+        labels = request.GET.get('labels')
 
         tasks = self.get_queryset()
         if status:
             tasks = tasks.filter(status=status)
         if executor:
             tasks = tasks.filter(executor=executor)
+        if labels:
+            tasks = tasks.filter(labels=labels)
         if self_tasks:
             tasks = tasks.filter(author=request.user)
         return render(request, self.template_name, {'tasks': tasks, 'form': form})

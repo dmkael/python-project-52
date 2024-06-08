@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from task_manager.statuses.models import Status
+from task_manager.labels.models import Label
 from django.contrib.auth import get_user_model
 
 
@@ -14,6 +15,7 @@ class Task(models.Model):
     name = models.CharField(max_length=255, unique=True, null=False, blank=False)
     description = models.TextField(null=True, blank=True)
     status = models.ForeignKey(Status, on_delete=models.PROTECT, null=False, blank=False)
+    labels = models.ManyToManyField(Label, through='TaskLabels')
     executor = models.ForeignKey(
         get_user_model(),
         related_name='tasks_executor',
@@ -24,3 +26,8 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class TaskLabels(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.PROTECT)

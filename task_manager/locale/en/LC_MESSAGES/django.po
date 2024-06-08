@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 23:29+0000\n"
+"POT-Creation-Date: 2024-06-08 18:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,27 +27,160 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+#: task_manager/labels/forms.py:11
+#: task_manager/labels/templates/labels/index.html:15
+#: task_manager/statuses/forms.py:11
+#: task_manager/statuses/templates/statuses/index.html:15
+#: task_manager/tasks/forms.py:38
+#: task_manager/tasks/templates/tasks/index.html:54
+msgid "Name"
+msgstr ""
+
+#: task_manager/labels/forms.py:14
+msgid "A label with that name already exists."
+msgstr ""
+
+#: task_manager/labels/templates/labels/create.html:5
+#: task_manager/labels/templates/labels/index.html:8
+msgid "Create label"
+msgstr ""
+
+#: task_manager/labels/templates/labels/create.html:13
+#: task_manager/statuses/templates/statuses/create.html:13
+#: task_manager/tasks/templates/tasks/create.html:13
+msgid "Create"
+msgstr ""
+
+#: task_manager/labels/templates/labels/delete.html:5
+msgid "Delete label"
+msgstr ""
+
+#: task_manager/labels/templates/labels/delete.html:8
+#: task_manager/statuses/templates/statuses/delete.html:8
+#: task_manager/tasks/templates/tasks/delete.html:8
+#: task_manager/users/templates/users/delete.html:8
+msgid "Are you sure you want delete"
+msgstr ""
+
+#: task_manager/labels/templates/labels/delete.html:9
+#: task_manager/statuses/templates/statuses/delete.html:9
+#: task_manager/tasks/templates/tasks/delete.html:9
+#: task_manager/users/templates/users/delete.html:9
+msgid "Yes,&nbsp;delete"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:5
+#: task_manager/tasks/forms.py:31 task_manager/tasks/forms.py:61
+#: task_manager/tasks/templates/tasks/detail.html:34
+#: task_manager/templates/layout.html:40
+msgid "Labels"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:16
+#: task_manager/statuses/templates/statuses/index.html:16
+#: task_manager/tasks/templates/tasks/detail.html:29
+#: task_manager/tasks/templates/tasks/index.html:58
+#: task_manager/users/templates/users/index.html:15
+msgid "Creation date"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:28
+#: task_manager/labels/templates/labels/update.html:9
+#: task_manager/statuses/templates/statuses/index.html:27
+#: task_manager/statuses/templates/statuses/update.html:9
+#: task_manager/tasks/templates/tasks/detail.html:44
+#: task_manager/tasks/templates/tasks/index.html:72
+#: task_manager/tasks/templates/tasks/update.html:9
+#: task_manager/users/templates/users/index.html:27
+#: task_manager/users/templates/users/update.html:9
+msgid "Edit"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:30
+#: task_manager/statuses/templates/statuses/index.html:29
+#: task_manager/tasks/templates/tasks/detail.html:46
+#: task_manager/tasks/templates/tasks/index.html:74
+#: task_manager/users/templates/users/index.html:29
+msgid "Delete"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:41
+#: task_manager/statuses/templates/statuses/index.html:40
+#: task_manager/tasks/templates/tasks/index.html:85
+#: task_manager/users/templates/users/index.html:40
+msgid "first"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:42
+#: task_manager/statuses/templates/statuses/index.html:41
+#: task_manager/tasks/templates/tasks/index.html:86
+#: task_manager/users/templates/users/index.html:41
+msgid "previous"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:46
+#: task_manager/statuses/templates/statuses/index.html:45
+#: task_manager/tasks/templates/tasks/index.html:90
+#: task_manager/users/templates/users/index.html:45
+msgid "Page"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:46
+#: task_manager/statuses/templates/statuses/index.html:45
+#: task_manager/tasks/templates/tasks/index.html:90
+#: task_manager/users/templates/users/index.html:45
+msgid "of"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:51
+#: task_manager/statuses/templates/statuses/index.html:50
+#: task_manager/tasks/templates/tasks/index.html:95
+#: task_manager/users/templates/users/index.html:50
+msgid "next"
+msgstr ""
+
+#: task_manager/labels/templates/labels/index.html:52
+#: task_manager/statuses/templates/statuses/index.html:51
+#: task_manager/tasks/templates/tasks/index.html:96
+#: task_manager/users/templates/users/index.html:51
+msgid "last"
+msgstr ""
+
+#: task_manager/labels/templates/labels/update.html:5
+#: task_manager/statuses/templates/statuses/update.html:5
+msgid "Edit status"
+msgstr ""
+
+#: task_manager/labels/views.py:34
+msgid "Label has been created successfully."
+msgstr ""
+
+#: task_manager/labels/views.py:49
+msgid "Label has been updated successfully."
+msgstr ""
+
+#: task_manager/labels/views.py:69
+msgid "Label has been deleted successfully."
+msgstr ""
+
+#: task_manager/labels/views.py:75
+msgid "Cannot delete label because it is in use."
+msgstr ""
+
 #: task_manager/mixins.py:16
 msgid "You are not authorized! Please log in."
 msgstr ""
 
-#: task_manager/settings.py:180 task_manager/templates/layout.html:71
+#: task_manager/settings.py:181 task_manager/templates/layout.html:71
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:181 task_manager/templates/layout.html:73
+#: task_manager/settings.py:182 task_manager/templates/layout.html:73
 msgid "Russian"
 msgstr ""
 
-#: task_manager/settings.py:182 task_manager/templates/layout.html:75
+#: task_manager/settings.py:183 task_manager/templates/layout.html:75
 msgid "Spanish"
-msgstr ""
-
-#: task_manager/statuses/forms.py:11
-#: task_manager/statuses/templates/statuses/index.html:15
-#: task_manager/tasks/forms.py:31
-#: task_manager/tasks/templates/tasks/index.html:48
-msgid "Name"
 msgstr ""
 
 #: task_manager/statuses/forms.py:14
@@ -59,25 +192,8 @@ msgstr ""
 msgid "Create status"
 msgstr ""
 
-#: task_manager/statuses/templates/statuses/create.html:13
-#: task_manager/tasks/templates/tasks/create.html:13
-msgid "Create"
-msgstr ""
-
 #: task_manager/statuses/templates/statuses/delete.html:5
 msgid "Delete status"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/delete.html:8
-#: task_manager/tasks/templates/tasks/delete.html:8
-#: task_manager/users/templates/users/delete.html:8
-msgid "Are you sure you want delete"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/delete.html:9
-#: task_manager/tasks/templates/tasks/delete.html:9
-#: task_manager/users/templates/users/delete.html:9
-msgid "Yes,&nbsp;delete"
 msgstr ""
 
 #: task_manager/statuses/templates/statuses/index.html:5
@@ -85,108 +201,48 @@ msgstr ""
 msgid "Statuses"
 msgstr ""
 
-#: task_manager/statuses/templates/statuses/index.html:16
-#: task_manager/tasks/templates/tasks/detail.html:29
-#: task_manager/tasks/templates/tasks/index.html:52
-#: task_manager/users/templates/users/index.html:15
-msgid "Creation date"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/index.html:27
-#: task_manager/statuses/templates/statuses/update.html:9
-#: task_manager/tasks/templates/tasks/detail.html:44
-#: task_manager/tasks/templates/tasks/index.html:66
-#: task_manager/tasks/templates/tasks/update.html:9
-#: task_manager/users/templates/users/index.html:27
-#: task_manager/users/templates/users/update.html:9
-msgid "Edit"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/index.html:29
-#: task_manager/tasks/templates/tasks/detail.html:46
-#: task_manager/tasks/templates/tasks/index.html:68
-#: task_manager/users/templates/users/index.html:29
-msgid "Delete"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/index.html:40
-#: task_manager/tasks/templates/tasks/index.html:79
-#: task_manager/users/templates/users/index.html:40
-msgid "first"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/index.html:41
-#: task_manager/tasks/templates/tasks/index.html:80
-#: task_manager/users/templates/users/index.html:41
-msgid "previous"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/index.html:45
-#: task_manager/tasks/templates/tasks/index.html:84
-#: task_manager/users/templates/users/index.html:45
-msgid "Page"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/index.html:45
-#: task_manager/tasks/templates/tasks/index.html:84
-#: task_manager/users/templates/users/index.html:45
-msgid "of"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/index.html:50
-#: task_manager/tasks/templates/tasks/index.html:89
-#: task_manager/users/templates/users/index.html:50
-msgid "next"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/index.html:51
-#: task_manager/tasks/templates/tasks/index.html:90
-#: task_manager/users/templates/users/index.html:51
-msgid "last"
-msgstr ""
-
-#: task_manager/statuses/templates/statuses/update.html:5
-msgid "Edit status"
-msgstr ""
-
-#: task_manager/statuses/views.py:32
+#: task_manager/statuses/views.py:34
 msgid "Status has been created successfully."
 msgstr ""
 
-#: task_manager/statuses/views.py:47
+#: task_manager/statuses/views.py:49
 msgid "Status has been updated successfully."
 msgstr ""
 
-#: task_manager/statuses/views.py:64
+#: task_manager/statuses/views.py:69
 msgid "Status has been deleted successfully."
 msgstr ""
 
-#: task_manager/tasks/forms.py:18 task_manager/tasks/forms.py:42
+#: task_manager/statuses/views.py:75
+msgid "Cannot delete status because it is in use."
+msgstr ""
+
+#: task_manager/tasks/forms.py:19 task_manager/tasks/forms.py:49
 #: task_manager/tasks/templates/tasks/detail.html:25
-#: task_manager/tasks/templates/tasks/index.html:49
+#: task_manager/tasks/templates/tasks/index.html:55
 msgid "Status"
 msgstr ""
 
-#: task_manager/tasks/forms.py:24 task_manager/tasks/forms.py:48
+#: task_manager/tasks/forms.py:25 task_manager/tasks/forms.py:55
 #: task_manager/tasks/templates/tasks/detail.html:21
-#: task_manager/tasks/templates/tasks/index.html:51
+#: task_manager/tasks/templates/tasks/index.html:57
 msgid "Executor"
 msgstr ""
 
-#: task_manager/tasks/forms.py:32
+#: task_manager/tasks/forms.py:39
 msgid "Description"
 msgstr ""
 
-#: task_manager/tasks/forms.py:34
+#: task_manager/tasks/forms.py:41
 msgid "A task with that name already exists."
 msgstr ""
 
-#: task_manager/tasks/forms.py:50
+#: task_manager/tasks/forms.py:63
 msgid "Only your tasks"
 msgstr ""
 
 #: task_manager/tasks/templates/tasks/create.html:5
-#: task_manager/tasks/templates/tasks/index.html:33
+#: task_manager/tasks/templates/tasks/index.html:39
 msgid "Create task"
 msgstr ""
 
@@ -199,13 +255,8 @@ msgid "Task view"
 msgstr ""
 
 #: task_manager/tasks/templates/tasks/detail.html:17
-#: task_manager/tasks/templates/tasks/index.html:50
+#: task_manager/tasks/templates/tasks/index.html:56
 msgid "Author"
-msgstr ""
-
-#: task_manager/tasks/templates/tasks/detail.html:34
-#: task_manager/templates/layout.html:40
-msgid "Labels"
 msgstr ""
 
 #: task_manager/tasks/templates/tasks/index.html:5
@@ -213,11 +264,11 @@ msgstr ""
 msgid "Tasks"
 msgstr ""
 
-#: task_manager/tasks/templates/tasks/index.html:38
+#: task_manager/tasks/templates/tasks/index.html:44
 msgid "Show"
 msgstr ""
 
-#: task_manager/tasks/templates/tasks/index.html:39
+#: task_manager/tasks/templates/tasks/index.html:45
 msgid "Reset"
 msgstr ""
 
@@ -225,19 +276,19 @@ msgstr ""
 msgid "Edit task"
 msgstr ""
 
-#: task_manager/tasks/views.py:67
+#: task_manager/tasks/views.py:70
 msgid "Task has been created successfully."
 msgstr ""
 
-#: task_manager/tasks/views.py:82
+#: task_manager/tasks/views.py:85
 msgid "Task has been updated successfully."
 msgstr ""
 
-#: task_manager/tasks/views.py:93
+#: task_manager/tasks/views.py:96
 msgid "Only author can delete a task"
 msgstr ""
 
-#: task_manager/tasks/views.py:100
+#: task_manager/tasks/views.py:103
 msgid "Task has been deleted successfully."
 msgstr ""
 

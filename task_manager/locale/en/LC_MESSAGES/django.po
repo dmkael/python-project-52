@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 09:02+0000\n"
+"POT-Creation-Date: 2024-06-09 16:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -149,20 +149,20 @@ msgstr ""
 msgid "Edit label"
 msgstr ""
 
-#: task_manager/labels/views.py:32
+#: task_manager/labels/views.py:25
 msgid "Label has been created successfully."
 msgstr ""
 
-#: task_manager/labels/views.py:47
+#: task_manager/labels/views.py:30
 msgid "Label has been updated successfully."
 msgstr ""
 
-#: task_manager/labels/views.py:64
-msgid "Cannot delete label because it is in use."
+#: task_manager/labels/views.py:36
+msgid "Label has been deleted successfully."
 msgstr ""
 
-#: task_manager/labels/views.py:71
-msgid "Label has been deleted successfully."
+#: task_manager/labels/views.py:37
+msgid "Cannot delete label because it is in use."
 msgstr ""
 
 #: task_manager/mixins.py:17
@@ -203,20 +203,20 @@ msgstr ""
 msgid "Edit status"
 msgstr ""
 
-#: task_manager/statuses/views.py:31
+#: task_manager/statuses/views.py:24
 msgid "Status has been created successfully."
 msgstr ""
 
-#: task_manager/statuses/views.py:46
+#: task_manager/statuses/views.py:29
 msgid "Status has been updated successfully."
 msgstr ""
 
-#: task_manager/statuses/views.py:63
-msgid "Cannot delete status because it is in use."
+#: task_manager/statuses/views.py:35
+msgid "Status has been deleted successfully."
 msgstr ""
 
-#: task_manager/statuses/views.py:70
-msgid "Status has been deleted successfully."
+#: task_manager/statuses/views.py:36
+msgid "Cannot delete status because it is in use."
 msgstr ""
 
 #: task_manager/tasks/forms.py:20
@@ -282,15 +282,15 @@ msgstr ""
 msgid "Edit task"
 msgstr ""
 
-#: task_manager/tasks/views.py:70
+#: task_manager/tasks/views.py:54
 msgid "Task has been created successfully."
 msgstr ""
 
-#: task_manager/tasks/views.py:85
+#: task_manager/tasks/views.py:64
 msgid "Task has been updated successfully."
 msgstr ""
 
-#: task_manager/tasks/views.py:102
+#: task_manager/tasks/views.py:69
 msgid "Task has been deleted successfully."
 msgstr ""
 
@@ -393,36 +393,36 @@ msgstr ""
 msgid "Edit user"
 msgstr ""
 
-#: task_manager/users/views.py:31
+#: task_manager/users/views.py:24
 msgid "User has been registered successfully."
 msgstr ""
 
-#: task_manager/users/views.py:46
+#: task_manager/users/views.py:29
 msgid "User has been updated successfully."
 msgstr ""
 
-#: task_manager/users/views.py:65
-msgid "Cannot delete user because it is in use."
-msgstr ""
-
-#: task_manager/users/views.py:72
+#: task_manager/users/views.py:39
 msgid "User has been deleted successfully."
 msgstr ""
 
-#: task_manager/views.py:15
+#: task_manager/users/views.py:40
+msgid "Cannot delete user because it is in use."
+msgstr ""
+
+#: task_manager/views.py:16
 msgid "Hello World"
 msgstr ""
 
-#: task_manager/views.py:37
+#: task_manager/views.py:38
 msgid "You are logged in"
 msgstr ""
 
-#: task_manager/views.py:39
+#: task_manager/views.py:40
 msgid ""
 "Please enter the correct username and password. Both fields can be case "
 "sensitive."
 msgstr ""
 
-#: task_manager/views.py:49
+#: task_manager/views.py:50
 msgid "You are logged out"
 msgstr ""

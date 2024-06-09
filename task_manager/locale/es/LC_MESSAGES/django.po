@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 09:02+0000\n"
+"POT-Creation-Date: 2024-06-09 16:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -150,21 +150,21 @@ msgstr "última"
 msgid "Edit label"
 msgstr "Editar etiqueta"
 
-#: task_manager/labels/views.py:32
+#: task_manager/labels/views.py:25
 msgid "Label has been created successfully."
 msgstr "La etiqueta se ha creado correctamente."
 
-#: task_manager/labels/views.py:47
+#: task_manager/labels/views.py:30
 msgid "Label has been updated successfully."
 msgstr "La etiqueta se ha actualizado correctamente."
 
-#: task_manager/labels/views.py:64
-msgid "Cannot delete label because it is in use."
-msgstr "No se puede eliminar la etiqueta porque está en uso."
-
-#: task_manager/labels/views.py:71
+#: task_manager/labels/views.py:36
 msgid "Label has been deleted successfully."
 msgstr "La etiqueta se ha eliminado correctamente."
+
+#: task_manager/labels/views.py:37
+msgid "Cannot delete label because it is in use."
+msgstr "No se puede eliminar la etiqueta porque está en uso."
 
 #: task_manager/mixins.py:17
 msgid "You are not authorized! Please log in."
@@ -204,21 +204,21 @@ msgstr "Estados"
 msgid "Edit status"
 msgstr "Editar estado"
 
-#: task_manager/statuses/views.py:31
+#: task_manager/statuses/views.py:24
 msgid "Status has been created successfully."
 msgstr "El estado se ha creado correctamente."
 
-#: task_manager/statuses/views.py:46
+#: task_manager/statuses/views.py:29
 msgid "Status has been updated successfully."
 msgstr "El estado se ha actualizado correctamente."
 
-#: task_manager/statuses/views.py:63
-msgid "Cannot delete status because it is in use."
-msgstr "No se puede eliminar el estado porque está en uso."
-
-#: task_manager/statuses/views.py:70
+#: task_manager/statuses/views.py:35
 msgid "Status has been deleted successfully."
 msgstr "El estado se ha eliminado correctamente."
+
+#: task_manager/statuses/views.py:36
+msgid "Cannot delete status because it is in use."
+msgstr "No se puede eliminar el estado porque está en uso."
 
 #: task_manager/tasks/forms.py:20
 msgid "Description"
@@ -283,15 +283,15 @@ msgstr "Reiniciar"
 msgid "Edit task"
 msgstr "Editar tarea"
 
-#: task_manager/tasks/views.py:70
+#: task_manager/tasks/views.py:54
 msgid "Task has been created successfully."
 msgstr "La tarea se ha creado correctamente."
 
-#: task_manager/tasks/views.py:85
+#: task_manager/tasks/views.py:64
 msgid "Task has been updated successfully."
 msgstr "La tarea se ha actualizado correctamente."
 
-#: task_manager/tasks/views.py:102
+#: task_manager/tasks/views.py:69
 msgid "Task has been deleted successfully."
 msgstr "La tarea se ha eliminado correctamente."
 
@@ -396,31 +396,31 @@ msgstr "Nombre completo"
 msgid "Edit user"
 msgstr "Editar usuario"
 
-#: task_manager/users/views.py:31
+#: task_manager/users/views.py:24
 msgid "User has been registered successfully."
 msgstr "El usuario ha sido registrado exitosamente."
 
-#: task_manager/users/views.py:46
+#: task_manager/users/views.py:29
 msgid "User has been updated successfully."
 msgstr "El usuario se ha actualizado correctamente."
 
-#: task_manager/users/views.py:65
-msgid "Cannot delete user because it is in use."
-msgstr "No se puede eliminar la usuario porque está en uso."
-
-#: task_manager/users/views.py:72
+#: task_manager/users/views.py:39
 msgid "User has been deleted successfully."
 msgstr "El usuario ha sido eliminado con éxito."
 
-#: task_manager/views.py:15
+#: task_manager/users/views.py:40
+msgid "Cannot delete user because it is in use."
+msgstr "No se puede eliminar la usuario porque está en uso."
+
+#: task_manager/views.py:16
 msgid "Hello World"
 msgstr "Hola Mundo"
 
-#: task_manager/views.py:37
+#: task_manager/views.py:38
 msgid "You are logged in"
 msgstr "Has iniciado sesión"
 
-#: task_manager/views.py:39
+#: task_manager/views.py:40
 msgid ""
 "Please enter the correct username and password. Both fields can be case "
 "sensitive."
@@ -428,6 +428,6 @@ msgstr ""
 "Por favor ingrese el nombre de usuario y contraseña correctos. Ambos campos "
 "pueden distinguir entre mayúsculas y minúsculas."
 
-#: task_manager/views.py:49
+#: task_manager/views.py:50
 msgid "You are logged out"
 msgstr "Estás desconectado"

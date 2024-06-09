@@ -1,13 +1,12 @@
-from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.forms import TaskForm, TaskSearchForm
 from task_manager.tasks.models import Task
 from task_manager.mixins import LoginRequireMixin
 from task_manager.tasks.mixins import TaskAuthorOnlyMixin
+from task_manager.views import CreateFlashedView, UpdateFlashedView, DeleteFlashedView
 
 
 class TaskAbstractView(LoginRequireMixin):
@@ -32,24 +31,17 @@ class TaskIndexView(TaskAbstractView, ListView):
         return queryset
 
     def get(self, request, *args, **kwargs):
-        form = TaskSearchForm(request.GET) \
-            if any(request.GET.values()) \
-            else TaskSearchForm()
-
-        status = request.GET.get('status')
-        executor = request.GET.get('executor')
-        self_tasks = request.GET.get('self_tasks')
-        labels = request.GET.get('labels')
-
-        tasks = self.get_queryset()
-        if status:
-            tasks = tasks.filter(status=status)
-        if executor:
-            tasks = tasks.filter(executor=executor)
-        if labels:
-            tasks = tasks.filter(labels=labels)
-        if self_tasks:
-            tasks = tasks.filter(author=request.user)
+        filters = {
+            'status': request.GET.get('status'),
+            'executor': request.GET.get('executor'),
+            'labels': request.GET.get('labels'),
+            'author': request.GET.get('self_tasks')
+        }
+        filters = {k: v for k, v in filters.items() if v}
+        if filters.get('author'):
+            filters['author'] = request.user.id
+        form = TaskSearchForm(request.GET) if filters else TaskSearchForm()
+        tasks = self.get_queryset().filter(**filters)
         return render(request, self.template_name, {'tasks': tasks, 'form': form})
 
 
@@ -57,46 +49,25 @@ class TaskDetailView(TaskAbstractView, DetailView):
     template_name = 'tasks/detail.html'
 
 
-class TaskCreateView(TaskAbstractView, CreateView):
+class TaskCreateView(TaskAbstractView, CreateFlashedView):
     template_name = 'tasks/create.html'
+    valid_form_message = _('Task has been created successfully.')
 
     def form_valid(self, form):
         instance = form.save(commit=False)
         instance.author = self.request.user
-        messages.add_message(
-            self.request,
-            messages.SUCCESS,
-            _('Task has been created successfully.')
-        )
         return super().form_valid(form)
 
-    def form_invalid(self, form):
-        return self.render_to_response(self.get_context_data(form=form), status=400)
 
-
-class TaskUpdateView(TaskAbstractView, UpdateView):
+class TaskUpdateView(TaskAbstractView, UpdateFlashedView):
     template_name = 'tasks/update.html'
-
-    def form_valid(self, form):
-        messages.add_message(
-            self.request,
-            messages.SUCCESS,
-            _('Task has been updated successfully.')
-        )
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        return self.render_to_response(self.get_context_data(form=form), status=400)
+    valid_form_message = _('Task has been updated successfully.')
 
 
-class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteView):
+class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteFlashedView):
     template_name = 'tasks/delete.html'
+    correct_data_message = _('Task has been deleted successfully.')
 
     def post(self, request, *args, **kwargs):
         task = Task.objects.get(pk=kwargs['pk'])
-        task.delete()
-        messages.add_message(
-            self.request,
-            messages.SUCCESS,
-            _('Task has been deleted successfully.'))
-        return redirect(self.success_url)
+        return super().process(request, task)

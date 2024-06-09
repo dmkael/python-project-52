@@ -1,11 +1,9 @@
-from django.contrib import messages
-from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.utils.translation import gettext_lazy as _
 from task_manager.labels.forms import LabelForm
 from task_manager.labels.models import Label
+from task_manager.views import CreateFlashedView, UpdateFlashedView, DeleteFlashedView
 from task_manager.mixins import LoginRequireMixin
 
 
@@ -22,51 +20,24 @@ class LabelIndexView(LabelAbstractMixin, ListView):
     ordering = ['pk']
 
 
-class LabelCreateView(LabelAbstractMixin, CreateView):
+class LabelCreateView(LabelAbstractMixin, CreateFlashedView):
     template_name = 'labels/create.html'
-
-    def form_valid(self, form):
-        messages.add_message(
-            self.request,
-            messages.SUCCESS,
-            _('Label has been created successfully.')
-        )
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        return self.render_to_response(self.get_context_data(form=form), status=400)
+    valid_form_message = _('Label has been created successfully.')
 
 
-class LabelUpdateView(LabelAbstractMixin, UpdateView):
+class LabelUpdateView(LabelAbstractMixin, UpdateFlashedView):
     template_name = 'labels/update.html'
-
-    def form_valid(self, form):
-        messages.add_message(
-            self.request,
-            messages.SUCCESS,
-            _('Label has been updated successfully.')
-        )
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        return self.render_to_response(self.get_context_data(form=form), status=400)
+    valid_form_message = _('Label has been updated successfully.')
 
 
-class LabelDeleteView(LabelAbstractMixin, DeleteView):
+class LabelDeleteView(LabelAbstractMixin, DeleteFlashedView):
     template_name = 'labels/delete.html'
+    redirect_url = reverse_lazy('labels')
+    correct_data_message = _('Label has been deleted successfully.')
+    incorrect_data_message = _('Cannot delete label because it is in use.')
 
     def post(self, request, *args, **kwargs):
         label = Label.objects.get(pk=kwargs['pk'])
         if label.tasks.first():
-            messages.add_message(
-                self.request,
-                messages.ERROR,
-                _('Cannot delete label because it is in use.')
-            )
-            return redirect(reverse_lazy('labels'))
-        label.delete()
-        messages.add_message(
-            self.request,
-            messages.SUCCESS,
-            _('Label has been deleted successfully.'))
-        return redirect(self.success_url)
+            self.is_correct_data = False
+        return super().process(request, label)

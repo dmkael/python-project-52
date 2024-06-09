@@ -7,3 +7,4 @@ exclude_patterns:
   - "**/static/"
   - "**/tests/"
   - "**/urls.py"
+  - "**/migrations/"

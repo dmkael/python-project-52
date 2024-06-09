@@ -66,7 +66,7 @@ class TaskUpdateView(TaskAbstractView, UpdateFlashedView):
 
 class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteFlashedView):
     template_name = 'tasks/delete.html'
-    correct_data_message = _('Task has been deleted successfully.')
+    valid_data_message = _('Task has been deleted successfully.')
 
     def post(self, request, *args, **kwargs):
         task = Task.objects.get(pk=kwargs['pk'])

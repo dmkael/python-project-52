@@ -36,8 +36,8 @@ class UserUpdateView(UserCreatorOnlyMixin, UsersAbstractMixin, UpdateFlashedView
 
 class UserDeleteView(UserCreatorOnlyMixin, UsersAbstractMixin, DeleteFlashedView):
     template_name = 'users/delete.html'
-    correct_data_message = _('User has been deleted successfully.')
-    incorrect_data_message = _('Cannot delete user because it is in use.')
+    valid_data_message = _('User has been deleted successfully.')
+    invalid_data_message = _('Cannot delete user because it is in use.')
 
     def post(self, request, *args, **kwargs):
         user = get_user_model().objects.get(pk=request.user.id)

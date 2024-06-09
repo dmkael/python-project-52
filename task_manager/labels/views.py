@@ -33,8 +33,8 @@ class LabelUpdateView(LabelAbstractMixin, UpdateFlashedView):
 class LabelDeleteView(LabelAbstractMixin, DeleteFlashedView):
     template_name = 'labels/delete.html'
     redirect_url = reverse_lazy('labels')
-    correct_data_message = _('Label has been deleted successfully.')
-    incorrect_data_message = _('Cannot delete label because it is in use.')
+    valid_data_message = _('Label has been deleted successfully.')
+    invalid_data_message = _('Cannot delete label because it is in use.')
 
     def post(self, request, *args, **kwargs):
         label = Label.objects.get(pk=kwargs['pk'])

@@ -32,8 +32,8 @@ class StatusUpdateView(StatusAbstractMixin, UpdateFlashedView):
 class StatusDeleteView(StatusAbstractMixin, DeleteFlashedView):
     template_name = 'statuses/delete.html'
     redirect_url = reverse_lazy('statuses')
-    correct_data_message = _('Status has been deleted successfully.')
-    incorrect_data_message = _('Cannot delete status because it is in use.')
+    valid_data_message = _('Status has been deleted successfully.')
+    invalid_data_message = _('Cannot delete status because it is in use.')
 
     def post(self, request, *args, **kwargs):
         status = Status.objects.get(pk=kwargs['pk'])

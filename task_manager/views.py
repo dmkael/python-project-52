@@ -86,8 +86,8 @@ class UpdateFlashedView(UpdateView):
 
 
 class DeleteFlashedView(DeleteView):
-    correct_data_message = 'Object has been deleted successfully.'
-    incorrect_data_message = 'Cannot delete object because it is in use.'
+    valid_data_message = 'Object has been deleted successfully.'
+    invalid_data_message = 'Cannot delete object because it is in use.'
     redirect_url = ''
     is_correct_data = True
 
@@ -97,12 +97,12 @@ class DeleteFlashedView(DeleteView):
             messages.add_message(
                 self.request,
                 messages.SUCCESS,
-                self.correct_data_message
+                self.valid_data_message
             )
             return redirect(self.redirect_url)
         messages.add_message(
             self.request,
             messages.ERROR,
-            self.incorrect_data_message
+            self.invalid_data_message
         )
         return redirect(self.redirect_url)

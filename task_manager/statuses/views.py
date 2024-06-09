@@ -1,6 +1,4 @@
 from django.contrib import messages
-from django.db.models import ProtectedError
-from django.forms import Form
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -11,20 +9,19 @@ from task_manager.statuses.models import Status
 from task_manager.mixins import LoginRequireMixin
 
 
-# Create your views here.
-class StatusAbstractView(LoginRequireMixin):
+class StatusAbstractMixin(LoginRequireMixin):
     model = Status
     form_class = StatusForm
     success_url = reverse_lazy('statuses')
 
 
-class StatusIndexView(StatusAbstractView, ListView):
+class StatusIndexView(StatusAbstractMixin, ListView):
     template_name = 'statuses/index.html'
     context_object_name = 'statuses'
     ordering = ['pk']
 
 
-class StatusCreateView(StatusAbstractView, CreateView):
+class StatusCreateView(StatusAbstractMixin, CreateView):
     template_name = 'statuses/create.html'
 
     def form_valid(self, form):
@@ -39,7 +36,7 @@ class StatusCreateView(StatusAbstractView, CreateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class StatusUpdateView(StatusAbstractView, UpdateView):
+class StatusUpdateView(StatusAbstractMixin, UpdateView):
     template_name = 'statuses/update.html'
 
     def form_valid(self, form):
@@ -54,24 +51,21 @@ class StatusUpdateView(StatusAbstractView, UpdateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class StatusDeleteView(StatusAbstractView, DeleteView):
-    success_url = reverse_lazy('statuses')
-    redirect_url = reverse_lazy('statuses')
+class StatusDeleteView(StatusAbstractMixin, DeleteView):
     template_name = 'statuses/delete.html'
-    form_class = Form
 
     def post(self, request, *args, **kwargs):
-        try:
-            response = self.delete(request, *args, **kwargs)
-            messages.add_message(
-                self.request,
-                messages.SUCCESS,
-                _('Status has been deleted successfully.'))
-            return response
-        except ProtectedError:
+        status = Status.objects.get(pk=kwargs['pk'])
+        if status.tasks.first():
             messages.add_message(
                 self.request,
                 messages.ERROR,
                 _('Cannot delete status because it is in use.')
             )
-            return redirect(self.redirect_url)
+            return redirect(reverse_lazy('statuses'))
+        status.delete()
+        messages.add_message(
+            self.request,
+            messages.SUCCESS,
+            _('Status has been deleted successfully.'))
+        return redirect(self.success_url)

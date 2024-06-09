@@ -5,25 +5,24 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from task_manager.users.forms import UserCreationForm
-from task_manager.users.mixins import AuthorizedCreatorOnlyMixin
-from django.db.models import ProtectedError
+from task_manager.users.forms import UserForm
+from task_manager.users.mixins import UserCreatorOnlyMixin
 
 
-class UsersIndexView(ListView):
+class UsersAbstractMixin:
     model = get_user_model()
+    success_url = reverse_lazy('users')
+    form_class = UserForm
+
+
+class UsersIndexView(UsersAbstractMixin, ListView):
     template_name = 'users/index.html'
     context_object_name = 'users'
     ordering = ['pk']
-    paginate_by = 15
 
 
-class UserCreateView(CreateView):
-
-    model = get_user_model()
-    form_class = UserCreationForm
+class UserCreateView(UsersAbstractMixin, CreateView):
     template_name = 'users/create.html'
-    success_url = reverse_lazy('login')
 
     def form_valid(self, form):
         messages.add_message(
@@ -37,14 +36,8 @@ class UserCreateView(CreateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class UserUpdateView(AuthorizedCreatorOnlyMixin, UpdateView):
-
-    model = get_user_model()
-    form_class = UserCreationForm
+class UserUpdateView(UserCreatorOnlyMixin, UsersAbstractMixin, UpdateView):
     template_name = 'users/update.html'
-    success_url = reverse_lazy('users')
-    permission_denied_message = _("You do not have permission to edit another user")
-    redirect_url = reverse_lazy('users')
 
     def form_valid(self, form):
         messages.add_message(
@@ -60,26 +53,21 @@ class UserUpdateView(AuthorizedCreatorOnlyMixin, UpdateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class UserDeleteView(AuthorizedCreatorOnlyMixin, DeleteView):
-
-    model = get_user_model()
+class UserDeleteView(UserCreatorOnlyMixin, UsersAbstractMixin, DeleteView):
     template_name = 'users/delete.html'
-    success_url = reverse_lazy('users')
-    permission_denied_message = _("You do not have permission to edit another user")
-    redirect_url = reverse_lazy('users')
 
     def post(self, request, *args, **kwargs):
-        try:
-            response = self.delete(request, *args, **kwargs)
-            messages.add_message(
-                self.request,
-                messages.SUCCESS,
-                _('User has been deleted successfully.'))
-            return response
-        except ProtectedError:
+        user = get_user_model().objects.get(pk=request.user.id)
+        if user.tasks_author.first() or user.tasks_executor.first():
             messages.add_message(
                 self.request,
                 messages.ERROR,
                 _('Cannot delete user because it is in use.')
             )
-            return redirect(self.redirect_url)
+            return redirect(reverse_lazy('users'))
+        user.delete()
+        messages.add_message(
+            self.request,
+            messages.SUCCESS,
+            _('User has been deleted successfully.'))
+        return redirect(self.success_url)

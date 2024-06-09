@@ -12,33 +12,22 @@ class CustomChoiceField(forms.ModelChoiceField):
 
 
 class TaskForm(forms.ModelForm):
-    status = forms.ModelChoiceField(
-        queryset=Status.objects.all(),
-        widget=forms.Select,
-        required=True,
-        label=_('Status')
-    )
-    executor = CustomChoiceField(
-        queryset=get_user_model().objects.all(),
-        widget=forms.Select,
-        required=False,
-        label=_('Executor')
-    )
-    labels = forms.ModelMultipleChoiceField(
-        queryset=Label.objects.all(),
-        widget=forms.SelectMultiple,
-        required=False,
-        label=_('Labels')
-    )
-
     class Meta:
         model = Task
         fields = ['name', 'description', 'status', 'executor', 'labels']
         labels = {
             "name": _("Name"),
-            "description": _("Description")
+            "description": _("Description"),
+            "status": _("Status"),
+            "executor": _("Executor"),
+            "labels": _("Labels")
         }
         error_messages = {"name": {"unique": _("A task with that name already exists.")}}
+        widgets = {
+            'status': forms.Select(),
+            'executor': forms.Select(),
+            'labels': forms.SelectMultiple(),
+        }
 
 
 class TaskSearchForm(forms.Form):

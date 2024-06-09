@@ -1,21 +1,14 @@
-from django.contrib import messages
-from task_manager.mixins import LoginRequireMixin
-from django.shortcuts import redirect
+from task_manager.mixins import LimitedPermissionsMixin
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 
 
-class AuthorizedCreatorOnlyMixin(LoginRequireMixin):
-    redirect_url = reverse_lazy('login')
+class UserCreatorOnlyMixin(LimitedPermissionsMixin):
+    redirect_url = reverse_lazy('users')
+    permission_denied_message = _("You do not have permission to edit another user")
+    have_permission = False
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.id == kwargs.get('pk'):
-            return super().dispatch(request, *args, **kwargs)
-
-        if request.user.is_authenticated:
-            messages.add_message(
-                request,
-                messages.ERROR,
-                self.permission_denied_message
-            )
-            return redirect(self.redirect_url)
+            self.have_permission = True
         return super().dispatch(request, *args, **kwargs)

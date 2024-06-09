@@ -1,6 +1,4 @@
 from django.contrib import messages
-from django.db.models import ProtectedError
-from django.forms import Form
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -12,19 +10,19 @@ from task_manager.mixins import LoginRequireMixin
 
 
 # Create your views here.
-class LabelAbstractView(LoginRequireMixin):
+class LabelAbstractMixin(LoginRequireMixin):
     model = Label
     form_class = LabelForm
     success_url = reverse_lazy('labels')
 
 
-class LabelIndexView(LabelAbstractView, ListView):
+class LabelIndexView(LabelAbstractMixin, ListView):
     template_name = 'labels/index.html'
     context_object_name = 'labels'
     ordering = ['pk']
 
 
-class LabelCreateView(LabelAbstractView, CreateView):
+class LabelCreateView(LabelAbstractMixin, CreateView):
     template_name = 'labels/create.html'
 
     def form_valid(self, form):
@@ -39,7 +37,7 @@ class LabelCreateView(LabelAbstractView, CreateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class LabelUpdateView(LabelAbstractView, UpdateView):
+class LabelUpdateView(LabelAbstractMixin, UpdateView):
     template_name = 'labels/update.html'
 
     def form_valid(self, form):
@@ -54,24 +52,21 @@ class LabelUpdateView(LabelAbstractView, UpdateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class LabelDeleteView(LabelAbstractView, DeleteView):
-    success_url = reverse_lazy('labels')
-    redirect_url = reverse_lazy('labels')
+class LabelDeleteView(LabelAbstractMixin, DeleteView):
     template_name = 'labels/delete.html'
-    form_class = Form
 
     def post(self, request, *args, **kwargs):
-        try:
-            response = self.delete(request, *args, **kwargs)
-            messages.add_message(
-                self.request,
-                messages.SUCCESS,
-                _('Label has been deleted successfully.'))
-            return response
-        except ProtectedError:
+        label = Label.objects.get(pk=kwargs['pk'])
+        if label.tasks.first():
             messages.add_message(
                 self.request,
                 messages.ERROR,
                 _('Cannot delete label because it is in use.')
             )
-            return redirect(self.redirect_url)
+            return redirect(reverse_lazy('labels'))
+        label.delete()
+        messages.add_message(
+            self.request,
+            messages.SUCCESS,
+            _('Label has been deleted successfully.'))
+        return redirect(self.success_url)

@@ -10,12 +10,17 @@ class Task(models.Model):
     author = models.ForeignKey(
         get_user_model(),
         related_name='tasks_author',
-        on_delete=models.PROTECT
+        on_delete=models.PROTECT,
     )
     name = models.CharField(max_length=255, unique=True, null=False, blank=False)
     description = models.TextField(null=True, blank=True)
-    status = models.ForeignKey(Status, on_delete=models.PROTECT, null=False, blank=False)
-    labels = models.ManyToManyField(Label, through='TaskLabels')
+    status = models.ForeignKey(
+        Status,
+        related_name='tasks',
+        null=False, blank=False,
+        on_delete=models.CASCADE,
+    )
+    labels = models.ManyToManyField(Label, related_name='tasks', blank=True)
     executor = models.ForeignKey(
         get_user_model(),
         related_name='tasks_executor',
@@ -26,8 +31,3 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class TaskLabels(models.Model):
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    label = models.ForeignKey(Label, on_delete=models.PROTECT)

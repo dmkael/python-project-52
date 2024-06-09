@@ -7,7 +7,7 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        {% bootstrap_form form wrapper_class="mb-3" %}
+        {% bootstrap_form form %}
     
         {% block button %}
             {% trans "Register" as button_text %}

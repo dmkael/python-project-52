@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.forms import Form
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.forms import TaskForm, TaskSearchForm
 from task_manager.tasks.models import Task
 from task_manager.mixins import LoginRequireMixin
-from task_manager.tasks.mixins import TaskCreatorOnlyMixin
+from task_manager.tasks.mixins import TaskAuthorOnlyMixin
 
 
 class TaskAbstractView(LoginRequireMixin):
@@ -90,15 +90,14 @@ class TaskUpdateView(TaskAbstractView, UpdateView):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class TaskDeleteView(TaskCreatorOnlyMixin, TaskAbstractView, DeleteView):
+class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteView):
     template_name = 'tasks/delete.html'
-    form_class = Form
-    permission_denied_message = _('Only author can delete a task')
-    redirect_url = reverse_lazy('tasks')
 
-    def get_success_url(self):
+    def post(self, request, *args, **kwargs):
+        task = Task.objects.get(pk=kwargs['pk'])
+        task.delete()
         messages.add_message(
             self.request,
             messages.SUCCESS,
             _('Task has been deleted successfully.'))
-        return super().get_success_url()
+        return redirect(self.success_url)

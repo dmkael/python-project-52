@@ -3,12 +3,11 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 
-class UserCreationForm(forms.ModelForm):
+class UserForm(forms.ModelForm):
 
     password1 = forms.CharField(
         label=_('Password'),
         widget=forms.PasswordInput(attrs={
-            'placeholder': _('Password'),
             'autocomplete': 'new-password'
         }),
         help_text=_('<ul><li>Your password must contain at least 3 characters.</li><ul>')
@@ -22,7 +21,6 @@ class UserCreationForm(forms.ModelForm):
         min_length=3,
         label=_('Confirm password'),
         widget=forms.PasswordInput(attrs={
-            'placeholder': _('Confirm password'),
             'autocomplete': 'new-password'
         }),
         help_text=_('To confirm, please enter your password again.')

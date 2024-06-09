@@ -8,4 +8,4 @@ exclude_patterns:
   - "**/tests/"
   - "**/urls.py"
   - "**/migrations/"
-  - "**/models/"
+  - "**/models.py"

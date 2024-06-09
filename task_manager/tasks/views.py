@@ -1,3 +1,4 @@
+from django.forms import Form
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
@@ -67,7 +68,5 @@ class TaskUpdateView(TaskAbstractView, UpdateFlashedView):
 class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteFlashedView):
     template_name = 'tasks/delete.html'
     valid_data_message = _('Task has been deleted successfully.')
-
-    def post(self, request, *args, **kwargs):
-        task = Task.objects.get(pk=kwargs['pk'])
-        return super().process(request, task)
+    success_url = reverse_lazy('tasks')
+    form_class = Form

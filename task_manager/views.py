@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.forms import Form
 from django.shortcuts import render, redirect
 from django.views import View
 from django.utils.translation import gettext as _
@@ -88,18 +89,19 @@ class UpdateFlashedView(UpdateView):
 class DeleteFlashedView(DeleteView):
     valid_data_message = 'Object has been deleted successfully.'
     invalid_data_message = 'Cannot delete object because it is in use.'
+    form_class = Form
     redirect_url = ''
+    success_url = ''
     is_correct_data = True
 
-    def process(self, request, obj):
+    def post(self, request, *args, **kwargs):
         if self.is_correct_data:
-            obj.delete()
             messages.add_message(
                 self.request,
                 messages.SUCCESS,
                 self.valid_data_message
             )
-            return redirect(self.redirect_url)
+            return super().post(request, *args, **kwargs)
         messages.add_message(
             self.request,
             messages.ERROR,

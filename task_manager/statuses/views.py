@@ -1,3 +1,4 @@
+from django.forms import Form
 from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.utils.translation import gettext_lazy as _
@@ -32,11 +33,13 @@ class StatusUpdateView(StatusAbstractMixin, UpdateFlashedView):
 class StatusDeleteView(StatusAbstractMixin, DeleteFlashedView):
     template_name = 'statuses/delete.html'
     redirect_url = reverse_lazy('statuses')
+    success_url = reverse_lazy('statuses')
     valid_data_message = _('Status has been deleted successfully.')
     invalid_data_message = _('Cannot delete status because it is in use.')
+    form_class = Form
 
     def post(self, request, *args, **kwargs):
         status = Status.objects.get(pk=kwargs['pk'])
         if status.tasks.first():
             self.is_correct_data = False
-        return super().process(request, status)
+        return super().post(request, *args, **kwargs)

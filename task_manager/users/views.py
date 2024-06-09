@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model, update_session_auth_hash
+from django.forms import Form
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
@@ -38,9 +39,11 @@ class UserDeleteView(UserCreatorOnlyMixin, UsersAbstractMixin, DeleteFlashedView
     template_name = 'users/delete.html'
     valid_data_message = _('User has been deleted successfully.')
     invalid_data_message = _('Cannot delete user because it is in use.')
+    success_url = reverse_lazy('users')
+    form_class = Form
 
     def post(self, request, *args, **kwargs):
         user = get_user_model().objects.get(pk=request.user.id)
         if user.tasks_author.first() or user.tasks_executor.first():
             self.is_correct_data = False
-        return super().process(request, user)
+        return super().post(request, *args, **kwargs)

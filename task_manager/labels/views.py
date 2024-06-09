@@ -1,3 +1,4 @@
+from django.forms import Form
 from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.utils.translation import gettext_lazy as _
@@ -33,11 +34,13 @@ class LabelUpdateView(LabelAbstractMixin, UpdateFlashedView):
 class LabelDeleteView(LabelAbstractMixin, DeleteFlashedView):
     template_name = 'labels/delete.html'
     redirect_url = reverse_lazy('labels')
+    success_url = reverse_lazy('labels')
     valid_data_message = _('Label has been deleted successfully.')
     invalid_data_message = _('Cannot delete label because it is in use.')
+    form_class = Form
 
     def post(self, request, *args, **kwargs):
         label = Label.objects.get(pk=kwargs['pk'])
         if label.tasks.first():
             self.is_correct_data = False
-        return super().process(request, label)
+        return super().post(request, *args, **kwargs)

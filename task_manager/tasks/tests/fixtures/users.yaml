@@ -1,4 +1,4 @@
-- model: auth.user
+- model: users.user
   pk: 1
   fields:
     first_name: "Max"
@@ -6,7 +6,7 @@
     username: "max_payne"
     password: "pbkdf2_sha256$260000$piF1aYfgJxaqvSxUHZLoL8$F4e8/MkWQK54qD/MQ6Tx5iJH1Yq2fBNspLbOQELpJtU="
 
-- model: auth.user
+- model: users.user
   pk: 2
   fields:
     first_name: "Emma"

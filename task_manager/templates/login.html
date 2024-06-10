@@ -7,12 +7,7 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        {% if error %}
-        <ul class="list-unstyled text-danger">
-            <li>{{ error }}</li>
-        </ul>
-        {% endif %}
-        {% bootstrap_form form show_help=False %}
+        {% bootstrap_form form %}
     
         {% block button %}
             {% trans "Sign in" as button_text %}

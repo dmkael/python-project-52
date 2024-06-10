@@ -3,15 +3,19 @@ from django.forms import Form
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
-from task_manager.users.forms import UserForm
+from task_manager.users.forms import UserCreateForm
 from task_manager.users.mixins import UserCreatorOnlyMixin
-from task_manager.views import CreateFlashedView, UpdateFlashedView, DeleteFlashedView
+from task_manager.view_mixins import (
+    CreateFlashedView,
+    UpdateFlashedView,
+    DeleteFlashedView
+)
 
 
 class UsersAbstractMixin:
     model = get_user_model()
     success_url = reverse_lazy('users')
-    form_class = UserForm
+    form_class = UserCreateForm
 
 
 class UsersIndexView(UsersAbstractMixin, ListView):

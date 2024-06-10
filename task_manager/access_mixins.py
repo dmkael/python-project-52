@@ -33,4 +33,4 @@ class LimitedPermissionsMixin(LoginRequireMixin):
                 self.permission_denied_message
             )
             return redirect(self.redirect_url)
-        return LoginRequireMixin.dispatch(self, request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)

@@ -3,7 +3,7 @@ from task_manager.users.views import (
     UsersIndexView,
     UserCreateView,
     UserUpdateView,
-    UserDeleteView
+    UserDeleteView,
 )
 
 urlpatterns = [

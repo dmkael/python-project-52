@@ -5,9 +5,13 @@ from django.views.generic import ListView, DetailView
 from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.forms import TaskForm, TaskSearchForm
 from task_manager.tasks.models import Task
-from task_manager.mixins import LoginRequireMixin
+from task_manager.access_mixins import LoginRequireMixin
 from task_manager.tasks.mixins import TaskAuthorOnlyMixin
-from task_manager.views import CreateFlashedView, UpdateFlashedView, DeleteFlashedView
+from task_manager.view_mixins import (
+    CreateFlashedView,
+    UpdateFlashedView,
+    DeleteFlashedView
+)
 
 
 class TaskAbstractView(LoginRequireMixin):

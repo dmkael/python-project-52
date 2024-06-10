@@ -1,4 +1,4 @@
-from task_manager.mixins import LimitedPermissionsMixin
+from task_manager.access_mixins import LimitedPermissionsMixin
 from django.urls import reverse_lazy
 from task_manager.tasks.models import Task
 from django.utils.translation import gettext_lazy as _

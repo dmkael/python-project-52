@@ -9,7 +9,7 @@ import yaml
     FIXTURE_DIRS=[os.path.join(os.path.dirname(__file__), 'fixtures')]
 )
 class TaskCreationFormTest(TestCase):
-    fixtures = ['users', 'statuses']
+    fixtures = ['users.yaml', 'statuses.yaml']
 
     def setUp(self):
         with open(

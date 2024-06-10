@@ -27,8 +27,8 @@ urlpatterns = [
     path('labels/', include('task_manager.labels.urls')),
     path('tasks/', include('task_manager.tasks.urls')),
     path('users/', include('task_manager.users.urls')),
-    path('login/', views.LoginView.as_view(), name='login'),
-    path('logout/', views.LogoutView.as_view(), name='logout'),
+    path('login/', views.TaskManagerLoginView.as_view(), name='login'),
+    path('logout/', views.TaskManagerLogoutView.as_view(), name='logout'),
 ]
 
 handler404 = "task_manager.views.page_not_found_view"

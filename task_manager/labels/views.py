@@ -4,8 +4,12 @@ from django.views.generic import ListView
 from django.utils.translation import gettext_lazy as _
 from task_manager.labels.forms import LabelForm
 from task_manager.labels.models import Label
-from task_manager.views import CreateFlashedView, UpdateFlashedView, DeleteFlashedView
-from task_manager.mixins import LoginRequireMixin
+from task_manager.view_mixins import (
+    CreateFlashedView,
+    UpdateFlashedView,
+    DeleteFlashedView
+)
+from task_manager.access_mixins import LoginRequireMixin
 
 
 # Create your views here.

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 16:49+0000\n"
+"POT-Creation-Date: 2024-06-10 15:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: task_manager/forms.py:16 task_manager/users/forms.py:9
+#: task_manager/forms.py:16
 msgid "Password"
 msgstr "Contraseña"
 
@@ -150,19 +150,19 @@ msgstr "última"
 msgid "Edit label"
 msgstr "Editar etiqueta"
 
-#: task_manager/labels/views.py:25
+#: task_manager/labels/views.py:26
 msgid "Label has been created successfully."
 msgstr "La etiqueta se ha creado correctamente."
 
-#: task_manager/labels/views.py:30
+#: task_manager/labels/views.py:31
 msgid "Label has been updated successfully."
 msgstr "La etiqueta se ha actualizado correctamente."
 
-#: task_manager/labels/views.py:36
+#: task_manager/labels/views.py:38
 msgid "Label has been deleted successfully."
 msgstr "La etiqueta se ha eliminado correctamente."
 
-#: task_manager/labels/views.py:37
+#: task_manager/labels/views.py:39
 msgid "Cannot delete label because it is in use."
 msgstr "No se puede eliminar la etiqueta porque está en uso."
 
@@ -170,15 +170,15 @@ msgstr "No se puede eliminar la etiqueta porque está en uso."
 msgid "You are not authorized! Please log in."
 msgstr "¡Usted no está autorizado! Por favor Iniciar sesión."
 
-#: task_manager/settings.py:181 task_manager/templates/layout.html:71
+#: task_manager/settings.py:172 task_manager/templates/layout.html:71
 msgid "English"
 msgstr "Inglés"
 
-#: task_manager/settings.py:182 task_manager/templates/layout.html:73
+#: task_manager/settings.py:173 task_manager/templates/layout.html:73
 msgid "Russian"
 msgstr "Ruso"
 
-#: task_manager/settings.py:183 task_manager/templates/layout.html:75
+#: task_manager/settings.py:174 task_manager/templates/layout.html:75
 msgid "Spanish"
 msgstr "Español"
 
@@ -204,19 +204,19 @@ msgstr "Estados"
 msgid "Edit status"
 msgstr "Editar estado"
 
-#: task_manager/statuses/views.py:24
+#: task_manager/statuses/views.py:25
 msgid "Status has been created successfully."
 msgstr "El estado se ha creado correctamente."
 
-#: task_manager/statuses/views.py:29
+#: task_manager/statuses/views.py:30
 msgid "Status has been updated successfully."
 msgstr "El estado se ha actualizado correctamente."
 
-#: task_manager/statuses/views.py:35
+#: task_manager/statuses/views.py:37
 msgid "Status has been deleted successfully."
 msgstr "El estado se ha eliminado correctamente."
 
-#: task_manager/statuses/views.py:36
+#: task_manager/statuses/views.py:38
 msgid "Cannot delete status because it is in use."
 msgstr "No se puede eliminar el estado porque está en uso."
 
@@ -283,15 +283,15 @@ msgstr "Reiniciar"
 msgid "Edit task"
 msgstr "Editar tarea"
 
-#: task_manager/tasks/views.py:54
+#: task_manager/tasks/views.py:55
 msgid "Task has been created successfully."
 msgstr "La tarea se ha creado correctamente."
 
-#: task_manager/tasks/views.py:64
+#: task_manager/tasks/views.py:65
 msgid "Task has been updated successfully."
 msgstr "La tarea se ha actualizado correctamente."
 
-#: task_manager/tasks/views.py:69
+#: task_manager/tasks/views.py:70
 msgid "Task has been deleted successfully."
 msgstr "La tarea se ha eliminado correctamente."
 
@@ -349,28 +349,13 @@ msgstr "Idioma"
 msgid "Sign in"
 msgstr "Iniciar sesión"
 
+#: task_manager/users/forms.py:12
+msgid "First name"
+msgstr "Nombre"
+
 #: task_manager/users/forms.py:13
-msgid "<ul><li>Your password must contain at least 3 characters.</li><ul>"
-msgstr "<ul><li>Su contraseña debe contener al menos 3 caracteres.</li><ul>"
-
-#: task_manager/users/forms.py:18
-msgid ""
-"The entered password is too short. It must contain at least 3 characters."
-msgstr ""
-"La contraseña ingresada es demasiado corta. Debe contener al menos 3 "
-"caracteres."
-
-#: task_manager/users/forms.py:22
-msgid "Confirm password"
-msgstr "Confirmar Contraseña"
-
-#: task_manager/users/forms.py:26
-msgid "To confirm, please enter your password again."
-msgstr "Para confirmar, ingrese su contraseña nuevamente."
-
-#: task_manager/users/forms.py:39
-msgid "The entered passwords do not match."
-msgstr "Las contraseñas introducidas no coinciden."
+msgid "Last name"
+msgstr "Apellido"
 
 #: task_manager/users/mixins.py:8
 msgid "You do not have permission to edit another user"
@@ -396,19 +381,19 @@ msgstr "Nombre completo"
 msgid "Edit user"
 msgstr "Editar usuario"
 
-#: task_manager/users/views.py:24
+#: task_manager/users/views.py:25
 msgid "User has been registered successfully."
 msgstr "El usuario ha sido registrado exitosamente."
 
-#: task_manager/users/views.py:29
+#: task_manager/users/views.py:30
 msgid "User has been updated successfully."
 msgstr "El usuario se ha actualizado correctamente."
 
-#: task_manager/users/views.py:39
+#: task_manager/users/views.py:40
 msgid "User has been deleted successfully."
 msgstr "El usuario ha sido eliminado con éxito."
 
-#: task_manager/users/views.py:40
+#: task_manager/users/views.py:41
 msgid "Cannot delete user because it is in use."
 msgstr "No se puede eliminar la usuario porque está en uso."
 

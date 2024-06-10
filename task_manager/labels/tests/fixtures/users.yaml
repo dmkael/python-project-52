@@ -1,0 +1,15 @@
+- model: users.user
+  pk: 1
+  fields:
+    first_name: "Max"
+    last_name: "Smith"
+    username: "max_payne"
+    password: "pbkdf2_sha256$260000$piF1aYfgJxaqvSxUHZLoL8$F4e8/MkWQK54qD/MQ6Tx5iJH1Yq2fBNspLbOQELpJtU="
+
+- model: users.user
+  pk: 2
+  fields:
+    first_name: "Emma"
+    last_name: "Watson"
+    username: "Hermione"
+    password: "pbkdf2_sha256$260000$piF1aYfgJxaqvSxUHZLoL8$F4e8/MkWQK54qD/MQ6Tx5iJH1Yq2fBNspLbOQELpJtU="

@@ -3,6 +3,7 @@ from django.utils import timezone
 from task_manager.statuses.models import Status
 from task_manager.labels.models import Label
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
@@ -12,8 +13,12 @@ class Task(models.Model):
         related_name='tasks_author',
         on_delete=models.PROTECT,
     )
-    name = models.CharField(max_length=255, unique=True, null=False, blank=False)
-    description = models.TextField(null=True, blank=True)
+    name = models.CharField(
+        _("Name"),
+        max_length=255,
+        unique=True,
+        null=False, blank=False)
+    description = models.TextField(_("Description"), null=True, blank=True)
     status = models.ForeignKey(
         Status,
         related_name='tasks',
@@ -25,7 +30,7 @@ class Task(models.Model):
         get_user_model(),
         related_name='tasks_executor',
         null=True, blank=True,
-        on_delete=models.PROTECT
+        on_delete=models.PROTECT,
     )
     created_at = models.DateTimeField(default=timezone.now)
 

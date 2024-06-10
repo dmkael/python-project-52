@@ -7,9 +7,6 @@ class LabelForm(forms.ModelForm):
     class Meta:
         model = Label
         fields = ['name']
-        labels = {
-            'name': _("Name"),
-        }
         error_messages = {'name': {
             "unique": _("A label with that name already exists.")
         }}

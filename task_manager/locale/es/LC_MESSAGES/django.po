@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-10 15:24+0000\n"
+"POT-Creation-Date: 2024-06-10 21:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,26 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
 
-#: task_manager/forms.py:7
-msgid "Username"
-msgstr "Nombre de usuario"
-
-#: task_manager/forms.py:16
-msgid "Password"
-msgstr "Contraseña"
+#: task_manager/access_mixins.py:16
+msgid "You are not authorized! Please log in."
+msgstr "¡Usted no está autorizado! Por favor Iniciar sesión."
 
 #: task_manager/labels/forms.py:11
+msgid "A label with that name already exists."
+msgstr "Ya existe una etiqueta con ese nombre."
+
+#: task_manager/labels/models.py:8
 #: task_manager/labels/templates/labels/index.html:15
-#: task_manager/statuses/forms.py:11
+#: task_manager/statuses/models.py:8
 #: task_manager/statuses/templates/statuses/index.html:15
-#: task_manager/tasks/forms.py:19
+#: task_manager/tasks/models.py:17
 #: task_manager/tasks/templates/tasks/index.html:54
 msgid "Name"
 msgstr "Nombre"
-
-#: task_manager/labels/forms.py:14
-msgid "A label with that name already exists."
-msgstr "Ya existe una etiqueta con ese nombre."
 
 #: task_manager/labels/templates/labels/create.html:5
 #: task_manager/labels/templates/labels/index.html:8
@@ -70,7 +66,7 @@ msgid "Yes,&nbsp;delete"
 msgstr "Si,&nbsp;eliminar"
 
 #: task_manager/labels/templates/labels/index.html:5
-#: task_manager/tasks/forms.py:23 task_manager/tasks/forms.py:50
+#: task_manager/tasks/forms.py:27
 #: task_manager/tasks/templates/tasks/detail.html:34
 #: task_manager/templates/layout.html:40
 msgid "Labels"
@@ -150,39 +146,35 @@ msgstr "última"
 msgid "Edit label"
 msgstr "Editar etiqueta"
 
-#: task_manager/labels/views.py:26
+#: task_manager/labels/views.py:30
 msgid "Label has been created successfully."
 msgstr "La etiqueta se ha creado correctamente."
 
-#: task_manager/labels/views.py:31
+#: task_manager/labels/views.py:35
 msgid "Label has been updated successfully."
 msgstr "La etiqueta se ha actualizado correctamente."
 
-#: task_manager/labels/views.py:38
+#: task_manager/labels/views.py:42
 msgid "Label has been deleted successfully."
 msgstr "La etiqueta se ha eliminado correctamente."
 
-#: task_manager/labels/views.py:39
+#: task_manager/labels/views.py:43
 msgid "Cannot delete label because it is in use."
 msgstr "No se puede eliminar la etiqueta porque está en uso."
 
-#: task_manager/mixins.py:17
-msgid "You are not authorized! Please log in."
-msgstr "¡Usted no está autorizado! Por favor Iniciar sesión."
-
-#: task_manager/settings.py:172 task_manager/templates/layout.html:71
+#: task_manager/settings.py:174 task_manager/templates/layout.html:71
 msgid "English"
 msgstr "Inglés"
 
-#: task_manager/settings.py:173 task_manager/templates/layout.html:73
+#: task_manager/settings.py:175 task_manager/templates/layout.html:73
 msgid "Russian"
 msgstr "Ruso"
 
-#: task_manager/settings.py:174 task_manager/templates/layout.html:75
+#: task_manager/settings.py:176 task_manager/templates/layout.html:75
 msgid "Spanish"
 msgstr "Español"
 
-#: task_manager/statuses/forms.py:14
+#: task_manager/statuses/forms.py:11
 msgid "A status with that name already exists."
 msgstr "Ya existe un estado con ese nombre."
 
@@ -204,49 +196,53 @@ msgstr "Estados"
 msgid "Edit status"
 msgstr "Editar estado"
 
-#: task_manager/statuses/views.py:25
+#: task_manager/statuses/views.py:29
 msgid "Status has been created successfully."
 msgstr "El estado se ha creado correctamente."
 
-#: task_manager/statuses/views.py:30
+#: task_manager/statuses/views.py:34
 msgid "Status has been updated successfully."
 msgstr "El estado se ha actualizado correctamente."
 
-#: task_manager/statuses/views.py:37
+#: task_manager/statuses/views.py:41
 msgid "Status has been deleted successfully."
 msgstr "El estado se ha eliminado correctamente."
 
-#: task_manager/statuses/views.py:38
+#: task_manager/statuses/views.py:42
 msgid "Cannot delete status because it is in use."
 msgstr "No se puede eliminar el estado porque está en uso."
 
-#: task_manager/tasks/forms.py:20
-msgid "Description"
-msgstr "Descripción"
+#: task_manager/tasks/forms.py:18
+msgid "A task with that name already exists."
+msgstr "Ya existe una tarea con ese nombre."
 
-#: task_manager/tasks/forms.py:21 task_manager/tasks/forms.py:38
+#: task_manager/tasks/forms.py:25 task_manager/tasks/forms.py:36
 #: task_manager/tasks/templates/tasks/detail.html:25
 #: task_manager/tasks/templates/tasks/index.html:55
 msgid "Status"
 msgstr "Estado"
 
-#: task_manager/tasks/forms.py:22 task_manager/tasks/forms.py:44
+#: task_manager/tasks/forms.py:26 task_manager/tasks/forms.py:42
 #: task_manager/tasks/templates/tasks/detail.html:21
 #: task_manager/tasks/templates/tasks/index.html:57
 msgid "Executor"
 msgstr "Ejecutor"
 
-#: task_manager/tasks/forms.py:25
-msgid "A task with that name already exists."
-msgstr "Ya existe una tarea con ese nombre."
+#: task_manager/tasks/forms.py:48
+msgid "Label"
+msgstr "Etiqueta"
 
-#: task_manager/tasks/forms.py:52
+#: task_manager/tasks/forms.py:50
 msgid "Only your tasks"
 msgstr "Solo tus tareas"
 
 #: task_manager/tasks/mixins.py:9
 msgid "Only author can delete a task"
 msgstr "Sólo su autor puede eliminar una tarea."
+
+#: task_manager/tasks/models.py:21
+msgid "Description"
+msgstr "Descripción"
 
 #: task_manager/tasks/templates/tasks/create.html:5
 #: task_manager/tasks/templates/tasks/index.html:39
@@ -283,15 +279,15 @@ msgstr "Reiniciar"
 msgid "Edit task"
 msgstr "Editar tarea"
 
-#: task_manager/tasks/views.py:55
+#: task_manager/tasks/views.py:59
 msgid "Task has been created successfully."
 msgstr "La tarea se ha creado correctamente."
 
-#: task_manager/tasks/views.py:65
+#: task_manager/tasks/views.py:69
 msgid "Task has been updated successfully."
 msgstr "La tarea se ha actualizado correctamente."
 
-#: task_manager/tasks/views.py:70
+#: task_manager/tasks/views.py:74
 msgid "Task has been deleted successfully."
 msgstr "La tarea se ha eliminado correctamente."
 
@@ -345,21 +341,21 @@ msgstr "Mis Tareas"
 msgid "Language"
 msgstr "Idioma"
 
-#: task_manager/templates/login.html:18
+#: task_manager/templates/login.html:13
 msgid "Sign in"
 msgstr "Iniciar sesión"
-
-#: task_manager/users/forms.py:12
-msgid "First name"
-msgstr "Nombre"
-
-#: task_manager/users/forms.py:13
-msgid "Last name"
-msgstr "Apellido"
 
 #: task_manager/users/mixins.py:8
 msgid "You do not have permission to edit another user"
 msgstr "No tienes permiso para cambiar otro usuario."
+
+#: task_manager/users/models.py:7
+msgid "First name"
+msgstr "Nombre"
+
+#: task_manager/users/models.py:8
+msgid "Last name"
+msgstr "Apellido"
 
 #: task_manager/users/templates/users/create.html:13
 msgid "Register"
@@ -381,38 +377,30 @@ msgstr "Nombre completo"
 msgid "Edit user"
 msgstr "Editar usuario"
 
-#: task_manager/users/views.py:25
+#: task_manager/users/views.py:29
 msgid "User has been registered successfully."
 msgstr "El usuario ha sido registrado exitosamente."
 
-#: task_manager/users/views.py:30
+#: task_manager/users/views.py:34
 msgid "User has been updated successfully."
 msgstr "El usuario se ha actualizado correctamente."
 
-#: task_manager/users/views.py:40
+#: task_manager/users/views.py:44
 msgid "User has been deleted successfully."
 msgstr "El usuario ha sido eliminado con éxito."
 
-#: task_manager/users/views.py:41
+#: task_manager/users/views.py:45
 msgid "Cannot delete user because it is in use."
 msgstr "No se puede eliminar la usuario porque está en uso."
 
-#: task_manager/views.py:16
+#: task_manager/views.py:15
 msgid "Hello World"
 msgstr "Hola Mundo"
 
-#: task_manager/views.py:38
+#: task_manager/views.py:26
 msgid "You are logged in"
 msgstr "Has iniciado sesión"
 
-#: task_manager/views.py:40
-msgid ""
-"Please enter the correct username and password. Both fields can be case "
-"sensitive."
-msgstr ""
-"Por favor ingrese el nombre de usuario y contraseña correctos. Ambos campos "
-"pueden distinguir entre mayúsculas y minúsculas."
-
-#: task_manager/views.py:50
+#: task_manager/views.py:35
 msgid "You are logged out"
 msgstr "Estás desconectado"

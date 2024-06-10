@@ -6,7 +6,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class LoginRequireMixin(LoginRequiredMixin):
-    login_url = reverse_lazy('login')
     redirect_field_name = None
 
     def dispatch(self, request, *args, **kwargs):

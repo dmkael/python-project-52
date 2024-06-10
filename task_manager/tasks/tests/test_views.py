@@ -1,5 +1,6 @@
 from django.test import TestCase, Client, override_settings
 from django.urls import reverse
+from django.conf import settings
 from django.contrib import auth
 from task_manager.tasks.models import Task
 import os
@@ -18,7 +19,7 @@ class TaskViewsTest(TestCase):
         self.users_model = auth.get_user_model()
         self.user = self.users_model.objects.get(pk=1)
         self.user2 = self.users_model.objects.get(pk=2)
-        self.login_url = reverse('login')
+        self.login_url = reverse(settings.LOGIN_URL)
         self.task_create_url = reverse('task_create')
         self.task_view_url = reverse('task_detail', kwargs={'pk': 1})
         self.task_update_url1 = reverse('task_update', kwargs={'pk': 1})

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.test import TestCase, Client, override_settings
 from django.urls import reverse
 from django.contrib import auth
@@ -18,7 +19,7 @@ class LabelsViewsTest(TestCase):
         self.users_model = auth.get_user_model()
         self.user = self.users_model.objects.get(pk=1)
         self.user2 = self.users_model.objects.get(pk=2)
-        self.login_url = reverse('login')
+        self.login_url = reverse(settings.LOGIN_URL)
         self.label_create_url = reverse('label_create')
         self.label_update_url1 = reverse('label_update', kwargs={'pk': 1})
         self.label_update_url2 = reverse('label_update', kwargs={'pk': 2})

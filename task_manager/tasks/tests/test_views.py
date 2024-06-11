@@ -17,8 +17,8 @@ class TaskViewsTest(TestCase):
         self.client = Client()
         self.tasks = Task.objects
         self.users_model = auth.get_user_model()
-        self.user = self.users_model.objects.get(pk=3)
-        self.user2 = self.users_model.objects.get(pk=4)
+        self.user = self.users_model.objects.get(pk=1)
+        self.user2 = self.users_model.objects.get(pk=2)
         self.login_url = reverse(settings.LOGIN_URL)
         self.task_create_url = reverse('task_create')
         self.task_view_url = reverse('task_detail', kwargs={'pk': 1})

@@ -5,10 +5,18 @@ from task_manager.labels.models import Label
 from django.utils.translation import gettext_lazy as _
 
 
+class SelfAuthorFilter(django_filters.Filter):
+    def filter(self, qs, value):
+        if not value:
+            return qs
+        parent = getattr(self, 'parent', None)
+        request = getattr(parent, 'request', None) if parent else None
+        return qs.filter(author__exact=request.user) if request else qs
+
+
 class TasksFilter(django_filters.FilterSet):
-    author = django_filters.BooleanFilter(
+    author = SelfAuthorFilter(
         widget=forms.CheckboxInput(),
-        exclude=True,
         label=_("Only your tasks")
     )
     labels = django_filters.ModelChoiceFilter(
@@ -23,10 +31,3 @@ class TasksFilter(django_filters.FilterSet):
     def filter_queryset(self, queryset):
         queryset = Task.objects.prefetch_related('status', 'executor', 'author')
         return super().filter_queryset(queryset)
-
-    @property
-    def qs(self):
-        tasks = super().qs
-        if self.request.GET.get('author'):
-            tasks = tasks.filter(author=self.request.user)
-        return tasks.order_by('pk')

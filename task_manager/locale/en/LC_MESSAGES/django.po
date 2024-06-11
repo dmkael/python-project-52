@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-11 14:40+0000\n"
+"POT-Creation-Date: 2024-06-11 20:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: task_manager/labels/models.py:20 task_manager/tasks/filters.py:16
+#: task_manager/labels/models.py:20 task_manager/tasks/filters.py:24
 msgid "Label"
 msgstr ""
 
@@ -234,7 +234,7 @@ msgstr ""
 msgid "Cannot delete status because it is in use."
 msgstr ""
 
-#: task_manager/tasks/filters.py:12
+#: task_manager/tasks/filters.py:20
 msgid "Only your tasks"
 msgstr ""
 
@@ -339,7 +339,7 @@ msgstr ""
 msgid "Task Manager"
 msgstr ""
 
-#: task_manager/templates/layout.html:36 task_manager/users/models.py:20
+#: task_manager/templates/layout.html:36 task_manager/users/models.py:23
 #: task_manager/users/templates/users/index.html:5
 msgid "Users"
 msgstr ""
@@ -381,7 +381,7 @@ msgstr ""
 msgid "Last name"
 msgstr ""
 
-#: task_manager/users/models.py:19
+#: task_manager/users/models.py:22
 msgid "User"
 msgstr ""
 

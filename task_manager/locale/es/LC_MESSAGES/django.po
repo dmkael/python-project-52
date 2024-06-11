@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-11 14:40+0000\n"
+"POT-Creation-Date: 2024-06-11 20:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr "Ya existe una etiqueta con ese nombre."
 msgid "Name"
 msgstr "Nombre"
 
-#: task_manager/labels/models.py:20 task_manager/tasks/filters.py:16
+#: task_manager/labels/models.py:20 task_manager/tasks/filters.py:24
 msgid "Label"
 msgstr "Etiqueta"
 
@@ -235,7 +235,7 @@ msgstr "El estado se ha eliminado correctamente."
 msgid "Cannot delete status because it is in use."
 msgstr "No se puede eliminar el estado porque está en uso."
 
-#: task_manager/tasks/filters.py:12
+#: task_manager/tasks/filters.py:20
 msgid "Only your tasks"
 msgstr "Solo tus tareas"
 
@@ -340,7 +340,7 @@ msgstr "Administrador de tareas Hexlet"
 msgid "Task Manager"
 msgstr "Administrador de tareas"
 
-#: task_manager/templates/layout.html:36 task_manager/users/models.py:20
+#: task_manager/templates/layout.html:36 task_manager/users/models.py:23
 #: task_manager/users/templates/users/index.html:5
 msgid "Users"
 msgstr "Usuarios"
@@ -382,7 +382,7 @@ msgstr "Nombre"
 msgid "Last name"
 msgstr "Apellido"
 
-#: task_manager/users/models.py:19
+#: task_manager/users/models.py:22
 msgid "User"
 msgstr "Usuario"
 

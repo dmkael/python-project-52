@@ -1,23 +1,23 @@
 - model: tasks.task
   pk: 1
   fields:
-    author_id: 3
+    author_id: 1
     name: Test Task1
     description: Some description for task1
     status_id: 1
-    executor_id: 3
+    executor_id: 1
     labels: [1, 2]
 - model: tasks.task
   pk: 2
   fields:
-    author_id: 3
+    author_id: 1
     name: Test Task2
     status_id: 2
     labels: [2, ]
 - model: tasks.task
   pk: 3
   fields:
-    author_id: 4
+    author_id: 2
     name: Test Task3
     status_id: 1
-    executor_id: 4
+    executor_id: 2

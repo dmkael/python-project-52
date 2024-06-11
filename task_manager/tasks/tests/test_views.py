@@ -11,14 +11,14 @@ import os
     FIXTURE_DIRS=[os.path.join(os.path.dirname(__file__), 'fixtures')]
 )
 class TaskViewsTest(TestCase):
-    fixtures = ['statuses.yaml', 'users.yaml', 'tasks.yaml']
+    fixtures = ['users.yaml', 'labels.yaml', 'statuses.yaml', 'tasks.yaml']
 
     def setUp(self):
         self.client = Client()
         self.tasks = Task.objects
         self.users_model = auth.get_user_model()
-        self.user = self.users_model.objects.get(pk=1)
-        self.user2 = self.users_model.objects.get(pk=2)
+        self.user = self.users_model.objects.get(pk=3)
+        self.user2 = self.users_model.objects.get(pk=4)
         self.login_url = reverse(settings.LOGIN_URL)
         self.task_create_url = reverse('task_create')
         self.task_view_url = reverse('task_detail', kwargs={'pk': 1})
@@ -50,7 +50,7 @@ class TaskViewsTest(TestCase):
 
     def test_auth_user_task_create_POST(self):
         self.client.force_login(self.user)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(
             self.task_create_url, {
                 "name": "new_task",
@@ -58,18 +58,18 @@ class TaskViewsTest(TestCase):
             }
         )
         self.assertEqual(self.tasks.get(name='new_task').name, 'new_task')
-        self.assertEqual(self.tasks.count(), 3)
+        self.assertEqual(self.tasks.count(), 4)
         self.assertRedirects(response, self.tasks_url)
 
     def test_auth_user_task_create_no_data_POST(self):
         self.client.force_login(self.user)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(self.task_create_url)
         self.assertEqual(response.status_code, 400)
 
     def test_auth_user_task_create_exist_data_POST(self):
         self.client.force_login(self.user)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(
             self.task_create_url, {
                 "name": "Test Task1",
@@ -79,14 +79,14 @@ class TaskViewsTest(TestCase):
         self.assertEqual(response.status_code, 400)
 
     def test_anonym_user_task_create_POST(self):
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(
             self.task_create_url, {
                 "name": "new_status1",
                 "status": 1
             }
         )
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         self.assertRedirects(response, self.login_url)
 
     def test_auth_user_task_update_GET(self):
@@ -101,14 +101,14 @@ class TaskViewsTest(TestCase):
 
     def test_auth_user_task_update_success_POST(self):
         self.client.force_login(self.user)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(
             self.task_update_url1, {
                 "name": "updated1",
                 "status": 1
             }
         )
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         self.assertEqual(self.tasks.get(name="updated1").name, "updated1")
         self.assertRedirects(response, self.tasks_url)
 
@@ -122,7 +122,7 @@ class TaskViewsTest(TestCase):
         self.assertEqual(response.status_code, 400)
 
     def test_anonym_user_task_update_POST(self):
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(
             self.task_update_url1, {
                 "name": "updated1",
@@ -130,7 +130,7 @@ class TaskViewsTest(TestCase):
             }
         )
         self.assertEqual(self.tasks.filter(name="updated1").count(), 0)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         self.assertRedirects(response, self.login_url)
 
     def test_auth_another_task_update_POST(self):
@@ -168,22 +168,22 @@ class TaskViewsTest(TestCase):
 
     def test_auth_user_task_delete_POST(self):
         self.client.force_login(self.user)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(self.task_delete_url1)
-        self.assertEqual(self.tasks.count(), 1)
+        self.assertEqual(self.tasks.count(), 2)
         self.assertRedirects(response, self.tasks_url)
 
     def test_auth_another_user_task_delete_POST(self):
         self.client.force_login(self.user2)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(self.task_delete_url1)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         self.assertRedirects(response, self.tasks_url)
 
     def test_anonym_user_task_delete_POST(self):
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(self.task_delete_url1)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         self.assertRedirects(response, self.login_url)
 
     def test_auth_user_task_detail_GET(self):
@@ -196,3 +196,16 @@ class TaskViewsTest(TestCase):
         response = self.client.get(self.task_view_url)
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, self.login_url)
+
+    def test_tasks_filter_GET(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.tasks_url)
+        self.assertEqual(response.context['task_list'].count(), 3)
+        response = self.client.get(self.tasks_url, {'labels': 1})
+        self.assertEqual(response.context['task_list'].count(), 1)
+        response = self.client.get(self.tasks_url, {'author': 'on'})
+        self.assertEqual(response.context['task_list'].count(), 2)
+        response = self.client.get(self.tasks_url, {'author': 'on', 'labels': 1})
+        self.assertEqual(response.context['task_list'].count(), 1)
+        response = self.client.get(self.tasks_url, {'status': 1})
+        self.assertEqual(response.context['task_list'].count(), 2)

@@ -1,0 +1,9 @@
+- model: labels.label
+  pk: 1
+  fields:
+    name: "Tag1"
+
+- model: labels.label
+  pk: 2
+  fields:
+    name: "Tag2"

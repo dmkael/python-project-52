@@ -21,8 +21,8 @@ class TasksFilter(django_filters.FilterSet):
         fields = ['status', 'executor', 'labels', 'author']
 
     def filter_queryset(self, queryset):
-        queryset = Task.objects.prefetch_related('status', 'executor', 'labels', 'author')
-        return queryset
+        queryset = Task.objects.prefetch_related('status', 'executor', 'author')
+        return super().filter_queryset(queryset)
 
     @property
     def qs(self):

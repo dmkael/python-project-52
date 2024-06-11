@@ -1,5 +1,5 @@
 - model: users.user
-  pk: 1
+  pk: 3
   fields:
     first_name: "Max"
     last_name: "Smith"
@@ -7,7 +7,7 @@
     password: "pbkdf2_sha256$260000$piF1aYfgJxaqvSxUHZLoL8$F4e8/MkWQK54qD/MQ6Tx5iJH1Yq2fBNspLbOQELpJtU="
 
 - model: users.user
-  pk: 2
+  pk: 4
   fields:
     first_name: "Emma"
     last_name: "Watson"

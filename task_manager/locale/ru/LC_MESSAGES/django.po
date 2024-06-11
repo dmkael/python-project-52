@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-11 22:49+0000\n"
+"POT-Creation-Date: 2024-06-11 23:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr "Метка с таким именем уже существует."
 #: task_manager/statuses/templates/statuses/index.html:15
 #: task_manager/tasks/models.py:21
 #: task_manager/tasks/templates/tasks/index.html:54
-#: task_manager/tasks/templates/tasks/task_filter.html:54
+#: task_manager/tasks/templates/tasks/task_filter.html:24
 msgid "Name"
 msgstr "Имя"
 
@@ -83,7 +83,7 @@ msgstr "Да,&nbsp;удалить"
 #: task_manager/statuses/templates/statuses/index.html:16
 #: task_manager/tasks/templates/tasks/detail.html:29
 #: task_manager/tasks/templates/tasks/index.html:58
-#: task_manager/tasks/templates/tasks/task_filter.html:58
+#: task_manager/tasks/templates/tasks/task_filter.html:28
 #: task_manager/users/templates/users/index.html:15
 msgid "Creation date"
 msgstr "Дата создания"
@@ -94,7 +94,7 @@ msgstr "Дата создания"
 #: task_manager/statuses/templates/statuses/update.html:9
 #: task_manager/tasks/templates/tasks/detail.html:44
 #: task_manager/tasks/templates/tasks/index.html:72
-#: task_manager/tasks/templates/tasks/task_filter.html:72
+#: task_manager/tasks/templates/tasks/task_filter.html:42
 #: task_manager/tasks/templates/tasks/update.html:9
 #: task_manager/users/templates/users/index.html:27
 #: task_manager/users/templates/users/update.html:9
@@ -105,7 +105,7 @@ msgstr "Изменить"
 #: task_manager/statuses/templates/statuses/index.html:29
 #: task_manager/tasks/templates/tasks/detail.html:46
 #: task_manager/tasks/templates/tasks/index.html:74
-#: task_manager/tasks/templates/tasks/task_filter.html:74
+#: task_manager/tasks/templates/tasks/task_filter.html:44
 #: task_manager/users/templates/users/index.html:29
 msgid "Delete"
 msgstr "Удалить"
@@ -113,7 +113,7 @@ msgstr "Удалить"
 #: task_manager/labels/templates/labels/index.html:41
 #: task_manager/statuses/templates/statuses/index.html:40
 #: task_manager/tasks/templates/tasks/index.html:85
-#: task_manager/tasks/templates/tasks/task_filter.html:85
+#: task_manager/tasks/templates/tasks/task_filter.html:55
 #: task_manager/users/templates/users/index.html:40
 msgid "first"
 msgstr "первая"
@@ -121,7 +121,7 @@ msgstr "первая"
 #: task_manager/labels/templates/labels/index.html:42
 #: task_manager/statuses/templates/statuses/index.html:41
 #: task_manager/tasks/templates/tasks/index.html:86
-#: task_manager/tasks/templates/tasks/task_filter.html:86
+#: task_manager/tasks/templates/tasks/task_filter.html:56
 #: task_manager/users/templates/users/index.html:41
 msgid "previous"
 msgstr "предыдущая"
@@ -129,7 +129,7 @@ msgstr "предыдущая"
 #: task_manager/labels/templates/labels/index.html:46
 #: task_manager/statuses/templates/statuses/index.html:45
 #: task_manager/tasks/templates/tasks/index.html:90
-#: task_manager/tasks/templates/tasks/task_filter.html:90
+#: task_manager/tasks/templates/tasks/task_filter.html:60
 #: task_manager/users/templates/users/index.html:45
 msgid "Page"
 msgstr "Страница"
@@ -137,7 +137,7 @@ msgstr "Страница"
 #: task_manager/labels/templates/labels/index.html:46
 #: task_manager/statuses/templates/statuses/index.html:45
 #: task_manager/tasks/templates/tasks/index.html:90
-#: task_manager/tasks/templates/tasks/task_filter.html:90
+#: task_manager/tasks/templates/tasks/task_filter.html:60
 #: task_manager/users/templates/users/index.html:45
 msgid "of"
 msgstr "из"
@@ -145,7 +145,7 @@ msgstr "из"
 #: task_manager/labels/templates/labels/index.html:51
 #: task_manager/statuses/templates/statuses/index.html:50
 #: task_manager/tasks/templates/tasks/index.html:95
-#: task_manager/tasks/templates/tasks/task_filter.html:95
+#: task_manager/tasks/templates/tasks/task_filter.html:65
 #: task_manager/users/templates/users/index.html:50
 msgid "next"
 msgstr "следующая"
@@ -153,7 +153,7 @@ msgstr "следующая"
 #: task_manager/labels/templates/labels/index.html:52
 #: task_manager/statuses/templates/statuses/index.html:51
 #: task_manager/tasks/templates/tasks/index.html:96
-#: task_manager/tasks/templates/tasks/task_filter.html:96
+#: task_manager/tasks/templates/tasks/task_filter.html:66
 #: task_manager/users/templates/users/index.html:51
 msgid "last"
 msgstr "последняя"
@@ -197,7 +197,7 @@ msgstr "Статус с таким именем уже существует."
 #: task_manager/statuses/models.py:20 task_manager/tasks/models.py:32
 #: task_manager/tasks/templates/tasks/detail.html:25
 #: task_manager/tasks/templates/tasks/index.html:55
-#: task_manager/tasks/templates/tasks/task_filter.html:55
+#: task_manager/tasks/templates/tasks/task_filter.html:25
 msgid "Status"
 msgstr "Статус"
 
@@ -251,7 +251,7 @@ msgstr "Задачу может удалить только её автор."
 #: task_manager/tasks/models.py:15
 #: task_manager/tasks/templates/tasks/detail.html:17
 #: task_manager/tasks/templates/tasks/index.html:56
-#: task_manager/tasks/templates/tasks/task_filter.html:56
+#: task_manager/tasks/templates/tasks/task_filter.html:26
 msgid "Author"
 msgstr "Автор"
 
@@ -262,7 +262,7 @@ msgstr "Описание"
 #: task_manager/tasks/models.py:45
 #: task_manager/tasks/templates/tasks/detail.html:21
 #: task_manager/tasks/templates/tasks/index.html:57
-#: task_manager/tasks/templates/tasks/task_filter.html:57
+#: task_manager/tasks/templates/tasks/task_filter.html:27
 msgid "Executor"
 msgstr "Исполнитель"
 
@@ -279,7 +279,7 @@ msgstr "Задачи"
 
 #: task_manager/tasks/templates/tasks/create.html:5
 #: task_manager/tasks/templates/tasks/index.html:39
-#: task_manager/tasks/templates/tasks/task_filter.html:39
+#: task_manager/tasks/templates/tasks/task_filter.html:9
 msgid "Create task"
 msgstr "Создать задачу"
 
@@ -292,12 +292,12 @@ msgid "Task view"
 msgstr "Просмотр задачи"
 
 #: task_manager/tasks/templates/tasks/index.html:44
-#: task_manager/tasks/templates/tasks/task_filter.html:44
+#: task_manager/tasks/templates/tasks/task_filter.html:14
 msgid "Show"
 msgstr "Показать"
 
 #: task_manager/tasks/templates/tasks/index.html:45
-#: task_manager/tasks/templates/tasks/task_filter.html:45
+#: task_manager/tasks/templates/tasks/task_filter.html:15
 msgid "Reset"
 msgstr "Сброс"
 

@@ -5,36 +5,6 @@
 {% block page_header %}{% trans "Tasks" %}{% endblock %}
 
 {% block content %}
-<script>
-    function clearSpecificFields() {
-        // Получаем форму по ID
-        let form = document.getElementById("taskForm");
-
-        // Очищаем поле "status"
-        let statusField = form.querySelector('select[name="status"]');
-        if (statusField) {
-            statusField.selectedIndex = 0;
-        }
-
-        // Очищаем поле "executor"
-        let executorField = form.querySelector('select[name="executor"]');
-        if (executorField) {
-            executorField.selectedIndex = 0;
-        }
-
-        // Очищаем поле "author", если это чекбокс
-        let authorField = form.querySelector('input[name="author"]');
-        if (authorField) {
-            authorField.checked = false;
-        }
-
-        // Очищаем поле "labels", если это чекбокс
-        let labelsField = form.querySelector('select[name="labels"]');
-        if (labelsField) {
-            labelsField.selectedIndex = 0;
-        }
-    }
-</script>
     <style></style>
     <a class="btn btn-warning mb-3" href="/tasks/create/">{% trans "Create task" %}</a>
     <div class="card mb-3">
@@ -42,7 +12,7 @@
             <form id="taskForm" class="form-inline center">
                 {% bootstrap_form filter.form %}
                 <input class="btn btn-warning" type="submit" value={% trans "Show" %}>
-                <input class="btn btn-secondary" type="submit" onclick="clearSpecificFields()" value={% trans "Reset" %}>
+                <a class="btn btn-secondary" type="submit" href="{% url 'tasks' %}">{% trans "Reset" %}</a>
             </form>
         </div>
     </div>

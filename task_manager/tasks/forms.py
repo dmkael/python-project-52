@@ -18,31 +18,3 @@ class TaskForm(forms.ModelForm):
             'executor': forms.Select(),
             'labels': forms.SelectMultiple(),
         }
-        labels = {
-            'status': _('Status'),
-            'executor': _('Executor'),
-            'labels': _('Labels'),
-        }
-
-#
-# class TaskSearchForm(forms.Form):
-#     status = forms.ModelChoiceField(
-#         queryset=Status.objects.all(),
-#         widget=forms.Select,
-#         required=False,
-#         label=_('Status'),
-#     )
-#     executor = CustomChoiceField(
-#         queryset=get_user_model().objects.all(),
-#         widget=forms.Select,
-#         required=False,
-#         label=_('Executor'),
-#     )
-#     labels = forms.ModelChoiceField(
-#         queryset=Label.objects.all(),
-#         widget=forms.Select,
-#         required=False,
-#         label=_('Label'),
-#     )
-#     author = forms.BooleanField(required=False, label=_("Only your tasks"))
-#

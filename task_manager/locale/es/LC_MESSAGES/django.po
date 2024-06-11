@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-11 21:37+0000\n"
+"POT-Creation-Date: 2024-06-11 21:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -331,6 +331,18 @@ msgstr "La página que estás buscando no existe."
 #: task_manager/templates/404.html:24
 msgid "Go Home"
 msgstr "Vete a casa"
+
+#: task_manager/templates/index.html:16
+msgid "Greetings from DmKael!"
+msgstr "Saludos desde DmKael!"
+
+#: task_manager/templates/index.html:17
+msgid "Student at the Hexlet programming school"
+msgstr "Estudiante en la escuela de programación Hexlet."
+
+#: task_manager/templates/index.html:19
+msgid "Learn more!"
+msgstr "¡Aprende más!"
 
 #: task_manager/templates/layout.html:12
 msgid "Hexlet Task Manager"

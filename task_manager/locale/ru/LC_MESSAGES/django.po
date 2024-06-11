@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-11 21:37+0000\n"
+"POT-Creation-Date: 2024-06-11 21:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -333,6 +333,18 @@ msgstr "Страница, которую вы ищете, не существу�
 msgid "Go Home"
 msgstr "Домой"
 
+#: task_manager/templates/index.html:16
+msgid "Greetings from DmKael!"
+msgstr "Привет от DmKael"
+
+#: task_manager/templates/index.html:17
+msgid "Student at the Hexlet programming school"
+msgstr "Студент школы программирования Hexlet"
+
+#: task_manager/templates/index.html:19
+msgid "Learn more!"
+msgstr "Узнать больше!"
+
 #: task_manager/templates/layout.html:12
 msgid "Hexlet Task Manager"
 msgstr "Менеджер задач Hexlet"
@@ -431,5 +443,3 @@ msgstr "Вы залогинены"
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#~ msgid "My Tasks"
-#~ msgstr "Мои Задачи"

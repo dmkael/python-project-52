@@ -32,7 +32,7 @@ class TaskViewsTest(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(self.tasks_url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'tasks/index.html')
+        self.assertTemplateUsed(response, 'tasks/task_filter.html')
 
     def test_anonym_user_tasks_index(self):
         response = self.client.get(self.tasks_url)

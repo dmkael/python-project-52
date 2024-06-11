@@ -1,8 +1,5 @@
 from django import forms
-from django.contrib.auth import get_user_model
-from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
-from task_manager.labels.models import Label
 from django.utils.translation import gettext_lazy as _
 
 
@@ -27,24 +24,25 @@ class TaskForm(forms.ModelForm):
             'labels': _('Labels'),
         }
 
-
-class TaskSearchForm(forms.Form):
-    status = forms.ModelChoiceField(
-        queryset=Status.objects.all(),
-        widget=forms.Select,
-        required=False,
-        label=_('Status'),
-    )
-    executor = CustomChoiceField(
-        queryset=get_user_model().objects.all(),
-        widget=forms.Select,
-        required=False,
-        label=_('Executor'),
-    )
-    labels = forms.ModelChoiceField(
-        queryset=Label.objects.all(),
-        widget=forms.Select,
-        required=False,
-        label=_('Label'),
-    )
-    self_tasks = forms.BooleanField(required=False, label=_("Only your tasks"))
+#
+# class TaskSearchForm(forms.Form):
+#     status = forms.ModelChoiceField(
+#         queryset=Status.objects.all(),
+#         widget=forms.Select,
+#         required=False,
+#         label=_('Status'),
+#     )
+#     executor = CustomChoiceField(
+#         queryset=get_user_model().objects.all(),
+#         widget=forms.Select,
+#         required=False,
+#         label=_('Executor'),
+#     )
+#     labels = forms.ModelChoiceField(
+#         queryset=Label.objects.all(),
+#         widget=forms.Select,
+#         required=False,
+#         label=_('Label'),
+#     )
+#     author = forms.BooleanField(required=False, label=_("Only your tasks"))
+#

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-10 21:32+0000\n"
+"POT-Creation-Date: 2024-06-11 02:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,12 +27,13 @@ msgstr "¡Usted no está autorizado! Por favor Iniciar sesión."
 msgid "A label with that name already exists."
 msgstr "Ya existe una etiqueta con ese nombre."
 
-#: task_manager/labels/models.py:8
+#: task_manager/labels/models.py:9
 #: task_manager/labels/templates/labels/index.html:15
-#: task_manager/statuses/models.py:8
+#: task_manager/statuses/models.py:9
 #: task_manager/statuses/templates/statuses/index.html:15
 #: task_manager/tasks/models.py:17
 #: task_manager/tasks/templates/tasks/index.html:54
+#: task_manager/tasks/templates/tasks/task_filter.html:54
 msgid "Name"
 msgstr "Nombre"
 
@@ -66,7 +67,7 @@ msgid "Yes,&nbsp;delete"
 msgstr "Si,&nbsp;eliminar"
 
 #: task_manager/labels/templates/labels/index.html:5
-#: task_manager/tasks/forms.py:27
+#: task_manager/tasks/filters.py:16 task_manager/tasks/forms.py:24
 #: task_manager/tasks/templates/tasks/detail.html:34
 #: task_manager/templates/layout.html:40
 msgid "Labels"
@@ -76,6 +77,7 @@ msgstr "Etiquetas"
 #: task_manager/statuses/templates/statuses/index.html:16
 #: task_manager/tasks/templates/tasks/detail.html:29
 #: task_manager/tasks/templates/tasks/index.html:58
+#: task_manager/tasks/templates/tasks/task_filter.html:58
 #: task_manager/users/templates/users/index.html:15
 msgid "Creation date"
 msgstr "Fecha de creación"
@@ -86,6 +88,7 @@ msgstr "Fecha de creación"
 #: task_manager/statuses/templates/statuses/update.html:9
 #: task_manager/tasks/templates/tasks/detail.html:44
 #: task_manager/tasks/templates/tasks/index.html:72
+#: task_manager/tasks/templates/tasks/task_filter.html:72
 #: task_manager/tasks/templates/tasks/update.html:9
 #: task_manager/users/templates/users/index.html:27
 #: task_manager/users/templates/users/update.html:9
@@ -96,6 +99,7 @@ msgstr "Editar"
 #: task_manager/statuses/templates/statuses/index.html:29
 #: task_manager/tasks/templates/tasks/detail.html:46
 #: task_manager/tasks/templates/tasks/index.html:74
+#: task_manager/tasks/templates/tasks/task_filter.html:74
 #: task_manager/users/templates/users/index.html:29
 msgid "Delete"
 msgstr "Eliminar"
@@ -103,6 +107,7 @@ msgstr "Eliminar"
 #: task_manager/labels/templates/labels/index.html:41
 #: task_manager/statuses/templates/statuses/index.html:40
 #: task_manager/tasks/templates/tasks/index.html:85
+#: task_manager/tasks/templates/tasks/task_filter.html:85
 #: task_manager/users/templates/users/index.html:40
 msgid "first"
 msgstr "primera"
@@ -110,6 +115,7 @@ msgstr "primera"
 #: task_manager/labels/templates/labels/index.html:42
 #: task_manager/statuses/templates/statuses/index.html:41
 #: task_manager/tasks/templates/tasks/index.html:86
+#: task_manager/tasks/templates/tasks/task_filter.html:86
 #: task_manager/users/templates/users/index.html:41
 msgid "previous"
 msgstr "anterior"
@@ -117,6 +123,7 @@ msgstr "anterior"
 #: task_manager/labels/templates/labels/index.html:46
 #: task_manager/statuses/templates/statuses/index.html:45
 #: task_manager/tasks/templates/tasks/index.html:90
+#: task_manager/tasks/templates/tasks/task_filter.html:90
 #: task_manager/users/templates/users/index.html:45
 msgid "Page"
 msgstr "Página"
@@ -124,6 +131,7 @@ msgstr "Página"
 #: task_manager/labels/templates/labels/index.html:46
 #: task_manager/statuses/templates/statuses/index.html:45
 #: task_manager/tasks/templates/tasks/index.html:90
+#: task_manager/tasks/templates/tasks/task_filter.html:90
 #: task_manager/users/templates/users/index.html:45
 msgid "of"
 msgstr "de"
@@ -131,6 +139,7 @@ msgstr "de"
 #: task_manager/labels/templates/labels/index.html:51
 #: task_manager/statuses/templates/statuses/index.html:50
 #: task_manager/tasks/templates/tasks/index.html:95
+#: task_manager/tasks/templates/tasks/task_filter.html:95
 #: task_manager/users/templates/users/index.html:50
 msgid "next"
 msgstr "siguiente"
@@ -138,6 +147,7 @@ msgstr "siguiente"
 #: task_manager/labels/templates/labels/index.html:52
 #: task_manager/statuses/templates/statuses/index.html:51
 #: task_manager/tasks/templates/tasks/index.html:96
+#: task_manager/tasks/templates/tasks/task_filter.html:96
 #: task_manager/users/templates/users/index.html:51
 msgid "last"
 msgstr "última"
@@ -162,15 +172,15 @@ msgstr "La etiqueta se ha eliminado correctamente."
 msgid "Cannot delete label because it is in use."
 msgstr "No se puede eliminar la etiqueta porque está en uso."
 
-#: task_manager/settings.py:174 task_manager/templates/layout.html:71
+#: task_manager/settings.py:175 task_manager/templates/layout.html:71
 msgid "English"
 msgstr "Inglés"
 
-#: task_manager/settings.py:175 task_manager/templates/layout.html:73
+#: task_manager/settings.py:176 task_manager/templates/layout.html:73
 msgid "Russian"
 msgstr "Ruso"
 
-#: task_manager/settings.py:176 task_manager/templates/layout.html:75
+#: task_manager/settings.py:177 task_manager/templates/layout.html:75
 msgid "Spanish"
 msgstr "Español"
 
@@ -212,29 +222,27 @@ msgstr "El estado se ha eliminado correctamente."
 msgid "Cannot delete status because it is in use."
 msgstr "No se puede eliminar el estado porque está en uso."
 
-#: task_manager/tasks/forms.py:18
+#: task_manager/tasks/filters.py:12
+msgid "Only your tasks"
+msgstr "Solo tus tareas"
+
+#: task_manager/tasks/forms.py:15
 msgid "A task with that name already exists."
 msgstr "Ya existe una tarea con ese nombre."
 
-#: task_manager/tasks/forms.py:25 task_manager/tasks/forms.py:36
+#: task_manager/tasks/forms.py:22
 #: task_manager/tasks/templates/tasks/detail.html:25
 #: task_manager/tasks/templates/tasks/index.html:55
+#: task_manager/tasks/templates/tasks/task_filter.html:55
 msgid "Status"
 msgstr "Estado"
 
-#: task_manager/tasks/forms.py:26 task_manager/tasks/forms.py:42
+#: task_manager/tasks/forms.py:23
 #: task_manager/tasks/templates/tasks/detail.html:21
 #: task_manager/tasks/templates/tasks/index.html:57
+#: task_manager/tasks/templates/tasks/task_filter.html:57
 msgid "Executor"
 msgstr "Ejecutor"
-
-#: task_manager/tasks/forms.py:48
-msgid "Label"
-msgstr "Etiqueta"
-
-#: task_manager/tasks/forms.py:50
-msgid "Only your tasks"
-msgstr "Solo tus tareas"
 
 #: task_manager/tasks/mixins.py:9
 msgid "Only author can delete a task"
@@ -246,6 +254,7 @@ msgstr "Descripción"
 
 #: task_manager/tasks/templates/tasks/create.html:5
 #: task_manager/tasks/templates/tasks/index.html:39
+#: task_manager/tasks/templates/tasks/task_filter.html:39
 msgid "Create task"
 msgstr "Crear tarea"
 
@@ -259,19 +268,23 @@ msgstr "Vista de tarea"
 
 #: task_manager/tasks/templates/tasks/detail.html:17
 #: task_manager/tasks/templates/tasks/index.html:56
+#: task_manager/tasks/templates/tasks/task_filter.html:56
 msgid "Author"
 msgstr "Autor"
 
 #: task_manager/tasks/templates/tasks/index.html:5
+#: task_manager/tasks/templates/tasks/task_filter.html:5
 #: task_manager/templates/layout.html:41
 msgid "Tasks"
 msgstr "Tareas"
 
 #: task_manager/tasks/templates/tasks/index.html:44
+#: task_manager/tasks/templates/tasks/task_filter.html:44
 msgid "Show"
 msgstr "Espectáculo"
 
 #: task_manager/tasks/templates/tasks/index.html:45
+#: task_manager/tasks/templates/tasks/task_filter.html:45
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -279,15 +292,15 @@ msgstr "Reiniciar"
 msgid "Edit task"
 msgstr "Editar tarea"
 
-#: task_manager/tasks/views.py:59
+#: task_manager/tasks/views.py:33
 msgid "Task has been created successfully."
 msgstr "La tarea se ha creado correctamente."
 
-#: task_manager/tasks/views.py:69
+#: task_manager/tasks/views.py:43
 msgid "Task has been updated successfully."
 msgstr "La tarea se ha actualizado correctamente."
 
-#: task_manager/tasks/views.py:74
+#: task_manager/tasks/views.py:48
 msgid "Task has been deleted successfully."
 msgstr "La tarea se ha eliminado correctamente."
 
@@ -404,3 +417,6 @@ msgstr "Has iniciado sesión"
 #: task_manager/views.py:35
 msgid "You are logged out"
 msgstr "Estás desconectado"
+
+#~ msgid "Label"
+#~ msgstr "Etiqueta"

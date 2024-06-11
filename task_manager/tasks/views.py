@@ -30,7 +30,7 @@ class TaskDetailView(TaskAbstractView, DetailView):
 
 class TaskCreateView(TaskAbstractView, CreateFlashedView):
     template_name = 'tasks/create.html'
-    valid_form_message = _('Task has been created successfully.')
+    success_message = _('Task has been created successfully.')
 
     def form_valid(self, form):
         instance = form.save(commit=False)
@@ -40,11 +40,11 @@ class TaskCreateView(TaskAbstractView, CreateFlashedView):
 
 class TaskUpdateView(TaskAbstractView, UpdateFlashedView):
     template_name = 'tasks/update.html'
-    valid_form_message = _('Task has been updated successfully.')
+    success_message = _('Task has been updated successfully.')
 
 
 class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteFlashedView):
     template_name = 'tasks/delete.html'
-    valid_data_message = _('Task has been deleted successfully.')
+    success_message = _('Task has been deleted successfully.')
     success_url = reverse_lazy('tasks')
     form_class = Form

@@ -27,24 +27,24 @@ class LabelIndexView(LabelAbstractMixin, ListView):
 
 class LabelCreateView(LabelAbstractMixin, CreateFlashedView):
     template_name = 'labels/create.html'
-    valid_form_message = _('Label has been created successfully.')
+    success_message = _('Label has been created successfully.')
 
 
 class LabelUpdateView(LabelAbstractMixin, UpdateFlashedView):
     template_name = 'labels/update.html'
-    valid_form_message = _('Label has been updated successfully.')
+    success_message = _('Label has been updated successfully.')
 
 
 class LabelDeleteView(LabelAbstractMixin, DeleteFlashedView):
     template_name = 'labels/delete.html'
+    success_message = _('Label has been deleted successfully.')
+    failure_message = _('Cannot delete label because it is in use.')
     redirect_url = reverse_lazy('labels')
     success_url = reverse_lazy('labels')
-    valid_data_message = _('Label has been deleted successfully.')
-    invalid_data_message = _('Cannot delete label because it is in use.')
     form_class = Form
 
     def post(self, request, *args, **kwargs):
         label = Label.objects.get(pk=kwargs['pk'])
         if label.tasks.first():
-            self.is_correct_data = False
+            self.have_dependencies = True
         return super().post(request, *args, **kwargs)

@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import logout
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
 from django.views import View
 from django.utils.translation import gettext as _
@@ -16,16 +17,9 @@ class IndexView(View):
         return render(request, 'index.html', context={'data': trans, 'user': user})
 
 
-class TaskManagerLoginView(LoginView):
+class TaskManagerLoginView(SuccessMessageMixin, LoginView):
     template_name = 'login.html'
-
-    def form_valid(self, form):
-        messages.add_message(
-            self.request,
-            messages.SUCCESS,
-            _('You are logged in')
-        )
-        return super().form_valid(form)
+    success_message = _('You are logged in')
 
 
 class TaskManagerLogoutView(View):

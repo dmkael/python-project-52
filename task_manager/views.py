@@ -3,7 +3,7 @@ from django.contrib.auth import logout
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
 from django.views import View
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.views import LoginView
 
 
@@ -19,7 +19,7 @@ class IndexView(View):
 
 class TaskManagerLoginView(SuccessMessageMixin, LoginView):
     template_name = 'login.html'
-    success_message = _('You are logged in')
+    success_message = _('You are logged in.')
 
 
 class TaskManagerLogoutView(View):

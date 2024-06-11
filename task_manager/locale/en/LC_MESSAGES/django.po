@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-11 20:56+0000\n"
+"POT-Creation-Date: 2024-06-11 21:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -176,15 +176,15 @@ msgstr ""
 msgid "Cannot delete label because it is in use."
 msgstr ""
 
-#: task_manager/settings.py:175 task_manager/templates/layout.html:71
+#: task_manager/settings.py:176 task_manager/templates/layout.html:71
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:176 task_manager/templates/layout.html:73
+#: task_manager/settings.py:177 task_manager/templates/layout.html:73
 msgid "Russian"
 msgstr ""
 
-#: task_manager/settings.py:177 task_manager/templates/layout.html:75
+#: task_manager/settings.py:178 task_manager/templates/layout.html:75
 msgid "Spanish"
 msgstr ""
 
@@ -357,8 +357,8 @@ msgstr ""
 msgid "Registration"
 msgstr ""
 
-#: task_manager/templates/layout.html:57
-msgid "My Tasks"
+#: task_manager/templates/layout.html:57 task_manager/users/models.py:22
+msgid "User"
 msgstr ""
 
 #: task_manager/templates/layout.html:66
@@ -379,10 +379,6 @@ msgstr ""
 
 #: task_manager/users/models.py:13
 msgid "Last name"
-msgstr ""
-
-#: task_manager/users/models.py:22
-msgid "User"
 msgstr ""
 
 #: task_manager/users/templates/users/create.html:13

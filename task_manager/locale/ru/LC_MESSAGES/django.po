@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-11 20:56+0000\n"
+"POT-Creation-Date: 2024-06-11 21:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,15 +178,15 @@ msgstr "Метка успешно удалена"
 msgid "Cannot delete label because it is in use."
 msgstr "Невозможно удалить метку, потому что она используется."
 
-#: task_manager/settings.py:175 task_manager/templates/layout.html:71
+#: task_manager/settings.py:176 task_manager/templates/layout.html:71
 msgid "English"
 msgstr "Английский"
 
-#: task_manager/settings.py:176 task_manager/templates/layout.html:73
+#: task_manager/settings.py:177 task_manager/templates/layout.html:73
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/settings.py:177 task_manager/templates/layout.html:75
+#: task_manager/settings.py:178 task_manager/templates/layout.html:75
 msgid "Spanish"
 msgstr "Испанский"
 
@@ -359,9 +359,9 @@ msgstr "Вход"
 msgid "Registration"
 msgstr "Регистрация"
 
-#: task_manager/templates/layout.html:57
-msgid "My Tasks"
-msgstr "Мои Задачи"
+#: task_manager/templates/layout.html:57 task_manager/users/models.py:22
+msgid "User"
+msgstr "Пользователь"
 
 #: task_manager/templates/layout.html:66
 msgid "Language"
@@ -382,10 +382,6 @@ msgstr "Имя"
 #: task_manager/users/models.py:13
 msgid "Last name"
 msgstr "Фамилия"
-
-#: task_manager/users/models.py:22
-msgid "User"
-msgstr "Пользователи"
 
 #: task_manager/users/templates/users/create.html:13
 msgid "Register"
@@ -434,3 +430,6 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:29
 msgid "You are logged out"
 msgstr "Вы разлогинены"
+
+#~ msgid "My Tasks"
+#~ msgstr "Мои Задачи"

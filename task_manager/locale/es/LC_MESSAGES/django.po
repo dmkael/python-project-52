@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-11 20:56+0000\n"
+"POT-Creation-Date: 2024-06-11 21:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,15 +177,15 @@ msgstr "La etiqueta se ha eliminado correctamente."
 msgid "Cannot delete label because it is in use."
 msgstr "No se puede eliminar la etiqueta porque está en uso."
 
-#: task_manager/settings.py:175 task_manager/templates/layout.html:71
+#: task_manager/settings.py:176 task_manager/templates/layout.html:71
 msgid "English"
 msgstr "Inglés"
 
-#: task_manager/settings.py:176 task_manager/templates/layout.html:73
+#: task_manager/settings.py:177 task_manager/templates/layout.html:73
 msgid "Russian"
 msgstr "Ruso"
 
-#: task_manager/settings.py:177 task_manager/templates/layout.html:75
+#: task_manager/settings.py:178 task_manager/templates/layout.html:75
 msgid "Spanish"
 msgstr "Español"
 
@@ -358,9 +358,9 @@ msgstr "Ingresar"
 msgid "Registration"
 msgstr "Registro"
 
-#: task_manager/templates/layout.html:57
-msgid "My Tasks"
-msgstr "Mis Tareas"
+#: task_manager/templates/layout.html:57 task_manager/users/models.py:22
+msgid "User"
+msgstr "Usuario"
 
 #: task_manager/templates/layout.html:66
 msgid "Language"
@@ -381,10 +381,6 @@ msgstr "Nombre"
 #: task_manager/users/models.py:13
 msgid "Last name"
 msgstr "Apellido"
-
-#: task_manager/users/models.py:22
-msgid "User"
-msgstr "Usuario"
 
 #: task_manager/users/templates/users/create.html:13
 msgid "Register"
@@ -433,3 +429,6 @@ msgstr "Has iniciado sesión"
 #: task_manager/views.py:29
 msgid "You are logged out"
 msgstr "Estás desconectado"
+
+#~ msgid "My Tasks"
+#~ msgstr "Mis Tareas"

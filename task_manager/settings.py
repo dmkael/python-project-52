@@ -70,7 +70,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'tz_detect.middleware.TimezoneMiddleware'
+    'tz_detect.middleware.TimezoneMiddleware',
+    'task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
@@ -180,6 +181,15 @@ LANGUAGES = (
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'task_manager/locale/'),
 )
+
+
+ROLLBAR = {
+    'access_token': os.getenv("ROLLBAR_ACCESS_TOKEN"),
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
+
 
 # LOGGING = {
 #     'version': 1,

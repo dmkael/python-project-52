@@ -165,12 +165,12 @@
   }); $manager = "$location\task_manager\django_manage\manage.py"; py $manager runserver localhost:8000
   ```
   ОС Windows не поддерживает __gunicorn__, поэтому для запуска можно использовать __uvicorn__:
-  Запуск через __PowerShell__ c использованием __waitress__:
+  Запуск через __PowerShell__ c использованием __uvicorn__:
   ```
   if (-not $env:PORT) {$env:PORT = "8000"} uvicorn --port=$env:PORT --workers=4 task_manager.asgi:application
   ```
 
-Остановить сервис можно сочетанием клавиш __CTRL + C__, либо закрытием окна терминала. Для остановки сервиса, запущенного через __guvicorn__ в Windows, небходимо сперва нажать сочетание клавиш __CTRL + BREAK__, а затем нажать сочетание клавиш __CTRL + C__
+Для остановки сервиса, запущенного через __guvicorn__ в Windows, небходимо сперва нажать сочетание клавиш __CTRL + BREAK__, а затем нажать сочетание клавиш __CTRL + C__. В остальных случаях остановить сервис можно сочетанием клавиш __CTRL + C__, либо закрытием окна терминала.
 </details>
 
 <details>

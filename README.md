@@ -9,7 +9,7 @@
 
 ### Task Manager
 ##### (Course project 4)
-This web service provides a task management system. The service includes authentication and authorization mechanisms. Support for task statuses and labels has been implemented, as well as task assignment to executors. The service distinguishes between task authors with full permissions and other users with editing rights only. Task filtering capabilities are implemented within the task list. The service supports three localization languages: English, Russian, and Spanish. Manual language switching functionality is also implemented.
+This web service provides a task management system. The service includes authentication and authorization mechanisms. Support for task statuses and labels has been implemented, as well as task assignment to executors. The service distinguishes between task authors with full permissions and other users with editing permissions only. Task filtering capabilities are implemented within the task list. The service supports three localization languages: English, Russian, and Spanish. Manual language switching functionality is also implemented.
 
 You can check its functionality and test it via the following link: [Task Manager](https://python-project-52-4ipl.onrender.com).
 
@@ -55,7 +55,7 @@ Installation and running instructions for the service:
     py -m pip install git+https://github.com/dmkael/python-project-52.git
       ```
 
-  _NOTE: If the gendiff command are not available in your shell after installation for user, you’ll need to add the directory to your PATH. More info here:_
+  _NOTE: During installation of the package "for user," it's necessary for the user-specific package directory to be accessible in the PATH variable. Detailed information:_
   _[Installing to the user documentation](https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-to-the-user-site)_
 
 For the service to function, three environment variables are required:
@@ -138,25 +138,24 @@ Installation is now complete!
 </details>
 
 <details>
-<summary>3. Запуск веб-сервиса</summary>
+<summary>3. Start the web service</summary>
 
-После установки веб-сервис готов к запуску. Вы можете опционально добавить переменную окружения __PORT__ для указания порта веб-сервиса.
-В случае отсутствия переменной, используется значение по умолчанию __8000__. Запустить можно следующими командами:
+After installation, the web service is ready to be started. Optionally, you can set the environment variable __PORT__ to specify the port for the web service. If the variable is not set, the default value of __8000__ will be used. You can start it with the following commands:
 
 - __Linux:__
 
-  запуск c использованием __Django__ с отладкой:
+  run using __Django__ using debugging::
   ```
   export DEBUG=True; python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py runserver localhost:8000
   ```
-  запуск c использованием __gunicorn__:
+  run using __gunicorn__:
   ```
   export PORT=${PORT:-8000}; gunicorn -w 4 -b 0.0.0.0:${PORT} task_manager.asgi:application -k uvicorn.workers.UvicornWorker
   ```
 
 - __Windows:__
 
-  запуск через __PowerShell__ c использованием __Django__ с отладкой:
+  run using __PowerShell__ with __Django__ using debugging:
   ```
   if (-not $env:DEBUG) {$env:DEBUG = "True"} $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
       if ($_.Matches.Count -gt 0) {
@@ -164,19 +163,19 @@ Installation is now complete!
       }
   }); $manager = "$location\task_manager\django_manage\manage.py"; py $manager runserver localhost:8000
   ```
-  ОС Windows не поддерживает __gunicorn__, поэтому для запуска можно использовать __uvicorn__:
-  Запуск через __PowerShell__ c использованием __uvicorn__:
+  Since Windows does not support __gunicorn__, you can use __uvicorn__ for running the service.
+  run using __PowerShell__ with __uvicorn__:
   ```
   if (-not $env:PORT) {$env:PORT = "8000"} uvicorn --port=$env:PORT --workers=4 task_manager.asgi:application
   ```
 
-Для остановки сервиса, запущенного через __guvicorn__ в Windows, небходимо сперва нажать сочетание клавиш __CTRL + BREAK__, а затем нажать сочетание клавиш __CTRL + C__. В остальных случаях остановить сервис можно сочетанием клавиш __CTRL + C__, либо закрытием окна терминала.
+To stop a service running via __uvicorn__ on Windows, you need to first press __CTRL + BREAK__, and then press __CTRL + C__. In other cases, you can stop the service by pressing __CTRL + C__, or by closing the terminal window..
 </details>
 
 <details>
-  <summary>4. Удаление</summary>
+  <summary>4. Uninstall</summary>
   
-Для удаления сервиса введите в командной строке: 
+To uninstall the service, use in the command line:: 
 
 - __Linux__:
 
@@ -192,7 +191,4 @@ Installation is now complete!
 
 </details>
 
-Вы можете клонировать репозиторий себе и в дальнейшем развернуть его на хостинге. Имеющиеся команды в __Makefile__ могут быть вам полезны в отладке и в сборке. 
-
-
-[Test version](https://python-project-52-4ipl.onrender.com/)
+You can clone the repository and subsequently deploy it on a hosting service. The existing commands in the __Makefile__ may be useful to you for debugging and building.. 

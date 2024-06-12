@@ -9,7 +9,7 @@
 
 ### Task Manager
 ##### (Course project 4)
-This web service provides a task management system. The service includes authentication and authorization mechanisms. Support for task statuses and labels has been implemented, as well as task assignment to executors. The service distinguishes between task authors with full permissions and other users with editing permissions only. Task filtering capabilities are implemented within the task list. The service supports three localization languages: English, Russian, and Spanish. Manual language switching functionality is also implemented.
+This Django web service provides a task management system. The service includes authentication and authorization mechanisms. Support for task statuses and labels has been implemented, as well as task assignment to executors. The service distinguishes between task authors with full permissions and other users with editing permissions only. Task filtering capabilities are implemented within the task list. The service supports three localization languages: English, Russian, and Spanish. Manual language switching functionality is also implemented.
 
 You can check its functionality and test it via the following link: [Task Manager](https://python-project-52-4ipl.onrender.com).
 

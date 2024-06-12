@@ -95,45 +95,45 @@ After adding environment variables, you need to perform database migrations and 
 - __Linux:__
 
   - run command:
-  ```
-  python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py migrate && python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py collectstatic
+    ```
+    python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py migrate && python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py collectstatic
   
-  ```
+    ```
 
 - __Windows:__
   
   - run command in __PowerShell__:
-  ```
-  <# apply migrations and collect static files #>
-  $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
-      if ($_.Matches.Count -gt 0) {
-          $_.Matches[0].Groups[1].Value
-      }
-  }); $manager = "$location\task_manager\django_manage\manage.py"; Write-Output $manager; py "$manager" migrate; py "$manager" collectstatic --no-input
+    ```
+    <# apply migrations and collect static files #>
+    $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
+        if ($_.Matches.Count -gt 0) {
+            $_.Matches[0].Groups[1].Value
+        }
+    }); $manager = "$location\task_manager\django_manage\manage.py"; Write-Output $manager; py "$manager" migrate; py "$manager" collectstatic --no-input
 
-  ```
+    ```
 
 You also need to specify allowed hosts in the `ALLOWED_HOSTS` section of the `settings.py` file for the service to function correctly.:
 
 - __Linux:__
 
   - run command:
-  ```
-  nano $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/settings.py
+    ```
+    nano $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/settings.py
 
-  ```
+    ```
 
 - __Windows:__
 
   - run command in __PowerShell__:
-  ```
-  $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
-       if ($_.Matches.Count -gt 0) {
-           $_.Matches[0].Groups[1].Value
-       }
-  }); notepad.exe $location\task_manager\settings.py;
+    ```
+    $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
+         if ($_.Matches.Count -gt 0) {
+             $_.Matches[0].Groups[1].Value
+         }
+    }); notepad.exe $location\task_manager\settings.py;
 
-  ```
+    ```
 Installation is now complete!
 </details>
 
@@ -156,18 +156,18 @@ After installation, the web service is ready to be started. Optionally, you can 
 - __Windows:__
 
   run using __PowerShell__ with __Django__ using debugging:
-  ```
-  if (-not $env:DEBUG) {$env:DEBUG = "True"} $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
-      if ($_.Matches.Count -gt 0) {
-          $_.Matches[0].Groups[1].Value
-      }
-  }); $manager = "$location\task_manager\django_manage\manage.py"; py $manager runserver localhost:8000
-  ```
+    ```
+    if (-not $env:DEBUG) {$env:DEBUG = "True"} $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
+        if ($_.Matches.Count -gt 0) {
+            $_.Matches[0].Groups[1].Value
+        }
+    }); $manager = "$location\task_manager\django_manage\manage.py"; py $manager runserver localhost:8000
+    ```
   Since Windows does not support __gunicorn__, you can use __uvicorn__ for running the service.
   run using __PowerShell__ with __uvicorn__:
-  ```
-  if (-not $env:PORT) {$env:PORT = "8000"} uvicorn --port=$env:PORT --workers=4 task_manager.asgi:application
-  ```
+    ```
+    if (-not $env:PORT) {$env:PORT = "8000"} uvicorn --port=$env:PORT --workers=4 task_manager.asgi:application
+    ```
 
 To stop a service running via __uvicorn__ on Windows, you need to first press __CTRL + BREAK__, and then press __CTRL + C__. In other cases, you can stop the service by pressing __CTRL + C__, or by closing the terminal window..
 </details>

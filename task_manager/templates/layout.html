@@ -39,22 +39,23 @@
                   <li class="nav-item"><a class="nav-link" href="/statuses/">{% trans "Statuses" %}</a></li>
                   <li class="nav-item"><a class="nav-link" href="/labels/">{% trans "Labels" %}</a></li>
                   <li class="nav-item"><a class="nav-link" href="/tasks/">{% trans "Tasks" %}</a></li>
-                  <li class="nav-item">
-                      <form method="post" action={% url 'logout' %}>
-                          {% csrf_token %}
-                          <input class="btn nav-link" type="submit" value="{% trans "Logout" %}">
-                      </form>
-                  </li>
                       
-                  {% else %}
-                  <li class="nav-item"><a class="nav-link" href="/login/">{% trans "Login" %}</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/users/create">{% trans "Registration" %}</a></li>
+
                   
                   {% endif %}
               </ul>
               <ul class="navbar-nav ms-auto">
                   {% if user.is_authenticated %}
                   <li class="nav-item"><a class="nav-link" href="{% url 'user_update' user.id %}">{% trans "User" %}: {{ user.username }}</a></li>
+                  <li class="nav-item">
+                      <form method="post" action={% url 'logout' %}>
+                          {% csrf_token %}
+                          <input class="nav-link btn btn-dark btn-primary" type="submit" value="{% trans "Logout" %}">
+                      </form>
+                  </li>
+                  {% else %}
+                  <li class="nav-item"><a class="nav-link btn btn-dark btn-primary" href="/users/create">{% trans "Registration" %}</a></li>
+                  <li class="nav-item"><a class="nav-link btn btn-dark btn-primary" href="/login/">{% trans "Login" %}</a></li>
                   {% endif %}
                   <li class="nav-item">
                       <div class="btn-group">

@@ -19,9 +19,9 @@ Installation and running instructions for the service:
 <details>
 <summary>1. System requirements</summary>
 
-- Python 3.10 or above ([скачать](https://www.python.org/downloads/))
-- GIT-client ([скачать](https://git-scm.com/downloads/))
-- PostgreSQL server with database ([скачать](https://www.postgresql.org/download/))
+- Python 3.10 or above ([download](https://www.python.org/downloads/))
+- GIT-client ([download](https://git-scm.com/downloads/))
+- PostgreSQL server with database ([download](https://www.postgresql.org/download/))
 - Account and active API-key for the error collector service [Rollbar](https://rollbar.com/)
 
 </details>

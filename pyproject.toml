@@ -5,6 +5,9 @@ description = ""
 authors = ["dmkael <tanmaar@gmail.com>"]
 packages = [{include = "task_manager"}]
 readme = "README.md"
+include = [
+    "manage.py"
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"

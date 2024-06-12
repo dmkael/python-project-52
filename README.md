@@ -96,7 +96,7 @@ After adding environment variables, you need to perform database migrations and 
 
   - run command:
     ```
-    python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py migrate && python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py collectstatic
+    python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py migrate && python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py collectstatic --no-input
   
     ```
 

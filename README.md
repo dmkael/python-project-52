@@ -144,18 +144,18 @@ After installation, the web service is ready to be started. Optionally, you can 
 
 - __Linux:__
 
-  run using __Django__ using debugging::
-  ```
-  export DEBUG=True; python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py runserver localhost:8000
-  ```
-  run using __gunicorn__:
-  ```
-  export PORT=${PORT:-8000}; gunicorn -w 4 -b 0.0.0.0:${PORT} task_manager.asgi:application -k uvicorn.workers.UvicornWorker
-  ```
+  - run using __Django__ using debugging::
+    ```
+    export DEBUG=True; python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py runserver localhost:8000
+    ```
+  - run using __gunicorn__:
+    ```
+    export PORT=${PORT:-8000}; gunicorn -w 4 -b 0.0.0.0:${PORT} task_manager.asgi:application -k uvicorn.workers.UvicornWorker
+    ```
 
 - __Windows:__
 
-  run using __PowerShell__ with __Django__ using debugging:
+  - run using __PowerShell__ with __Django__ using debugging:
     ```
     if (-not $env:DEBUG) {$env:DEBUG = "True"} $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
         if ($_.Matches.Count -gt 0) {
@@ -164,7 +164,7 @@ After installation, the web service is ready to be started. Optionally, you can 
     }); $manager = "$location\task_manager\django_manage\manage.py"; py $manager runserver localhost:8000
     ```
   Since Windows does not support __gunicorn__, you can use __uvicorn__ for running the service.
-  run using __PowerShell__ with __uvicorn__:
+  - run using __PowerShell__ with __uvicorn__:
     ```
     if (-not $env:PORT) {$env:PORT = "8000"} uvicorn --port=$env:PORT --workers=4 task_manager.asgi:application
     ```
@@ -180,13 +180,13 @@ To uninstall the service, use in the command line::
 - __Linux__:
 
     ```
-  python3 -m pip uninstall hexlet-code
+    python3 -m pip uninstall hexlet-code
     ```
 
 - __Windows__:
 
     ```
-  py -m pip uninstall hexlet-code
+    py -m pip uninstall hexlet-code
     ```
 
 </details>

@@ -191,4 +191,4 @@ To uninstall the service, use in the command line::
 
 </details>
 
-You can clone the repository and subsequently deploy it on a hosting service. The existing commands in the __Makefile__ may be useful to you for debugging and building.. 
+You can clone the repository and subsequently deploy it on a hosting service. The existing commands in the __Makefile__ may be useful to you for debugging and building.

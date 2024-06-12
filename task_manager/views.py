@@ -3,18 +3,13 @@ from django.contrib.auth import logout
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
 from django.views import View
+from django.views.generic import TemplateView
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.views import LoginView
 
 
-class IndexView(View):
-
-    def get(self, request):
-        user = None
-        if request.user.is_authenticated:
-            user = request.user
-        trans = _('Hello World')
-        return render(request, 'index.html', context={'data': trans, 'user': user})
+class IndexView(TemplateView):
+    template_name = 'index.html'
 
 
 class TaskManagerLoginView(SuccessMessageMixin, LoginView):

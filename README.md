@@ -61,7 +61,7 @@ Installation and running instructions for the service:
 For the service to function, three environment variables are required:
 
 1. __SECRET_KEY__ - for the application to operate (you can generate any value yourself)
-2. __DATABASE_URL__ - The path to your prepared database as a Uniform Resource Identifier (URI): _postgres://{user}:{password}@{hostname}:{port}/{database-name}_
+2. __DATABASE_URL__ - The path to your prepared database as a Unified Resource Identifier (URI): _postgres://{user}:{password}@{hostname}:{port}/{database-name}_
 3. __ROLLBAR_ACCESS_TOKEN__ - with "access_token" value from Rollbar service.
 
 
@@ -144,7 +144,7 @@ After installation, the web service is ready to be started. Optionally, you can 
 
 - __Linux:__
 
-  - run using __Django__ using debugging::
+  - run using __Django__ using debugging:
     ```
     export DEBUG=True; python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py runserver localhost:8000
     ```
@@ -175,7 +175,7 @@ To stop a service running via __uvicorn__ on Windows, you need to first press __
 <details>
   <summary>4. Uninstall</summary>
   
-To uninstall the service, use in the command line:: 
+To uninstall the service, use in the command line: 
 
 - __Linux__:
 

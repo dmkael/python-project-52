@@ -9,92 +9,92 @@
 
 ### Task Manager
 ##### (Course project 4)
-Данный веб-сервис предоставляет систему управления задачами. В сервисе используется аутентификация и авторизация. Реализована поддержка статусов и меток для задач, а так же назначение исполнителя. Сервис имеет разграничение прав между авторами задач с полными правами и остальными пользователями с правами только на редактирование. В списке задач реализован инструмент филтрации задач по условиям. Сервис поддерживает три языка локализации: английский, русский, испанский. Реализована возможность вручную переключаться на нужный язык.
+This web service provides a task management system. The service includes authentication and authorization mechanisms. Support for task statuses and labels has been implemented, as well as task assignment to executors. The service distinguishes between task authors with full permissions and other users with editing rights only. Task filtering capabilities are implemented within the task list. The service supports three localization languages: English, Russian, and Spanish. Manual language switching functionality is also implemented.
 
-Проверить работу и протестировать можно по ссылке: [Task Manager](https://python-project-52-4ipl.onrender.com).
+You can check its functionality and test it via the following link: [Task Manager](https://python-project-52-4ipl.onrender.com).
 
 \
-Инструкция по установке и запуску сервиса у себя:
+Installation and running instructions for the service:
 
 <details>
-<summary>1. Системные требования</summary>
+<summary>1. System requirements</summary>
 
-- Python 3.10 или выше ([скачать](https://www.python.org/downloads/))
-- GIT-клиент ([скачать](https://git-scm.com/downloads/))
-- Сервер с базой данных PostgreSQL ([скачать](https://www.postgresql.org/download/))
-- Учётная запись и действующий API-key в сервисе коллектора ошибок [Rollbar](https://rollbar.com/)
+- Python 3.10 or above ([скачать](https://www.python.org/downloads/))
+- GIT-client ([скачать](https://git-scm.com/downloads/))
+- PostgreSQL server with database ([скачать](https://www.postgresql.org/download/))
+- Account and active API-key for the error collector service [Rollbar](https://rollbar.com/)
 
 </details>
 
 <details>
-<summary>2. Порядок установки</summary>
+<summary>2. Installation steps</summary>
 
 - __Linux__:
-  - для текущего пользователя:
+  - for current user:
 
       ```
     python3 -m pip install --user git+https://github.com/dmkael/python-project-52.git
       ```
 
-  - в систему (использует встроенную версию Python) или в виртуальное окружение:
+  - to the system (using the built-in Python version) or to a virtual environment:
 
       ```
     python3 -m pip install git+https://github.com/dmkael/python-project-52.git
       ```
 
 - __Windows__:
-  - для текущего пользователя:
+  - for current user:
 
       ```
     py -m pip install --user git+https://github.com/dmkael/python-project-52.git
       ```
 
-  - в систему или в виртуальное окружение:
+  - to the system (using the built-in Python version) or to a virtual environment:
 
       ```
     py -m pip install git+https://github.com/dmkael/python-project-52.git
       ```
 
-  _ВНИМАНИЕ: При установке пакета "для пользователя" необходимо, чтобы каталог пользовательских пакетов был доступен в переменной PATH. Детальная информация здесь:_
+  _NOTE: If the gendiff command are not available in your shell after installation for user, you’ll need to add the directory to your PATH. More info here:_
   _[Installing to the user documentation](https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-to-the-user-site)_
 
-Для работы сервиса необходимы три переменных окружения:
+For the service to function, three environment variables are required:
 
-- SECRET_KEY - со значением секрета для работы приложения (можете любое значение сгенерировать сами)
-- DATABASE_URL - путь к вашей подготовленной базе данных в виде унифицированного идентификатора ресурса (URI): _postgres://{user}:{password}@{hostname}:{port}/{database-name}_
-- ROLLBAR_ACCESS_TOKEN - со значением "access_token" сервиса Rollbar
+- SECRET_KEY - for the application to operate (you can generate any value yourself)
+- DATABASE_URL - The path to your prepared database as a Uniform Resource Identifier (URI): _postgres://{user}:{password}@{hostname}:{port}/{database-name}_
+- ROLLBAR_ACCESS_TOKEN - with "access_token" value from Rollbar service.
 
 
-  Можно использовать пакет python-dotenv и указать переменные в файле .env в корне пакета.
-  Либо прописать переменные в окружение ОС:
+  You can use the `python-dotenv` package and specify variables in a `.env` file located in the root of the package.
+  Alternatively, you can set the variables directly in the operating system environment:
 - __Linux (Ubuntu):__
 
-  - Вывести имеющиеся
+  - Show available:
     ```
     printenv
     ```
-  - задать для пользователя, указав значение вида MY_VAR=VALUE:
+  - Set for the user by specifying a value of MY_VAR=VALUE:
     ```
     echo MY_VAR=VALUE >> $HOME/.bashrc
     ```
-  - задать для системы, указав значение вида MY_VAR=VALUE:
+  - Set for the system by specifying a value of MY_VAR=VALUE:
     ```
     sudo echo MY_VAR=VALUE >> /etc/environment
     ```
-    _Либо можете прописать текстовым редактором, например, nano в указанные файлы вручную._
+    _Alternatively, you can manually edit the specified files using a text editor like nano._
 
 
 - __Windows:__
-  - запустить в командной строке __cmd__ или __PowerShell__ от имени администратора, либо в меню __Выполнить__, которое открывается сочетанием клавиш __WIN + R__ (_При запуске через меню "Выполнить" может запуститься без прав администратора, что не позволит менять системные переменные_):
+  - To run in the command line __cmd__ or __PowerShell__ as an administrator, or in the __Run__ menu, which opens with the __WIN + R__ keystroke combination (_Launching from the Run menu may start without administrator privileges, which prevents changing system variables_):
     ```
     rundll32.exe sysdm.cpl,EditEnvironmentVariables
     ```
 
-После добавления переменных окружения нужно выполнить миграции в базу данных и собрать статические файлы Django:
+After adding environment variables, you need to perform database migrations and collect static files in Django.:
 
 - __Linux:__
 
-  - запустить команду:
+  - run command:
   ```
   python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py migrate && python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py collectstatic
   
@@ -102,7 +102,7 @@
 
 - __Windows:__
   
-  - запустить команду в __PowerShell__:
+  - run command in __PowerShell__:
   ```
   <# apply migrations and collect static files #>
   $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
@@ -113,11 +113,11 @@
 
   ```
 
-Так же необходимо прописать разрешённые хосты в разделе ALLOWED_HOSTS файла settings.py для работы сервиса:
+You also need to specify allowed hosts in the `ALLOWED_HOSTS` section of the `settings.py` file for the service to function correctly.:
 
 - __Linux:__
 
-  - запустить команду:
+  - run command:
   ```
   nano $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/settings.py
 
@@ -125,7 +125,7 @@
 
 - __Windows:__
 
-  - запустить команду в __PowerShell__:
+  - run command in __PowerShell__:
   ```
   $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
        if ($_.Matches.Count -gt 0) {
@@ -134,7 +134,7 @@
   }); notepad.exe $location\task_manager\settings.py;
 
   ```
-На этом установка завершена!
+Installation is now complete!
 </details>
 
 <details>

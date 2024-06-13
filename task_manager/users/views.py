@@ -43,7 +43,7 @@ class UserUpdateView(UserCreatorOnlyMixin, UsersAbstractMixin, UpdateViewMixin):
 
 
 class UserDeleteView(UserCreatorOnlyMixin, UsersAbstractMixin, DeleteViewMixin):
-    extra_context = {'button_text': _('Yes delete'), 'header': _('Delete user')}
+    extra_context = {'button_text': _('Yes, delete'), 'header': _('Delete user')}
     template_name = 'users/delete.html'
     success_message = _('User has been deleted successfully.')
     failure_message = _('Cannot delete user because it is in use.')

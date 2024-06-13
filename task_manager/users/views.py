@@ -2,13 +2,13 @@ from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.forms import Form
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView
 from task_manager.users.forms import UserCreateForm
 from task_manager.users.mixins import UserCreatorOnlyMixin
 from task_manager.view_mixins import (
-    CreateFlashedView,
-    UpdateFlashedView,
-    DeleteFlashedView
+    CreateViewMixin,
+    UpdateViewMixin,
+    DeleteViewMixin,
+    IndexViewMixin
 )
 
 
@@ -18,18 +18,21 @@ class UsersAbstractMixin:
     form_class = UserCreateForm
 
 
-class UsersIndexView(UsersAbstractMixin, ListView):
+class UsersIndexView(UsersAbstractMixin, IndexViewMixin):
+    extra_context = {'header': _('Users')}
     template_name = 'users/index.html'
     context_object_name = 'users'
     ordering = ['pk']
 
 
-class UserCreateView(UsersAbstractMixin, CreateFlashedView):
+class UserCreateView(UsersAbstractMixin, CreateViewMixin):
+    extra_context = {'button_text': _('Register'), 'header': _('Registration')}
     template_name = 'users/create.html'
     success_message = _('User has been registered successfully.')
 
 
-class UserUpdateView(UserCreatorOnlyMixin, UsersAbstractMixin, UpdateFlashedView):
+class UserUpdateView(UserCreatorOnlyMixin, UsersAbstractMixin, UpdateViewMixin):
+    extra_context = {'button_text': _('Edit'), 'header': _('Edit user')}
     template_name = 'users/update.html'
     success_message = _('User has been updated successfully.')
 
@@ -39,7 +42,8 @@ class UserUpdateView(UserCreatorOnlyMixin, UsersAbstractMixin, UpdateFlashedView
         return response
 
 
-class UserDeleteView(UserCreatorOnlyMixin, UsersAbstractMixin, DeleteFlashedView):
+class UserDeleteView(UserCreatorOnlyMixin, UsersAbstractMixin, DeleteViewMixin):
+    extra_context = {'button_text': _('Yes, delete'), 'header': _('Delete user')}
     template_name = 'users/delete.html'
     success_message = _('User has been deleted successfully.')
     failure_message = _('Cannot delete user because it is in use.')

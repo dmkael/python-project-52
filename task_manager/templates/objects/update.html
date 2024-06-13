@@ -1,0 +1,11 @@
+{% extends 'labels/create.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}{{ extra_context.header }}{% endblock %}
+
+{% csrf_token %}
+{% block button %}
+    {% trans "Edit" as button_text %}
+    {% bootstrap_button button_class="btn btn-warning" button_type="submit" content=extra_context.button_text %}
+{% endblock %}

@@ -1,12 +1,8 @@
-{% extends 'layout.html' %}
+{% extends 'objects/index.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
 
-{% block page_header %}{% trans "Tasks" %}{% endblock %}
-
-{% block content %}
-    <style></style>
-    <a class="btn btn-warning mb-3" href="/tasks/create/">{% trans "Create task" %}</a>
+{% block filter %}
     <div class="card mb-3">
         <div class="card-body bg-light">
             <form id="taskForm" class="form-inline center">
@@ -16,8 +12,8 @@
             </form>
         </div>
     </div>
-    <table class="table table-striped table-hover">
-    
+{% endblock %}
+{% block objects_tabledata %}
         <thead class="table-dark">
         <tr>
             <th class="text-center">ID</th>
@@ -46,25 +42,4 @@
             </tr>
         {% endfor %}
         </tbody>
-    
-    </table>
-    
-    <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; {% trans "first" %}</a>
-            <a href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a>
-        {% endif %}
-        {% if page_obj.paginator.num_pages > 1 %}
-        <span class="current">
-            {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}.
-        </span>
-        {% endif %}
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
-        {% endif %}
-    </span>
-</div>
 {% endblock %}

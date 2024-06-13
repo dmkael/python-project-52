@@ -1,14 +1,8 @@
-{% extends 'layout.html' %}
+{% extends 'objects/index.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
 
-{% block page_header %}{% trans "Statuses" %}{% endblock %}
-
-{% block content %}
-    <a class="btn btn-warning mb-3" href="/statuses/create/">{% trans "Create status" %}</a>
-    
-    <table class="table table-striped table-hover">
-    
+{% block objects_tabledata %}
         <thead class="table-dark">
         <tr>
             <th class="text-center">ID</th>
@@ -31,25 +25,4 @@
             </tr>
         {% endfor %}
         </tbody>
-    
-    </table>
-    
-    <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; {% trans "first" %}</a>
-            <a href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a>
-        {% endif %}
-        {% if page_obj.paginator.num_pages > 1 %}
-        <span class="current">
-            {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}.
-        </span>
-        {% endif %}
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
-        {% endif %}
-    </span>
-</div>
 {% endblock %}

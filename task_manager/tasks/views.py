@@ -8,9 +8,10 @@ from task_manager.access_mixins import LoginRequireMixin
 from task_manager.tasks.mixins import TaskAuthorOnlyMixin
 from django_filters.views import FilterView
 from task_manager.view_mixins import (
-    CreateFlashedView,
-    UpdateFlashedView,
-    DeleteFlashedView
+    CreateViewMixin,
+    UpdateViewMixin,
+    DeleteViewMixin,
+    IndexViewMixin
 )
 
 
@@ -20,15 +21,20 @@ class TaskAbstractView(LoginRequireMixin):
     success_url = reverse_lazy('tasks')
 
 
-class TaskIndexView(TaskAbstractView, FilterView):
-    pass
+class TaskIndexView(TaskAbstractView, FilterView, IndexViewMixin):
+    extra_context = {
+        'url_name': 'task_create',
+        'header': _('Tasks'),
+        'button_text': _('Create task')
+    }
 
 
 class TaskDetailView(TaskAbstractView, DetailView):
     template_name = 'tasks/detail.html'
 
 
-class TaskCreateView(TaskAbstractView, CreateFlashedView):
+class TaskCreateView(TaskAbstractView, CreateViewMixin):
+    extra_context = {'button_text': _('Create'), 'header': _('Create task')}
     template_name = 'tasks/create.html'
     success_message = _('Task has been created successfully.')
 
@@ -38,12 +44,14 @@ class TaskCreateView(TaskAbstractView, CreateFlashedView):
         return super().form_valid(form)
 
 
-class TaskUpdateView(TaskAbstractView, UpdateFlashedView):
+class TaskUpdateView(TaskAbstractView, UpdateViewMixin):
+    extra_context = {'button_text': _('Edit'), 'header': _('Edit task')}
     template_name = 'tasks/update.html'
     success_message = _('Task has been updated successfully.')
 
 
-class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteFlashedView):
+class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteViewMixin):
+    extra_context = {'button_text': _('Yes, delete'), 'header': _('Delete task')}
     template_name = 'tasks/delete.html'
     success_message = _('Task has been deleted successfully.')
     success_url = reverse_lazy('tasks')

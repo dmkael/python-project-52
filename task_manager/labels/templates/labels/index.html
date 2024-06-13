@@ -1,56 +1,29 @@
-{% extends 'layout.html' %}
+{% extends 'objects/index.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
 
-{% block page_header %}{% trans "Labels" %}{% endblock %}
+{% block objects_tabledata %}
+    <thead class="table-dark">
+    <tr>
+        <th class="text-center">ID</th>
+        <th>{% trans "Name" %}</th>
+        <th>{% trans "Creation date" %}</th>
+        <th></th>
+    </tr>
+    </thead>
 
-{% block content %}
-    <a class="btn btn-warning mb-3" href="/labels/create/">{% trans "Create label" %}</a>
-    
-    <table class="table table-striped table-hover">
-    
-        <thead class="table-dark">
+    <tbody class="table-group-divider">
+    {% for label in labels %}
         <tr>
-            <th class="text-center">ID</th>
-            <th>{% trans "Name" %}</th>
-            <th>{% trans "Creation date" %}</th>
-            <th></th>
+            <td class="align-middle text-center">{{ label.id }}</td>
+            <td class="align-middle">{{ label.name }}</td>
+            <td class="align-middle">{{ label.created_at|date:'d.m.Y H:i' }}</td>
+            <td class="align-middle">
+                <a href="{% url 'label_update' label.id %}">{% trans "Edit" %}</a>
+                <br>
+                <a href="{% url 'label_delete' label.id %}">{% trans "Delete" %}</a>
+            </td>
         </tr>
-        </thead>
-    
-        <tbody class="table-group-divider">
-        {% for label in labels %}
-            <tr>
-                <td class="align-middle text-center">{{ label.id }}</td>
-                <td class="align-middle">{{ label.name }}</td>
-                <td class="align-middle">{{ label.created_at|date:'d.m.Y H:i' }}</td>
-                <td class="align-middle">
-                    <a href="{% url 'label_update' label.id %}">{% trans "Edit" %}</a>
-                    <br>
-                    <a href="{% url 'label_delete' label.id %}">{% trans "Delete" %}</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    
-    </table>
-    
-    <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; {% trans "first" %}</a>
-            <a href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a>
-        {% endif %}
-        {% if page_obj.paginator.num_pages > 1 %}
-        <span class="current">
-            {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}.
-        </span>
-        {% endif %}
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+    {% endfor %}
+    </tbody>
 {% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 18:47+0000\n"
+"POT-Creation-Date: 2024-06-13 19:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
 
-#: task_manager/access_mixins.py:16
+#: task_manager/access_mixins.py:15
 msgid "You are not authorized! Please log in."
 msgstr "¡Usted no está autorizado! Por favor Iniciar sesión."
 
@@ -406,4 +406,3 @@ msgstr "Has iniciado sesión"
 #: task_manager/views.py:24
 msgid "You are logged out"
 msgstr "Estás desconectado"
-

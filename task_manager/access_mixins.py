@@ -10,9 +10,8 @@ class LoginRequireMixin(LoginRequiredMixin):
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            messages.add_message(
+            messages.error(
                 request,
-                messages.ERROR,
                 _("You are not authorized! Please log in.")
             )
             return self.handle_no_permission()
@@ -26,10 +25,6 @@ class LimitedPermissionsMixin(LoginRequireMixin):
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated and not self.have_permission:
-            messages.add_message(
-                request,
-                messages.ERROR,
-                self.permission_denied_message
-            )
+            messages.error(request, self.permission_denied_message)
             return redirect(self.redirect_url)
         return super().dispatch(request, *args, **kwargs)

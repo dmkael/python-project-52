@@ -21,7 +21,7 @@ class TaskManagerLogoutView(View):
 
     def post(self, request, *args, **kwargs):
         logout(request)
-        messages.add_message(request, messages.INFO, _('You are logged out'))
+        messages.info(request, _('You are logged out'))
         return redirect('index')
 
 

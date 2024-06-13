@@ -1,4 +1,5 @@
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import ProtectedError
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.contrib import messages
@@ -48,10 +49,10 @@ class DeleteViewMixin(SuccessMessageMixin, DeleteView):
 
     def post(self, request, *args, **kwargs):
         if not self.have_dependencies:
-            return super().post(request, *args, **kwargs)
-        messages.add_message(
-            self.request,
-            messages.ERROR,
-            self.failure_message
-        )
+            try:
+                return super().post(request, *args, **kwargs)
+            except ProtectedError:
+                messages.error(self.request, self.failure_message)
+                return redirect(self.redirect_url)
+        messages.error(self.request, self.failure_message)
         return redirect(self.redirect_url)

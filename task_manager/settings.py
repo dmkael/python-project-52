@@ -171,7 +171,7 @@ BOOTSTRAP5 = {
     }
 }
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru'
 
 LANGUAGES = (
     ('en', _('English')),

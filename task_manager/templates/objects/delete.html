@@ -5,7 +5,7 @@
 {% block page_header %}{{ header }}{% endblock %}
 
 {% block content %}
-    <p>{% trans "Are you sure you want delete" %} "{{ object }}"?</p>
+    <p>{% trans "Are you sure you want delete" %} <span style="font-weight: bold">"{{ object }}"</span>?</p>
     <form method="post">
         {% csrf_token %}
         <input class="btn btn-danger" type="submit" value="{{ button_text }}">

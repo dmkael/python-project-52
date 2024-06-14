@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 
 
 class IndexViewMixin(ListView, ContextMixin):
+    paginate_by = None
     pass
 
 

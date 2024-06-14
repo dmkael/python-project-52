@@ -1,4 +1,7 @@
 version: "2"
+checks:
+  similar-code:
+    enabled: false
 exclude_patterns:
   - "**/manage.py"
   - "**/asgi.py"
@@ -6,6 +9,4 @@ exclude_patterns:
   - "**/settings.py"
   - "**/static/"
   - "**/tests/"
-  - "**/urls.py"
   - "**/migrations/"
-  - "**/models.py"

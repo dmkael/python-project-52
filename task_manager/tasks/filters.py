@@ -7,23 +7,15 @@ from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.forms import CustomChoiceField
 
 
-class SelfAuthorFilter(django_filters.Filter):
-    def filter(self, qs, value):
-        if not value:
-            return qs
-        parent = getattr(self, 'parent', None)
-        request = getattr(parent, 'request', None) if parent else None
-        return qs.filter(author__exact=request.user) if request else qs
-
-
 class CustomExecutorFilter(django_filters.Filter):
     field_class = CustomChoiceField
 
 
 class TasksFilter(django_filters.FilterSet):
-    author = SelfAuthorFilter(
+    author = django_filters.BooleanFilter(
         widget=forms.CheckboxInput(),
-        label=_("Only your tasks")
+        label=_("Only your tasks"),
+        method="self_tasks",
     )
     labels = django_filters.ModelChoiceFilter(
         queryset=Label.objects.all(),
@@ -40,3 +32,8 @@ class TasksFilter(django_filters.FilterSet):
     def filter_queryset(self, queryset):
         queryset = Task.objects.prefetch_related('status', 'executor', 'author')
         return super().filter_queryset(queryset)
+
+    def self_tasks(self, queryset, name, value):
+        if name == 'author' and value:
+            return queryset.filter(author__exact=self.request.user)
+        return queryset

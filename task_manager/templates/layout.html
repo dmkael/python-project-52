@@ -25,7 +25,9 @@
   
   <div class="container wrapper flex-grow-1">
       {% if messages %}
+          <div class="shadow rounded">
           {% bootstrap_messages %}
+          </div>
       {% endif %}
       
       <h1 class="my-4">{% block page_header %}{% endblock %}</h1>

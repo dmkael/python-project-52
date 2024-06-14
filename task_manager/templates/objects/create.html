@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
 
-{% block page_header %}{{ extra_context.header }}{% endblock %}
+{% block page_header %}{{ header }}{% endblock %}
 
 {% block content %}
     <form method="post">
@@ -10,7 +10,7 @@
         {% bootstrap_form form %}
     
         {% block button %}
-            {% bootstrap_button button_class="btn btn-warning" button_type="submit" content=extra_context.button_text %}
+            {% bootstrap_button button_class="btn btn-warning" button_type="submit" content=button_text %}
         {% endblock %}
     
     </form>

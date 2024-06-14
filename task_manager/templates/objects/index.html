@@ -2,11 +2,11 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
 
-{% block page_header %}{{ extra_context.header }}{% endblock %}
+{% block page_header %}{{ header }}{% endblock %}
 
 {% block content %}
-    {% if extra_context.url_name %}
-    <a class="btn btn-warning mb-3" href="{% url extra_context.url_name %}">{{ extra_context.button_text }}</a>
+    {% if url_name %}
+    <a class="btn btn-warning mb-3" href="{% url url_name %}">{{ button_text }}</a>
     {% endif %}
     {% block filter %}
     {% endblock %}

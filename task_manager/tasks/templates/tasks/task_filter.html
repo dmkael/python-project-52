@@ -7,8 +7,8 @@
         <div class="card-body bg-light">
             <form id="taskForm" class="form-inline center">
                 {% bootstrap_form filter.form %}
-                <input class="btn btn-warning" type="submit" value={% trans "Show" %}>
-                <a class="btn btn-secondary" type="submit" href="{% url 'tasks' %}">{% trans "Reset" %}</a>
+                <input class="btn btn-warning shadow-sm" type="submit" value={% trans "Show" %}>
+                <a class="btn btn-secondary shadow-sm" type="submit" href="{% url 'tasks' %}">{% trans "Reset" %}</a>
             </form>
         </div>
     </div>

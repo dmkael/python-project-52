@@ -27,6 +27,7 @@ class TaskIndexView(TaskAbstractView, FilterView, IndexViewMixin):
         'header': _('Tasks'),
         'button_text': _('Create task')
     }
+    ordering = ['pk']
 
 
 class TaskDetailView(TaskAbstractView, DetailView):

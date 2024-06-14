@@ -2,7 +2,9 @@ import django_filters
 from django import forms
 from task_manager.tasks.models import Task
 from task_manager.labels.models import Label
+from task_manager.users.models import User
 from django.utils.translation import gettext_lazy as _
+from task_manager.tasks.forms import CustomChoiceField
 
 
 class SelfAuthorFilter(django_filters.Filter):
@@ -14,6 +16,10 @@ class SelfAuthorFilter(django_filters.Filter):
         return qs.filter(author__exact=request.user) if request else qs
 
 
+class CustomExecutorFilter(django_filters.Filter):
+    field_class = CustomChoiceField
+
+
 class TasksFilter(django_filters.FilterSet):
     author = SelfAuthorFilter(
         widget=forms.CheckboxInput(),
@@ -22,6 +28,9 @@ class TasksFilter(django_filters.FilterSet):
     labels = django_filters.ModelChoiceFilter(
         queryset=Label.objects.all(),
         label=_("Label")
+    )
+    executor = CustomExecutorFilter(
+        queryset=User.objects.all(),
     )
 
     class Meta:

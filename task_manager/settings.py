@@ -14,7 +14,6 @@ from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
 from django.utils.translation import gettext_lazy as _
-import sys
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")

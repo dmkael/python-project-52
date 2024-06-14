@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 15:47+0000\n"
+"POT-Creation-Date: 2024-06-14 15:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,6 +178,13 @@ msgstr "Невозможно удалить статус, потому что о
 msgid "Only your tasks"
 msgstr "Только свои задачи"
 
+#: task_manager/tasks/forms.py:13 task_manager/tasks/models.py:45
+#: task_manager/tasks/templates/tasks/detail.html:21
+#: task_manager/tasks/templates/tasks/index.html:57
+#: task_manager/tasks/templates/tasks/task_filter.html:23
+msgid "Executor"
+msgstr "Исполнитель"
+
 #: task_manager/tasks/forms.py:18
 msgid "A task with that name already exists."
 msgstr "Задача с таким именем уже существует."
@@ -196,13 +203,6 @@ msgstr "Автор"
 #: task_manager/tasks/models.py:25
 msgid "Description"
 msgstr "Описание"
-
-#: task_manager/tasks/models.py:45
-#: task_manager/tasks/templates/tasks/detail.html:21
-#: task_manager/tasks/templates/tasks/index.html:57
-#: task_manager/tasks/templates/tasks/task_filter.html:23
-msgid "Executor"
-msgstr "Исполнитель"
 
 #: task_manager/tasks/models.py:53
 msgid "Task"

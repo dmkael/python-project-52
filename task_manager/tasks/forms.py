@@ -10,7 +10,11 @@ class CustomChoiceField(forms.ModelChoiceField):
 
 
 class TaskForm(forms.ModelForm):
-    executor = CustomChoiceField(queryset=User.objects.all(), required=False)
+    executor = CustomChoiceField(
+        queryset=User.objects.all(),
+        required=False,
+        label=_('Executor')
+    )
 
     class Meta:
         model = Task

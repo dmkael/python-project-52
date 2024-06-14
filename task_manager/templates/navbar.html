@@ -1,7 +1,7 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 shadow">
           <a class="navbar-brand" href="/">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFC000" class="bi bi-floppy" viewBox="0 0 16 16" style="margin-right:5px">
                   <g transform="scale(0.85)">
@@ -44,7 +44,7 @@
                               </svg>
                               {% trans "Language" %}
                           </button>
-                          <ul class="dropdown-menu dropdown-menu-end">
+                          <ul class="dropdown-menu dropdown-menu-end shadow">
                               {% get_current_language as curr_lang %}
                               <li><form method="post" action="{% url 'set_language' %}">{% csrf_token %}
                                   <button class="dropdown-item {% if curr_lang == 'en' %}active{% endif %}" type="submit" name="language" value="en">{% trans "English" %}</button></form></li>

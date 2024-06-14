@@ -5,13 +5,13 @@
 {% block page_header %}{{ header }}{% endblock %}
 
 {% block content %}
+    <div class="container-fluid p-4 shadow rounded">
     <form method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-    
         {% block button %}
             {% bootstrap_button button_class="btn btn-warning" button_type="submit" content=button_text %}
         {% endblock %}
-    
     </form>
+    </div>
 {% endblock %}

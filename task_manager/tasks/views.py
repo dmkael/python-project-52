@@ -23,8 +23,8 @@ class TaskAbstractView(LoginRequireMixin):
 
 class TaskIndexView(TaskAbstractView, FilterView, IndexViewMixin):
     extra_context = {
-        'url_name': 'task_create',
         'header': _('Tasks'),
+        'button_url': reverse_lazy('task_create'),
         'button_text': _('Create task')
     }
     ordering = ['pk']

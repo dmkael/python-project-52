@@ -21,8 +21,8 @@ class LabelAbstractMixin(LoginRequireMixin):
 
 class LabelIndexView(LabelAbstractMixin, IndexViewMixin):
     extra_context = {
-        'url_name': 'label_create',
         'header': _('Labels'),
+        'button_url': reverse_lazy('label_create'),
         'button_text': _('Create label')
     }
     template_name = 'labels/index.html'

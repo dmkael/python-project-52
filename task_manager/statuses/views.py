@@ -20,8 +20,8 @@ class StatusAbstractMixin(LoginRequireMixin):
 
 class StatusIndexView(StatusAbstractMixin, IndexViewMixin):
     extra_context = {
-        'url_name': 'status_create',
         'header': _('Statuses'),
+        'button_url': reverse_lazy('status_create'),
         'button_text': _('Create status')
     }
     template_name = 'statuses/index.html'

@@ -28,7 +28,7 @@ class Task(models.Model):
         Status,
         related_name='tasks',
         null=False, blank=False,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         verbose_name=_('Status'),
     )
     labels = models.ManyToManyField(

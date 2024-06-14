@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 17:50+0000\n"
+"POT-Creation-Date: 2024-06-14 19:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,7 @@ msgstr "Etiqueta"
 #: task_manager/labels/models.py:21 task_manager/labels/views.py:24
 #: task_manager/tasks/models.py:38
 #: task_manager/tasks/templates/tasks/detail.html:34
-#: task_manager/templates/layout.html:40
+#: task_manager/templates/navbar.html:21
 msgid "Labels"
 msgstr "Etiquetas"
 
@@ -117,15 +117,15 @@ msgstr "La etiqueta se ha eliminado correctamente."
 msgid "Cannot delete label because it is in use."
 msgstr "No se puede eliminar la etiqueta porque está en uso."
 
-#: task_manager/settings.py:176 task_manager/templates/layout.html:69
+#: task_manager/settings.py:176 task_manager/templates/navbar.html:50
 msgid "English"
 msgstr "Inglés"
 
-#: task_manager/settings.py:177 task_manager/templates/layout.html:71
+#: task_manager/settings.py:177 task_manager/templates/navbar.html:52
 msgid "Russian"
 msgstr "Ruso"
 
-#: task_manager/settings.py:178 task_manager/templates/layout.html:73
+#: task_manager/settings.py:178 task_manager/templates/navbar.html:54
 msgid "Spanish"
 msgstr "Español"
 
@@ -141,7 +141,7 @@ msgid "Status"
 msgstr "Estado"
 
 #: task_manager/statuses/models.py:21 task_manager/statuses/views.py:23
-#: task_manager/templates/layout.html:39
+#: task_manager/templates/navbar.html:20
 msgid "Statuses"
 msgstr "Estados"
 
@@ -209,7 +209,7 @@ msgstr "Tarea"
 
 #: task_manager/tasks/models.py:54
 #: task_manager/tasks/templates/tasks/index.html:5
-#: task_manager/tasks/views.py:26 task_manager/templates/layout.html:41
+#: task_manager/tasks/views.py:26 task_manager/templates/navbar.html:22
 msgid "Tasks"
 msgstr "Tareas"
 
@@ -314,38 +314,38 @@ msgstr "¡Aprende más!"
 msgid "Hexlet Task Manager"
 msgstr "Administrador de tareas Hexlet"
 
-#: task_manager/templates/layout.html:29
-msgid "Task Manager"
-msgstr "Administrador de tareas"
-
-#: task_manager/templates/layout.html:36 task_manager/users/models.py:23
-#: task_manager/users/views.py:22
-msgid "Users"
-msgstr "Usuarios"
-
-#: task_manager/templates/layout.html:46 task_manager/users/models.py:22
-msgid "User"
-msgstr "Usuario"
-
-#: task_manager/templates/layout.html:50
-msgid "Logout"
-msgstr "Salida"
-
-#: task_manager/templates/layout.html:54 task_manager/users/views.py:30
-msgid "Registration"
-msgstr "Registro"
-
-#: task_manager/templates/layout.html:55 task_manager/templates/login.html:5
+#: task_manager/templates/login.html:5 task_manager/templates/navbar.html:36
 msgid "Login"
 msgstr "Ingresar"
-
-#: task_manager/templates/layout.html:64
-msgid "Language"
-msgstr "Idioma"
 
 #: task_manager/templates/login.html:13
 msgid "Sign in"
 msgstr "Iniciar sesión"
+
+#: task_manager/templates/navbar.html:10
+msgid "Task Manager"
+msgstr "Administrador de tareas"
+
+#: task_manager/templates/navbar.html:17 task_manager/users/models.py:23
+#: task_manager/users/views.py:22
+msgid "Users"
+msgstr "Usuarios"
+
+#: task_manager/templates/navbar.html:27 task_manager/users/models.py:22
+msgid "User"
+msgstr "Usuario"
+
+#: task_manager/templates/navbar.html:31
+msgid "Logout"
+msgstr "Salida"
+
+#: task_manager/templates/navbar.html:35 task_manager/users/views.py:30
+msgid "Registration"
+msgstr "Registro"
+
+#: task_manager/templates/navbar.html:45
+msgid "Language"
+msgstr "Idioma"
 
 #: task_manager/templates/objects/delete.html:8
 msgid "Are you sure you want delete"

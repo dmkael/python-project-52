@@ -26,6 +26,7 @@ class UsersIndexView(UsersAbstractMixin, IndexViewMixin):
 
 
 class UserCreateView(UsersAbstractMixin, CreateViewMixin):
+    success_url = reverse_lazy('login')
     extra_context = {'button_text': _('Register'), 'header': _('Registration')}
     template_name = 'users/create.html'
     success_message = _('User has been registered successfully.')

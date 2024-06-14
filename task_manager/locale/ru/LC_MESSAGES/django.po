@@ -378,7 +378,7 @@ msgstr "Зарегистрировать"
 
 #: task_manager/users/views.py:31
 msgid "User has been registered successfully."
-msgstr "Вы зарегистрированы"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py:35
 msgid "Edit user"

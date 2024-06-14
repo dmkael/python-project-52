@@ -55,5 +55,4 @@ class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteViewMixin):
     extra_context = {'button_text': _('Yes, delete'), 'header': _('Delete task')}
     template_name = 'tasks/delete.html'
     success_message = _('Task has been deleted successfully.')
-    success_url = reverse_lazy('tasks')
     form_class = Form

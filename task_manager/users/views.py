@@ -48,7 +48,6 @@ class UserDeleteView(UserCreatorOnlyMixin, UsersAbstractMixin, DeleteViewMixin):
     template_name = 'users/delete.html'
     success_message = _('User has been deleted successfully.')
     failure_message = _('Cannot delete user because it is in use.')
-    success_url = reverse_lazy('users')
     form_class = Form
 
     def post(self, request, *args, **kwargs):

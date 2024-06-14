@@ -48,7 +48,6 @@ class LabelDeleteView(LabelAbstractMixin, DeleteViewMixin):
     success_message = _('Label has been deleted successfully.')
     failure_message = _('Cannot delete label because it is in use.')
     redirect_url = reverse_lazy('labels')
-    success_url = reverse_lazy('labels')
     form_class = Form
 
     def post(self, request, *args, **kwargs):

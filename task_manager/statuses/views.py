@@ -47,7 +47,6 @@ class StatusDeleteView(StatusAbstractMixin, DeleteViewMixin):
     success_message = _('Status has been deleted successfully.')
     failure_message = _('Cannot delete status because it is in use.')
     redirect_url = reverse_lazy('statuses')
-    success_url = reverse_lazy('statuses')
     form_class = Form
 
     def post(self, request, *args, **kwargs):

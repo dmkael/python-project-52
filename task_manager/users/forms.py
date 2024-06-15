@@ -13,3 +13,7 @@ class UserCreateForm(BaseUserCreationForm):
             'password1',
             'password2'
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields[self._meta.model.USERNAME_FIELD].widget.attrs.pop('autofocus')

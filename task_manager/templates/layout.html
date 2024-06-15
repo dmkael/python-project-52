@@ -29,8 +29,14 @@
           {% bootstrap_messages %}
           </div>
       {% endif %}
-      
-      <h1 class="my-4">{% block page_header %}{% endblock %}</h1>
+  
+      <style>
+          .custom-text-shadow {text-shadow: #969696 0px 5px 10px;}
+      </style>
+      <h1 class="my-4 custom-text-shadow">
+          {% block page_header %}
+          {% endblock %}
+      </h1>
       {% block content %}
       {% endblock %}
   </div>

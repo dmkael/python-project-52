@@ -4,7 +4,8 @@ on:
   - push
 
 env:
-  DATABASE_URL: sqlite:///db.sqlite3
+  # we're specifying sqlite db URI to make tests run in-memory
+  DATABASE_URL: sqlite:///sqlite.db
   SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
 jobs:

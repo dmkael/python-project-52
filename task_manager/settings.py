@@ -106,11 +106,6 @@ DATABASES = {
 }
 
 
-# Covers regular testing and django-coverage for GitHub Actions
-# if os.getenv("GIT_DB") == "Enabled":
-#     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
-
-
 # Password validation and user model
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

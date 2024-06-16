@@ -5,7 +5,7 @@ on:
 
 env:
   GIT_DB: Enabled
-  DATABASE_URL: db.sqlite
+  DATABASE_URL: sqlite:///db.sqlite3
 
 jobs:
   test-task_manager:

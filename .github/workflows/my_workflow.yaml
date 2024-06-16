@@ -5,7 +5,7 @@ on:
 
 env:
   GIT_DB: Enabled
-  SECRET_KEY: ${{ secrets.SECRET_KEY }}
+  DATABASE_URL: db.sqlite
 
 jobs:
   test-task_manager:

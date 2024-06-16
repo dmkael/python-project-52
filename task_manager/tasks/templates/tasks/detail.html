@@ -5,11 +5,11 @@
 {% block page_header %}{% trans "Task view" %}{% endblock %}
 
 {% block content %}
-<div class="card shadow border-0">
+<div class="card shadow border-0 table-rounded">
     <div class="card-header bg-dark text-warning">
         <h2>{{ task.name }}</h2>
     </div>
-    <div class="card-body bg-light rounded">
+    <div class="card-body bg-light">
         <p>{{ task.description }}</p>
         <hr>
         <div class="container">

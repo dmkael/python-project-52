@@ -4,16 +4,16 @@ on:
   - push
 
 env:
-  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  GIT_DB: Enabled
   SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
 jobs:
-  test-python_3_10:
+  test-task_manager:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         # we want to test our package on several versions of Python
-        python-version: ['3.10']
+        python-version: ['3.10', '3.12']
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
@@ -42,30 +42,3 @@ jobs:
         with:
           coverageCommand: make test-coverage
           debug: true
-  test-python_3_12:
-    runs-on: ubuntu-latest
-    needs: test-python_3_10
-    strategy:
-      matrix:
-        # we want to test our package on several versions of Python
-        python-version: [ '3.12' ]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-        # make depends on poetry
-      - name: Install dependencies
-        run: |
-          pip install poetry
-          make install
-      - name: Collect static files
-        run: |
-          make collect-static
-      - name: Run linter
-        run: |
-          make lint
-      - name: Run tests
-        run: |
-          make test

@@ -5,10 +5,11 @@
 {% block page_header %}{{ header }}{% endblock %}
 
 {% block content %}
+    <div class="container-fluid p-4 shadow rounded bg-light">
     <p>{% trans "Are you sure you want delete" %} <span style="font-weight: bold">"{{ object }}"</span>?</p>
     <form method="post">
         {% csrf_token %}
-        <input class="btn btn-danger shadow rounded" type="submit" value="{{ button_text }}">
+        <input class="btn btn-danger shadow-sm rounded" type="submit" value="{{ button_text }}">
     </form>
-    
+    </div>
 {% endblock %}

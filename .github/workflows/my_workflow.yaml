@@ -4,7 +4,7 @@ on:
   - push
 
 env:
-  GIT_DB: Enabled
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
   SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
 jobs:

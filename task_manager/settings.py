@@ -102,14 +102,13 @@ DATABASES = {
     'default': dj_database_url.config(
         default=DATABASE_URL,
         conn_max_age=600,
-        test_options={'NAME': ':memory:', 'ENGINE': 'django.db.backends.sqlite3'}
-    ),
+    )
 }
 
 
 # Covers regular testing and django-coverage for GitHub Actions
-# if os.getenv("GIT_DB") == "Enabled":
-#     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+if os.getenv("GIT_DB") == "Enabled":
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 
 # Password validation and user model

@@ -1,24 +1,17 @@
 {% extends './layout.html' %}
 {% load i18n %}
+
 {% block content %}
 <div class="container wrapper flex-grow-1">
-      
-
-
-      <h1 class="my-4">
-        
-        
-      </h1>
-      
-<h1 class="my-4"></h1>
-<div class="card shadow border-0">
-  <div class="card-body rounded p-5 bg-light">
-    <div class="display-4">{% trans "Greetings from DmKael!" %}</div>
-    <p class="lead">{% trans "Student at the Hexlet programming school" %}</p>
-    <hr>
-    <a class="btn btn-warning btn-lg shadow-sm" href="https://github.com/dmkael">{% trans "Learn more!" %}</a>
-  </div>
-</div>
-
+    <h1 class="my-4"></h1>
+    <h1 class="my-4"></h1>
+    <div class="card shadow border-0">
+        <div class="card-body rounded p-5 bg-light">
+            <div class="display-4">{% trans "Greetings from DmKael!" %}</div>
+            <p class="lead">{% trans "Student at the Hexlet programming school" %}</p>
+            <hr>
+            <a class="btn btn-warning btn-lg shadow-sm" href="https://github.com/dmkael">{% trans "Learn more!" %}</a>
+        </div>
     </div>
+</div>
 {% endblock %}

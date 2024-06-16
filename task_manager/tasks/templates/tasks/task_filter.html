@@ -14,7 +14,7 @@
     </div>
 {% endblock %}
 {% block table_content %}
-        <thead class="table-dark">
+    <thead class="table-dark">
         <tr>
             <th class="text-center">ID</th>
             <th>{% trans "Name" %}</th>
@@ -24,22 +24,22 @@
             <th>{% trans "Creation date" %}</th>
             <th></th>
         </tr>
-        </thead>
-    
-        <tbody class="table-group-divider">
-        {% for task in filter.qs %}
-            <tr>
-                <td class="align-middle text-center">{{ task.id }}</td>
-                <td class="align-middle"><a href="{% url 'task_detail' task.id %}">{{ task.name }}</a></td>
-                <td class="align-middle">{{ task.status }}</td>
-                <td class="align-middle">{{ task.author.get_full_name }}</td>
-                <td class="align-middle">{{ task.executor.get_full_name }}</td>
-                <td class="align-middle">{{ task.created_at|date:'d.m.Y H:i' }}</td>
-                <td class="align-middle"><a href="{% url 'task_update' task.id %}">{% trans "Edit" %}</a>
-                    <br>
-                    <a href="{% url 'task_delete' task.id %}">{% trans "Delete" %}</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
+    </thead>
+
+    <tbody class="table-group-divider">
+    {% for task in filter.qs %}
+        <tr>
+            <td class="align-middle text-center">{{ task.id }}</td>
+            <td class="align-middle"><a href="{% url 'task_detail' task.id %}">{{ task.name }}</a></td>
+            <td class="align-middle">{{ task.status }}</td>
+            <td class="align-middle">{{ task.author.get_full_name }}</td>
+            <td class="align-middle">{{ task.executor.get_full_name }}</td>
+            <td class="align-middle">{{ task.created_at|date:'d.m.Y H:i' }}</td>
+            <td class="align-middle"><a href="{% url 'task_update' task.id %}">{% trans "Edit" %}</a>
+                <br>
+                <a href="{% url 'task_delete' task.id %}">{% trans "Delete" %}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
 {% endblock %}

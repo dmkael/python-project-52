@@ -111,7 +111,7 @@ if os.getenv("GIT_DB") == "Enabled":
     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 
-# Password validation
+# Password validation and user model
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -132,6 +132,17 @@ USE_I18N = True
 
 USE_TZ = True
 
+LANGUAGE_CODE = 'ru'
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('ru', _('Russian')),
+    ('es', _('Spanish')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'task_manager/locale/'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -154,6 +165,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SHELL_PLUS_PRINT_SQL = True
 
+
+# Bootstrap settings
+
 BOOTSTRAP5 = {
 
     # The complete URL to the Bootstrap CSS file.
@@ -170,18 +184,8 @@ BOOTSTRAP5 = {
     }
 }
 
-LANGUAGE_CODE = 'ru'
 
-LANGUAGES = (
-    ('en', _('English')),
-    ('ru', _('Russian')),
-    ('es', _('Spanish')),
-)
-
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'task_manager/locale/'),
-)
-
+# Rollbar init
 
 ROLLBAR = {
     'access_token': os.getenv("ROLLBAR_ACCESS_TOKEN"),

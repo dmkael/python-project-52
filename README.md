@@ -36,6 +36,7 @@ Create folder where you want to install, navigate to that folder through __bash_
     
   ```
   git clone https://github.com/dmkael/python-project-52.git
+  cd python-project-52
   ```
 __NEW FOLDER "python-project-52" WILL BE CREATED INSIDE. NAVIGATE TO IT THROUGH CMD / POWERSHELL TO PROCEED__
 

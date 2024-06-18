@@ -24,7 +24,6 @@ class TaskAbstractView(LoginRequireMixin):
 class TaskIndexView(TaskAbstractView, IndexViewMixin):
     template_name = 'tasks/index.html'
     ordering = ['pk']
-    paginate_by = 3
 
     def get_queryset(self):
         queryset = Task.objects.prefetch_related('status', 'executor', 'author')

@@ -159,7 +159,7 @@ To stop a service running via __uvicorn__ on Windows, you need to first press __
 To uninstall the service, use in the command line: 
 
 ```
-poetry run pip uninstall hexlet-code
+poetry run pip uninstall hexlet-code -y
 
 ```
 and delete folder __python-project-52__

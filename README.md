@@ -23,41 +23,19 @@ Installation and running instructions for the service:
 - Python 3.10 or above ([download](https://www.python.org/downloads/))
 - GIT-client ([download](https://git-scm.com/downloads/))
 - PostgreSQL server with database ([download](https://www.postgresql.org/download/))
-- Account and active API-key for the error collector service [Rollbar](https://rollbar.com/)
+- Account and active API-key for the error collector service ([Rollbar](https://rollbar.com/))
+- Poetry ([Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer))
 
 </details>
 
 <details>
 <summary>2. Installation steps</summary>
-
-- __Linux__:
-  - for current user:
-
-      ```
-    python3 -m pip install --user git+https://github.com/dmkael/python-project-52.git
-      ```
-
-  - to the system (using the built-in Python version) or to a virtual environment:
-
-      ```
-    python3 -m pip install git+https://github.com/dmkael/python-project-52.git
-      ```
-
-- __Windows__:
-  - for current user:
-
-      ```
-    py -m pip install --user git+https://github.com/dmkael/python-project-52.git
-      ```
-
-  - to the system (using the built-in Python version) or to a virtual environment:
-
-      ```
-    py -m pip install git+https://github.com/dmkael/python-project-52.git
-      ```
-
-  _NOTE: During installation of the package "for user," it's necessary for the user-specific package directory to be accessible in the PATH variable. Detailed information:_
-  _[Installing to the user documentation](https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-to-the-user-site)_
+<br/>
+Create folder where you want to install, navigate to that folder throgh __bash__ / __PowerShell__ and execute:
+    
+  ```
+  git clone https://github.com/dmkael/python-project-52.git
+  ```
 
 For the service to function, three environment variables are required:
 
@@ -95,44 +73,36 @@ After adding environment variables, you need to perform database migrations and 
 
 - __Linux:__
 
-  - run command:
+  - navigate to folder python-project-52 by __bash__ and execute:
     ```
-    python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py migrate && python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py collectstatic --no-input
-  
+    make setup
     ```
 
 - __Windows:__
   
-  - run command in __PowerShell__:
+  - navigate to folder python-project-52 by __PowerShell__ and execute:
     ```
-    <# apply migrations and collect static files #>
-    $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
-        if ($_.Matches.Count -gt 0) {
-            $_.Matches[0].Groups[1].Value
-        }
-    }); $manager = "$location\task_manager\django_manage\manage.py"; Write-Output $manager; py "$manager" migrate; py "$manager" collectstatic --no-input
-
+    poetry install
+    poetry run py manage.py migrate
+    poetry run py manage.py collectstatic --no-input
+    
     ```
 
 You also need to specify allowed hosts in the `ALLOWED_HOSTS` section of the `settings.py` file for the service to function correctly.:
 
 - __Linux:__
 
-  - run command:
+  - navigate to folder python-project-52 by __bash__ and execute:
     ```
-    nano $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/settings.py
+    nano task_manager/settings.py
 
     ```
 
 - __Windows:__
 
-  - run command in __PowerShell__:
+  - navigate to folder python-project-52 by __PowerShell__ and execute:
     ```
-    $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
-         if ($_.Matches.Count -gt 0) {
-             $_.Matches[0].Groups[1].Value
-         }
-    }); notepad.exe $location\task_manager\settings.py;
+    notepad.exe task_manager/settings.py
 
     ```
 Installation is now complete!
@@ -141,33 +111,29 @@ Installation is now complete!
 <details>
 <summary>3. Start the web service</summary>
 
-After installation, the web service is ready to be started. Optionally, you can set the environment variable __PORT__ to specify the port for the web service. If the variable is not set, the default value of __8000__ will be used. You can start it with the following commands:
+After installation, the web service is ready to be started. You can start it with the following commands:
 
 - __Linux:__
 
   - run using __Django__ using debugging:
     ```
-    export DEBUG=True; python3 $(pip show hexlet-code | grep -oP 'Location: \K.*')/task_manager/django_manage/manage.py runserver localhost:8000
+    make dev
     ```
   - run using __gunicorn__:
     ```
-    export PORT=${PORT:-8000}; gunicorn -w 4 -b 0.0.0.0:${PORT} task_manager.asgi:application -k uvicorn.workers.UvicornWorker
+    make gunicorn
     ```
 
 - __Windows:__
 
-  - run using __PowerShell__ with __Django__ using debugging:
+  - run using __PowerShell__ with __Django__:
     ```
-    if (-not $env:DEBUG) {$env:DEBUG = "True"} $location = (pip show hexlet-code | Select-String -Pattern 'Location: (.*)' | ForEach-Object {
-        if ($_.Matches.Count -gt 0) {
-            $_.Matches[0].Groups[1].Value
-        }
-    }); $manager = "$location\task_manager\django_manage\manage.py"; py $manager runserver localhost:8000
+    poetry run py manage.py runserver 8000
     ```
   Since Windows does not support __gunicorn__, you can use __uvicorn__ for running the service.
   - run using __PowerShell__ with __uvicorn__:
     ```
-    if (-not $env:PORT) {$env:PORT = "8000"} uvicorn --port=$env:PORT --workers=4 task_manager.asgi:application
+    poetry run uvicorn --port=8000 --workers=4 task_manager.asgi:application
     ```
 
 To stop a service running via __uvicorn__ on Windows, you need to first press __CTRL + BREAK__, and then press __CTRL + C__. In other cases, you can stop the service by pressing __CTRL + C__, or by closing the terminal window..
@@ -178,16 +144,8 @@ To stop a service running via __uvicorn__ on Windows, you need to first press __
   
 To uninstall the service, use in the command line: 
 
-- __Linux__:
-
     ```
-    python3 -m pip uninstall hexlet-code
-    ```
-
-- __Windows__:
-
-    ```
-    py -m pip uninstall hexlet-code
+    poetry run pip uninstall hexlet-code
     ```
 
 </details>

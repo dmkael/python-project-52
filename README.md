@@ -162,7 +162,19 @@ To uninstall the service, use in the command line:
 poetry run pip uninstall hexlet-code -y
 
 ```
-and delete folder __python-project-52__
+
+Also, to clean created by Poetry virtual env folder in windows you need to determine venv-name to delete. To figure it out just execute this command in project folder through __PowerShell__:
+```
+poetry env list
+
+```
+and find one which starts with 'hexlet-code-', copy that name and execute:
+```
+poetry env remove <venv_name>
+```
+
+
+To clean the rest just delete folder __python-project-52__
 
 </details>
 

@@ -19,30 +19,21 @@ class StatusAbstractMixin(LoginRequireMixin):
 
 
 class StatusIndexView(StatusAbstractMixin, IndexViewMixin):
-    extra_context = {
-        'header': _('Statuses'),
-        'button_url': reverse_lazy('status_create'),
-        'button_text': _('Create status')
-    }
     template_name = 'statuses/index.html'
     context_object_name = 'statuses'
-    ordering = ['pk']
 
 
 class StatusCreateView(StatusAbstractMixin, CreateViewMixin):
-    extra_context = {'button_text': _('Create'), 'header': _('Create status')}
     template_name = 'statuses/create.html'
     success_message = _('Status has been created successfully.')
 
 
 class StatusUpdateView(StatusAbstractMixin, UpdateViewMixin):
-    extra_context = {'button_text': _('Edit'), 'header': _('Edit status')}
     template_name = 'statuses/update.html'
     success_message = _('Status has been updated successfully.')
 
 
 class StatusDeleteView(StatusAbstractMixin, DeleteViewMixin):
-    extra_context = {'button_text': _('Yes, delete'), 'header': _('Delete status')}
     template_name = 'statuses/delete.html'
     success_message = _('Status has been deleted successfully.')
     failure_message = _('Cannot delete status because it is in use.')

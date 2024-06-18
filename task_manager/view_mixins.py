@@ -1,30 +1,28 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import ProtectedError
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.base import ContextMixin
 from django.views.generic import ListView
 from django.contrib import messages
 from django.shortcuts import redirect
 
 
-class IndexViewMixin(ListView, ContextMixin):
-    paginate_by = None
-    pass
+class IndexViewMixin(ListView):
+    ordering = ['pk']
 
 
-class CreateViewMixin(SuccessMessageMixin, CreateView, ContextMixin):
-
-    def form_invalid(self, form):
-        return self.render_to_response(self.get_context_data(form=form), status=400)
-
-
-class UpdateViewMixin(SuccessMessageMixin, UpdateView, ContextMixin):
+class CreateViewMixin(SuccessMessageMixin, CreateView):
 
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(form=form), status=400)
 
 
-class DeleteViewMixin(SuccessMessageMixin, DeleteView, ContextMixin):
+class UpdateViewMixin(SuccessMessageMixin, UpdateView):
+
+    def form_invalid(self, form):
+        return self.render_to_response(self.get_context_data(form=form), status=400)
+
+
+class DeleteViewMixin(SuccessMessageMixin, DeleteView):
     failure_message = 'Cannot delete object because it is in use.'
     redirect_url = '/'
     success_url = '/'

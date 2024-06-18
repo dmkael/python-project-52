@@ -1,1 +1,11 @@
-{% extends 'objects/update.html' %}
+{% extends 'labels/create.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}{% trans 'Edit user' %}{% endblock %}
+
+{% csrf_token %}
+{% block button %}
+    {% trans "Edit" as button_text %}
+    {% bootstrap_button button_class="btn btn-warning shadow-sm" button_type="submit" content=button_text %}
+{% endblock %}

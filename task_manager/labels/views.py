@@ -20,30 +20,21 @@ class LabelAbstractMixin(LoginRequireMixin):
 
 
 class LabelIndexView(LabelAbstractMixin, IndexViewMixin):
-    extra_context = {
-        'header': _('Labels'),
-        'button_url': reverse_lazy('label_create'),
-        'button_text': _('Create label')
-    }
     template_name = 'labels/index.html'
     context_object_name = 'labels'
-    ordering = ['pk']
 
 
 class LabelCreateView(LabelAbstractMixin, CreateViewMixin):
-    extra_context = {'button_text': _('Create'), 'header': _('Create label')}
     template_name = 'labels/create.html'
     success_message = _('Label has been created successfully.')
 
 
 class LabelUpdateView(LabelAbstractMixin, UpdateViewMixin):
-    extra_context = {'button_text': _('Edit'), 'header': _('Edit label')}
     template_name = 'labels/update.html'
     success_message = _('Label has been updated successfully.')
 
 
 class LabelDeleteView(LabelAbstractMixin, DeleteViewMixin):
-    extra_context = {'button_text': _('Yes, delete'), 'header': _('Delete label')}
     template_name = 'labels/delete.html'
     success_message = _('Label has been deleted successfully.')
     failure_message = _('Cannot delete label because it is in use.')

@@ -6,7 +6,7 @@ from task_manager.tasks.forms import TaskForm
 from task_manager.tasks.models import Task
 from task_manager.access_mixins import LoginRequireMixin
 from task_manager.tasks.mixins import TaskAuthorOnlyMixin
-from django_filters.views import FilterView
+from task_manager.tasks.filters import TasksFilter
 from task_manager.view_mixins import (
     CreateViewMixin,
     UpdateViewMixin,
@@ -21,13 +21,34 @@ class TaskAbstractView(LoginRequireMixin):
     success_url = reverse_lazy('tasks')
 
 
-class TaskIndexView(TaskAbstractView, FilterView, IndexViewMixin):
-    extra_context = {
-        'header': _('Tasks'),
-        'button_url': reverse_lazy('task_create'),
-        'button_text': _('Create task')
-    }
+class TaskIndexView(TaskAbstractView, IndexViewMixin):
+    template_name = 'tasks/task_filter.html'
     ordering = ['pk']
+
+    def get_queryset(self):
+        queryset = Task.objects.prefetch_related('status', 'executor', 'author')
+        # filtering through django-filters with ordering
+        filter_data = TasksFilter(
+            ordering=self.ordering,
+            data=self.request.GET,
+            queryset=queryset,
+            request=self.request
+        )
+        # returning filtered queryset
+        return filter_data.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if any(self.request.GET):
+            context['filter'] = TasksFilter(
+                ordering=self.ordering,
+                data=self.request.GET,
+                queryset=self.get_queryset(),
+            )
+        else:
+            context['filter'] = TasksFilter()
+        # Add filter to context
+        return context
 
 
 class TaskDetailView(TaskAbstractView, DetailView):
@@ -35,7 +56,6 @@ class TaskDetailView(TaskAbstractView, DetailView):
 
 
 class TaskCreateView(TaskAbstractView, CreateViewMixin):
-    extra_context = {'button_text': _('Create'), 'header': _('Create task')}
     template_name = 'tasks/create.html'
     success_message = _('Task has been created successfully.')
 
@@ -46,13 +66,11 @@ class TaskCreateView(TaskAbstractView, CreateViewMixin):
 
 
 class TaskUpdateView(TaskAbstractView, UpdateViewMixin):
-    extra_context = {'button_text': _('Edit'), 'header': _('Edit task')}
     template_name = 'tasks/update.html'
     success_message = _('Task has been updated successfully.')
 
 
 class TaskDeleteView(TaskAuthorOnlyMixin, TaskAbstractView, DeleteViewMixin):
-    extra_context = {'button_text': _('Yes, delete'), 'header': _('Delete task')}
     template_name = 'tasks/delete.html'
     success_message = _('Task has been deleted successfully.')
     form_class = Form

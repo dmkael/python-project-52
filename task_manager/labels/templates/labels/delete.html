@@ -1,1 +1,16 @@
-{% extends 'objects/delete.html' %}
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}{% trans "Delete label" %}{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-4 shadow rounded bg-light">
+    <p>{% trans "Are you sure you want delete" %} <span style="font-weight: bold">"{{ object }}"</span>?</p>
+    <form method="post">
+        {% csrf_token %}
+        {% trans "Yes, delete" as button_text %}
+        <input class="btn btn-danger shadow-sm" type="submit" value="{{ button_text }}">
+    </form>
+    </div>
+{% endblock %}

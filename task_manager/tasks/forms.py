@@ -1,7 +1,7 @@
 from django import forms
 from task_manager.tasks.models import Task
 from django.utils.translation import gettext_lazy as _
-from task_manager.users.models import User
+from django.contrib.auth import get_user_model
 
 
 class CustomChoiceField(forms.ModelChoiceField):
@@ -11,7 +11,7 @@ class CustomChoiceField(forms.ModelChoiceField):
 
 class TaskForm(forms.ModelForm):
     executor = CustomChoiceField(
-        queryset=User.objects.all(),
+        queryset=get_user_model().objects.all(),
         required=False,
         label=_('Executor')
     )

@@ -1,8 +1,14 @@
-{% extends 'objects/index.html' %}
+{% extends 'layout.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
+{% load tricky_pagination %}
 
-{% block filter %}
+
+{% block page_header %}{% trans "Tasks" %}{% endblock %}
+
+{% block content %}
+    <a class="btn btn-warning mb-3 shadow" href="{% url 'task_create' %}">{% trans 'Create task' %}</a>
+    
     <div class="card mb-3 shadow border-0">
         <div class="card-body bg-light rounded">
             <form id="taskForm" class="form-inline center">
@@ -12,34 +18,62 @@
             </form>
         </div>
     </div>
-{% endblock %}
-{% block table_content %}
-    <thead class="table-dark">
-        <tr>
-            <th class="text-center">ID</th>
-            <th>{% trans "Name" %}</th>
-            <th>{% trans "Status" %}</th>
-            <th>{% trans "Author" %}</th>
-            <th>{% trans "Executor" %}</th>
-            <th>{% trans "Creation date" %}</th>
-            <th></th>
-        </tr>
-    </thead>
 
-    <tbody class="table-group-divider">
-    {% for task in filter.qs %}
-        <tr>
-            <td class="align-middle text-center">{{ task.id }}</td>
-            <td class="align-middle"><a href="{% url 'task_detail' task.id %}">{{ task.name }}</a></td>
-            <td class="align-middle">{{ task.status }}</td>
-            <td class="align-middle">{{ task.author.get_full_name }}</td>
-            <td class="align-middle">{{ task.executor.get_full_name }}</td>
-            <td class="align-middle">{{ task.created_at|date:'d.m.Y H:i' }}</td>
-            <td class="align-middle"><a href="{% url 'task_update' task.id %}">{% trans "Edit" %}</a>
-                <br>
-                <a href="{% url 'task_delete' task.id %}">{% trans "Delete" %}</a>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
+    <table class="table table-striped table-hover shadow table-rounded">
+        <thead class="table-dark">
+            <tr>
+                <th class="text-center">ID</th>
+                <th>{% trans "Name" %}</th>
+                <th>{% trans "Status" %}</th>
+                <th>{% trans "Author" %}</th>
+                <th>{% trans "Executor" %}</th>
+                <th>{% trans "Creation date" %}</th>
+                <th></th>
+            </tr>
+        </thead>
+
+
+        <tbody class="table-group-divider">
+            {% for task in object_list %}
+                <tr>
+                    <td class="align-middle text-center">{{ task.id }}</td>
+                    <td class="align-middle"><a href="{% url 'task_detail' task.id %}">{{ task.name }}</a></td>
+                    <td class="align-middle">{{ task.status }}</td>
+                    <td class="align-middle">{{ task.author.get_full_name }}</td>
+                    <td class="align-middle">{{ task.executor.get_full_name }}</td>
+                    <td class="align-middle">{{ task.created_at|date:'d.m.Y H:i' }}</td>
+                    <td class="align-middle"><a href="{% url 'task_update' task.id %}">{% trans "Edit" %}</a>
+                        <br>
+                        <a href="{% url 'task_delete' task.id %}">{% trans "Delete" %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+<div class="pagination">
+    <span class="step-links">
+        {% if is_paginated %}
+            {% if page_obj.has_previous %}
+             <a href="?{% param_replace page=1 %}">{% trans 'first' %}</a>
+                {% if page_obj.previous_page_number != 1 %}
+                     <a href="?{% param_replace page=page_obj.previous_page_number %}">{% trans 'previous' %}</a>
+                {% endif %}
+            {% endif %}
+            
+            <span class="current">
+                {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}.
+            </span>
+            
+            {% if page_obj.has_next %}
+                {% if page_obj.next_page_number != paginator.num_pages %}
+                    <a href="?{% param_replace page=page_obj.next_page_number %}">{% trans "next" %}</a>
+                {% endif %}
+                <a href="?{% param_replace page=paginator.num_pages %}">{% trans "last" %}</a>
+            {% endif %}
+            
+{#            <p>{% trans "Tasks" %} {{ page_obj.start_index }}—{{ page_obj.end_index }}</p>#}
+        {% endif %}
+    </span>
+</div>
 {% endblock %}

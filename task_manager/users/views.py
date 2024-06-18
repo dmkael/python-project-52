@@ -19,21 +19,17 @@ class UsersAbstractMixin:
 
 
 class UsersIndexView(UsersAbstractMixin, IndexViewMixin):
-    extra_context = {'header': _('Users')}
     template_name = 'users/index.html'
     context_object_name = 'users'
-    ordering = ['pk']
 
 
 class UserCreateView(UsersAbstractMixin, CreateViewMixin):
     success_url = reverse_lazy('login')
-    extra_context = {'button_text': _('Register'), 'header': _('Registration')}
     template_name = 'users/create.html'
     success_message = _('User has been registered successfully.')
 
 
 class UserUpdateView(UserCreatorOnlyMixin, UsersAbstractMixin, UpdateViewMixin):
-    extra_context = {'button_text': _('Edit'), 'header': _('Edit user')}
     template_name = 'users/update.html'
     success_message = _('User has been updated successfully.')
 
@@ -44,7 +40,6 @@ class UserUpdateView(UserCreatorOnlyMixin, UsersAbstractMixin, UpdateViewMixin):
 
 
 class UserDeleteView(UserCreatorOnlyMixin, UsersAbstractMixin, DeleteViewMixin):
-    extra_context = {'button_text': _('Yes, delete'), 'header': _('Delete user')}
     template_name = 'users/delete.html'
     success_message = _('User has been deleted successfully.')
     failure_message = _('Cannot delete user because it is in use.')

@@ -1,26 +1,6 @@
-{% extends 'layout.html' %}
 {% load i18n %}
-{% load django_bootstrap5 %}
 
-{% block page_header %}{{ header }}{% endblock %}
-
-{% block content %}
-    {% if button_url %}
-    <a class="btn btn-warning mb-3 shadow" href="{{ button_url }}">{{ button_text }}</a>
-    {% endif %}
-    {% block filter %}
-    {% endblock %}
-    
-    {% block table %}
-    <table class="table table-striped table-hover shadow table-rounded">
-    
-        {% block table_content %}
-        {% endblock %}
-    
-    </table>
-    {% endblock %}
-    
-    <div class="pagination">
+<div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page=1"> {% trans "first" %}</a>
@@ -38,4 +18,3 @@
         {% endif %}
     </span>
 </div>
-{% endblock %}

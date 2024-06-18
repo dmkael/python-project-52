@@ -32,7 +32,7 @@ Installation and running instructions for the service:
 <summary>2. Installation steps</summary>
 <br/>
 
-Create folder where you want to install, navigate to that folder throgh __bash__ / __PowerShell__ and execute:
+Create folder where you want to install, navigate to that folder through __bash__ / __PowerShell__ and execute:
     
   ```
   git clone https://github.com/dmkael/python-project-52.git

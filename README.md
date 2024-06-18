@@ -17,7 +17,7 @@ You can check its functionality and test it via the following link: [Task Manage
 \
 Installation and running instructions for the service:
 
-_You can copy and paste step by step all commands to execute them in command line interface_
+_You can copy and paste step by step in command line interface all commands in this instructions and just execute them_
 
 <details>
 <summary>1. System requirements</summary>

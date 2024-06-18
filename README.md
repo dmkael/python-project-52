@@ -151,7 +151,7 @@ After installation, the web service is ready to be started. You can start it wit
     
     ```
 
-To stop a service running via __uvicorn__ on Windows, you need to first press __CTRL + BREAK__, and then press __CTRL + C__. In other cases, you can stop the service by pressing __CTRL + C__, or by closing the terminal window..
+To stop a service running via __uvicorn__ on Windows, you need first to press __CTRL + BREAK__, and then __CTRL + C__. In other cases, you can stop the service by pressing __CTRL + C__, or by closing the terminal window..
 </details>
 
 <details>

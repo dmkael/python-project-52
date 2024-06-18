@@ -46,7 +46,7 @@ For the service to function, three environment variables are required:
 
 1. __SECRET_KEY__ - for the application to operate (you can generate any value by yourself)
 2. __DATABASE_URL__ - The path to your prepared database as a Unified Resource Identifier (URI): _postgres://{user}:{password}@{hostname}:{port}/{database-name}_
-3. __ROLLBAR_ACCESS_TOKEN__ - "access_token" value from Rollbar service.
+3. __ROLLBAR_ACCESS_TOKEN__ - "access_token" value from Rollbar service. You can provide any random value if this service is not necessary.
 
 
   You can use the `python-dotenv` package and specify variables in a `.env` file located in the root of the package.

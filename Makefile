@@ -22,4 +22,5 @@ test:
 test-coverage:
 	poetry run pytest --cov=task_manager --cov-report=xml:coverage.xml
 collect-static:
-	poetry run python manage.py collectstatic
+	poetry run python manage.py collectstatic --no-input
+setup: install migrate collect-static

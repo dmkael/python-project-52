@@ -16,6 +16,7 @@ You can check its functionality and test it via the following link: [Task Manage
 
 \
 Installation and running instructions for the service:
+(You can copy and paste step by step all commands to execute them in command line interface)
 
 <details>
 <summary>1. System requirements</summary>

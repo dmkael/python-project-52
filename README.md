@@ -82,8 +82,9 @@ After adding environment variables, you need to perform database migrations and 
 
 - __Linux:__
 
-  - navigate to folder python-project-52 by __bash__ and execute:
+  - navigate to folder python-project-52 by __bash__ and execute (install performs in venv):
     ```
+    source .venv/bin/activate
     make setup
     
     ```

@@ -31,6 +31,7 @@ Installation and running instructions for the service:
 <details>
 <summary>2. Installation steps</summary>
 <br/>
+
 Create folder where you want to install, navigate to that folder throgh __bash__ / __PowerShell__ and execute:
     
   ```

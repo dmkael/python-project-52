@@ -56,14 +56,17 @@ For the service to function, three environment variables are required:
   - Show available:
     ```
     printenv
+    
     ```
   - Set for the user by specifying a value of MY_VAR=VALUE:
     ```
     echo MY_VAR=VALUE >> $HOME/.bashrc
+    
     ```
   - Set for the system by specifying a value of MY_VAR=VALUE:
     ```
     sudo echo MY_VAR=VALUE >> /etc/environment
+    
     ```
     _Alternatively, you can manually edit the specified files using a text editor like nano._
 
@@ -72,6 +75,7 @@ For the service to function, three environment variables are required:
   - To run in the command line __cmd__ or __PowerShell__ as an administrator, or in the __Run__ menu, which opens with the __WIN + R__ keystroke combination (_Launching from the Run menu may start without administrator privileges, which prevents changing system variables_):
     ```
     rundll32.exe sysdm.cpl,EditEnvironmentVariables
+    
     ```
 
 After adding environment variables, you need to perform database migrations and collect static files in Django.:
@@ -81,6 +85,7 @@ After adding environment variables, you need to perform database migrations and 
   - navigate to folder python-project-52 by __bash__ and execute:
     ```
     make setup
+    
     ```
 
 - __Windows:__
@@ -93,7 +98,7 @@ After adding environment variables, you need to perform database migrations and 
     
     ```
 
-You also need to specify allowed hosts in the `ALLOWED_HOSTS` section of the `settings.py` file for the service to function correctly.:
+You optionally can specify allowed hosts and add some external hostnames/IP's in the `ALLOWED_HOSTS` section of the `settings.py` file for the service to function correctly besides the localhost:
 
 - __Linux:__
 
@@ -123,10 +128,12 @@ After installation, the web service is ready to be started. You can start it wit
   - run using __Django__ using debugging:
     ```
     make dev
+    
     ```
   - run using __gunicorn__:
     ```
     make gunicorn
+    
     ```
 
 - __Windows:__
@@ -134,11 +141,13 @@ After installation, the web service is ready to be started. You can start it wit
   - run using __PowerShell__ with __Django__:
     ```
     poetry run py manage.py runserver 8000
+    
     ```
   Since Windows does not support __gunicorn__, you can use __uvicorn__ for running the service.
   - run using __PowerShell__ with __uvicorn__:
     ```
     poetry run uvicorn --port=8000 --workers=4 task_manager.asgi:application
+    
     ```
 
 To stop a service running via __uvicorn__ on Windows, you need to first press __CTRL + BREAK__, and then press __CTRL + C__. In other cases, you can stop the service by pressing __CTRL + C__, or by closing the terminal window..
@@ -151,7 +160,9 @@ To uninstall the service, use in the command line:
 
     ```
     poetry run pip uninstall hexlet-code
+    
     ```
+and delete folder __python-project-52__
 
 </details>
 

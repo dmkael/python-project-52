@@ -1,5 +1,4 @@
 from django.urls import path
-from task_manager.tasks.filters import TasksFilter
 from task_manager.tasks.views import (
     TaskIndexView,
     TaskCreateView,

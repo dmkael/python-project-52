@@ -163,7 +163,7 @@ poetry run pip uninstall hexlet-code -y
 
 ```
 
-Also, to clean created by Poetry virtual env folder in windows you need to determine venv-name to delete. To figure it out just execute this command in project folder through __PowerShell__:
+_THIS ONE ONLY FOR WINDOWS:_ Also, to clean created by Poetry virtual env folder in Windows you need to determine venv-name to delete. To figure it out just execute this command in project folder through __PowerShell__:
 ```
 poetry env list
 

@@ -49,7 +49,7 @@ For the service to function, three environment variables are required:
 3. __ROLLBAR_ACCESS_TOKEN__ - "access_token" value from Rollbar service. You can provide any random value if this service is not necessary.
 
 
-  You can use the `python-dotenv` package and specify variables in a `.env` file located in the root of the package.
+  You can use the `python-dotenv` package and specify variables in a `.env` file. Just create it in the root of the package and define variables in that file.
   Alternatively, you can set the variables directly in the operating system environment:
 - __Linux (Ubuntu):__
 

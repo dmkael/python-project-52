@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-4 shadow rounded bg-light">
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% block button %}
+            {% trans "Create" as button_text %}
+            {% bootstrap_button button_class="btn btn-warning shadow-sm" button_type="submit" content=button_text %}
+        {% endblock %}
+    </form>
+    </div>
+{% endblock %}

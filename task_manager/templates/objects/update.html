@@ -2,8 +2,10 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
 
-{% block page_header %}{% trans "Registration" %}{% endblock %}
+{% block page_header %}{% endblock %}
+
+{% csrf_token %}
 {% block button %}
-    {% trans "Register" as button_text %}
+    {% trans "Edit" as button_text %}
     {% bootstrap_button button_class="btn btn-warning shadow-sm" button_type="submit" content=button_text %}
 {% endblock %}

@@ -22,8 +22,9 @@ class TaskAbstractView(LoginRequireMixin):
 
 
 class TaskIndexView(TaskAbstractView, IndexViewMixin):
-    template_name = 'tasks/task_filter.html'
+    template_name = 'tasks/index.html'
     ordering = ['pk']
+    paginate_by = 3
 
     def get_queryset(self):
         queryset = Task.objects.prefetch_related('status', 'executor', 'author')
@@ -39,7 +40,8 @@ class TaskIndexView(TaskAbstractView, IndexViewMixin):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if any(self.request.GET):
+        # Adding filter to context
+        if any(value for key, value in self.request.GET.items() if key != 'page'):
             context['filter'] = TasksFilter(
                 ordering=self.ordering,
                 data=self.request.GET,
@@ -47,7 +49,6 @@ class TaskIndexView(TaskAbstractView, IndexViewMixin):
             )
         else:
             context['filter'] = TasksFilter()
-        # Add filter to context
         return context
 
 

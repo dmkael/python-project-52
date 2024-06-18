@@ -82,7 +82,7 @@ After adding environment variables, you need to perform database migrations and 
 
 - __Linux:__
 
-  - navigate to folder python-project-52 by __bash__ and execute (install performs in venv):
+  - execute in __bash__ (install performs in venv):
     ```
     source .venv/bin/activate
     make setup
@@ -91,7 +91,7 @@ After adding environment variables, you need to perform database migrations and 
 
 - __Windows:__
   
-  - navigate to folder python-project-52 by __PowerShell__ and execute:
+  - execurte in __PowerShell__:
     ```
     poetry install
     poetry run py manage.py migrate
@@ -103,7 +103,7 @@ You optionally can specify allowed hosts and add some external hostnames/IP's in
 
 - __Linux:__
 
-  - navigate to folder python-project-52 by __bash__ and execute:
+  - execute in __bash__:
     ```
     nano task_manager/settings.py
 
@@ -111,7 +111,7 @@ You optionally can specify allowed hosts and add some external hostnames/IP's in
 
 - __Windows:__
 
-  - navigate to folder python-project-52 by __PowerShell__ and execute:
+  - execurte in __PowerShell__:
     ```
     notepad.exe task_manager/settings.py
 
@@ -126,12 +126,12 @@ After installation, the web service is ready to be started. You can start it wit
 
 - __Linux:__
 
-  - run using __Django__ using debugging:
+  - run by __bash__ using __Django__:
     ```
     make dev
     
     ```
-  - run using __gunicorn__:
+  - run by __bash__ using __gunicorn__:
     ```
     make gunicorn
     
@@ -139,13 +139,13 @@ After installation, the web service is ready to be started. You can start it wit
 
 - __Windows:__
 
-  - run using __PowerShell__ with __Django__:
+  - run by __PowerShell__ using __Django__:
     ```
     poetry run py manage.py runserver 8000
     
     ```
   Since Windows does not support __gunicorn__, you can use __uvicorn__ for running the service.
-  - run using __PowerShell__ with __uvicorn__:
+  - run by __PowerShell__ usnig __uvicorn__:
     ```
     poetry run uvicorn --port=8000 --workers=4 task_manager.asgi:application
     
@@ -169,7 +169,7 @@ _THIS ONE ONLY FOR WINDOWS:_ Also, to clean created by Poetry virtual env folder
 poetry env list
 
 ```
-and find one which starts with 'hexlet-code-', copy that name and execute:
+and find one which starts with __'hexlet-code-'__, copy that name and execute:
 ```
 poetry env remove <venv_name>
 ```

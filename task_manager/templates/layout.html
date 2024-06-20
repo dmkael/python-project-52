@@ -14,6 +14,20 @@
         {% bootstrap_javascript %}
         {% load tz_detect %}
         {% tz_detect %}
+        <script>
+        // Отправляемся? Запомним, где вы остановились.
+        window.onbeforeunload = () => sessionStorage.setItem('scrollPos', window.scrollY);
+        // Добро пожаловать обратно! Мы сохранили вашу позицию.
+        window.onload = () => {
+        const savedPos = sessionStorage.getItem('scrollPos');
+        if (savedPos) {
+            // @ts-expect-error
+            window.scrollTo({top:savedPos, left:0, behavior: "instant"});
+            // После себя прибирайте!
+            sessionStorage.removeItem('scrollPos');
+          }
+        };
+        </script>
         <link rel="stylesheet" href="{% static 'my_styles/my_styles.css' %}">
     </head>
     

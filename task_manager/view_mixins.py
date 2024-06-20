@@ -9,6 +9,12 @@ from django.shortcuts import redirect
 class IndexViewMixin(ListView):
     ordering = ['pk']
 
+    # Add support for custom template tag "table_sort"
+    def get_ordering(self):
+        if self.request.GET.get('sort_by'):
+            self.ordering = self.request.GET.get('sort_by').split("___")
+        return self.ordering
+
 
 class CreateViewMixin(SuccessMessageMixin, CreateView):
 

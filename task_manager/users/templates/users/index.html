@@ -1,5 +1,6 @@
 {% extends 'objects/index.html' %}
 {% load i18n %}
+{% load table_sort %}
 
 {% block page_header %}
     {% trans "Users" %}
@@ -8,11 +9,11 @@
 {% block table_content %}
     <thead class="table-dark">
         <tr>
-            <th class="text-center">ID</th>
-            <th>{% trans "User name" %}</th>
-            <th>{% trans "Fullname" %}</th>
-            <th>{% trans "Creation date" %}</th>
-            <th></th>
+            <th class="text-center">{% build_tag request sort_field="id" tag_text="ID" %}</th>
+            <th>{% build_tag request sort_field="username" tag_text=_("User name") %}</th>
+            <th>{% build_tag request sort_field="first_name___last_name" tag_text=_("Fullname") %}</th>
+            <th>{% build_tag request sort_field="date_joined" tag_text=_("Creation date") %}</th>
+            <th>{% if request.GET.sort_by %}<a href="{% url 'users' %}" style="color: grey;">[{% trans "Cancel sorting" %}]</a>{% endif %}</th>
         </tr>
     </thead>
     

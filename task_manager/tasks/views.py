@@ -29,7 +29,7 @@ class TaskIndexView(TaskAbstractView, IndexViewMixin):
         queryset = Task.objects.prefetch_related('status', 'executor', 'author')
         # filtering through django-filters with ordering
         filter_data = TasksFilter(
-            ordering=self.ordering,
+            ordering=self.get_ordering(),
             data=self.request.GET,
             queryset=queryset,
             request=self.request
@@ -39,10 +39,10 @@ class TaskIndexView(TaskAbstractView, IndexViewMixin):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Adding filter to context
-        if any(value for key, value in self.request.GET.items() if key != 'page'):
+        filter_params = {'status', 'executor', 'labels', 'author'}
+        if any(v for k, v in self.request.GET.items() if k in filter_params):
             context['filter'] = TasksFilter(
-                ordering=self.ordering,
+                ordering=self.get_ordering(),
                 data=self.request.GET,
                 queryset=self.get_queryset(),
             )

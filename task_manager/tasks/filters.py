@@ -29,19 +29,6 @@ class TasksFilter(django_filters.FilterSet):
         model = Task
         fields = ['status', 'executor', 'labels', 'author']
 
-    # Redefining __init__ to add support ordering
-    def __init__(self, ordering=None, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.ordering = ordering
-
-    def filter_queryset(self, queryset):
-        # processing default filtering
-        queryset = super().filter_queryset(queryset)
-        # processing ordering for queryset if provided
-        if self.ordering:
-            ordering = (*self.ordering,)
-            queryset = queryset.order_by(*ordering)
-        return queryset
 
     def self_tasks(self, queryset, name, value):
         if name == 'author' and value:

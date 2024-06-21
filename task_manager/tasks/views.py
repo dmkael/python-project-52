@@ -26,10 +26,10 @@ class TaskIndexView(TaskAbstractView, IndexViewMixin):
     ordering = ['pk']
 
     def get_queryset(self):
-        queryset = Task.objects.prefetch_related('status', 'executor', 'author')
+        self.queryset = Task.objects.prefetch_related('status', 'executor', 'author')
+        queryset = super().get_queryset()
         # filtering through django-filters with ordering
         filter_data = TasksFilter(
-            ordering=self.get_ordering(),
             data=self.request.GET,
             queryset=queryset,
             request=self.request
@@ -42,7 +42,6 @@ class TaskIndexView(TaskAbstractView, IndexViewMixin):
         filter_params = {'status', 'executor', 'labels', 'author'}
         if any(v for k, v in self.request.GET.items() if k in filter_params):
             context['filter'] = TasksFilter(
-                ordering=self.get_ordering(),
                 data=self.request.GET,
                 queryset=self.get_queryset(),
             )

@@ -27,8 +27,8 @@ class TaskIndexView(TaskAbstractView, IndexViewMixin):
 
     def get_queryset(self):
         self.queryset = Task.objects.prefetch_related('status', 'executor', 'author')
+        # getting queryset with ordering
         queryset = super().get_queryset()
-        # filtering through django-filters with ordering
         filter_data = TasksFilter(
             data=self.request.GET,
             queryset=queryset,

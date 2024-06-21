@@ -24,7 +24,7 @@
 {% endblock %}
 
 {% block table_content %}
-     <thead class="table-dark">
+     <thead class="table-dark" id="table">
         <tr>
             <th class="text-center">{% build_tag request sort_field="id" tag_text="ID" %}</th>
             <th>{% build_tag request sort_field="name" tag_text=_("Name") %}</th>

@@ -24,7 +24,7 @@
     {% for status in statuses %}
         <tr>
             <td class="align-middle text-center">{{ status.id }}</td>
-            <td class="align-middle">{{ status.name }}</td>
+            <td class="align-middle"><a href="{% url 'tasks' %}?status={{ status.id }}&scroll=575">{{ status.name }}</td>
             <td class="align-middle">{{ status.created_at|date:'d.m.Y H:i' }}</td>
             <td class="align-middle">
                 <a href="{% url 'status_update' status.id %}">{% trans "Edit" %}</a>

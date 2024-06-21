@@ -15,18 +15,23 @@
         {% load tz_detect %}
         {% tz_detect %}
         <script>
-        // Отправляемся? Запомним, где вы остановились.
-        window.onbeforeunload = () => sessionStorage.setItem('scrollPos', window.scrollY);
-        // Добро пожаловать обратно! Мы сохранили вашу позицию.
-        window.onload = () => {
-        const savedPos = sessionStorage.getItem('scrollPos');
-        if (savedPos) {
-            // @ts-expect-error
-            window.scrollTo({top:savedPos, left:0, behavior: "instant"});
-            // После себя прибирайте!
-            sessionStorage.removeItem('scrollPos');
-          }
-        };
+            // Отправляемся? Запомним, где вы остановились.
+            window.onbeforeunload = () => sessionStorage.setItem('scrollPos', window.scrollY);
+        
+            // Добро пожаловать обратно! Мы сохранили вашу позицию.
+            window.onload = () => {
+                const savedPos = sessionStorage.getItem('scrollPos');
+                const urlParams = new URLSearchParams(window.location.search);
+                const scrollPos = urlParams.get('scroll');
+        
+                if (scrollPos) {
+                    window.scrollTo({ top: parseInt(scrollPos, 10), left: 0, behavior: "instant" });
+                } else if (savedPos) {
+                    window.scrollTo({ top: parseInt(savedPos, 10), left: 0, behavior: "instant" });
+                    // После себя прибирайте!
+                    sessionStorage.removeItem('scrollPos');
+                }
+            };
         </script>
         <link rel="stylesheet" href="{% static 'my_styles/my_styles.css' %}">
     </head>

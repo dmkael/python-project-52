@@ -24,7 +24,7 @@
     {% for label in labels %}
         <tr>
             <td class="align-middle text-center">{{ label.id }}</td>
-            <td class="align-middle">{{ label.name }}</td>
+            <td class="align-middle"><a href="{% url 'tasks' %}?labels={{ label.id }}&scroll=575">{{ label.name }}</a></td>
             <td class="align-middle">{{ label.created_at|date:'d.m.Y H:i' }}</td>
             <td class="align-middle">
                 <a href="{% url 'label_update' label.id %}">{% trans "Edit" %}</a>

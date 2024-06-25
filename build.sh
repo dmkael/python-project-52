@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# setup docker postgres database
+docker-compose -f docker/compose.yml up -d
+
 # Exit on error
 set -o errexit
 

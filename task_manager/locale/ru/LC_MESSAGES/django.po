@@ -172,7 +172,7 @@ msgstr "Задача с таким именем уже существует."
 
 #: task_manager/tasks/mixins.py:9
 msgid "Only author can delete a task"
-msgstr "Задачу может удалить только её автор."
+msgstr "Задачу может удалить только ее автор."
 
 #: task_manager/tasks/models.py:15
 #: task_manager/tasks/templates/tasks/detail.html:17

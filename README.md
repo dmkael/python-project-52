@@ -15,8 +15,11 @@ This Django web service provides a task management system. The service includes 
 You can check its functionality and test it via the following link: [Task Manager](https://python-project-52-4ipl.onrender.com).
 
 \
-Installation and running instructions for the service:
+Installation and running instructions for the service are available in two ways.:
 
+<details>
+<summary>A. Clone and run it locally</summary>
+    
 _You can copy and paste step by step in command line interface all commands in this instructions and just execute them_
 
 <details>
@@ -179,4 +182,26 @@ To clean the rest just delete folder __python-project-52__
 
 </details>
 
-You can clone the repository and subsequently deploy it on a hosting service. The existing commands in the __Makefile__ may be useful to you for debugging and building.
+</details>
+<details>
+<summary>B. Run from Docker</summary>
+
+Requirements to run from docker container
+
+- Installed Docker Desktop ([Download](https://www.docker.com/products/docker-desktop/))
+- (OPTIONAL) Account and active API-key for the error collector service ([Rollbar](https://rollbar.com/))
+
+    
+1. Download and place this [docker-compose](https://github.com/dmkael/python-project-52/blob/main/taskman_docker/compose.yml) file in any empty directory
+2. Create __.env__ file inside that directory and specify 5 variables in created __.env__ file (by any text editor):
+   - __DB_USER__ - any username for database server
+   - __DB_PASSWORD__ - any password for database
+   - __DB_NAME__ - any database name
+   - __SECRET_KEY__ - any secret key
+   - __ROLLBAR_ACCESS_TOKEN__ - active API-token or any value if service is not necessary
+3. Navigate by CLI to that directory and run command:
+   ```
+   docker-compose -f compose.yml up
+   ```
+    
+</details>

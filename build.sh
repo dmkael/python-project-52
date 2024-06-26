@@ -4,13 +4,21 @@ set -o errexit
 set -o pipefail
 
 # setup docker postgres database
-docker-compose -f docker/compose.yml up -d
+docker run -d \
+    --name task_manager_db \
+    -e POSTGRES_USER="${DB_USER}" \
+    -e POSTGRES_PASSWORD="${DB_PASSWORD}" \
+    -e POSTGRES_DB="${DB_NAME}" \
+    -p 5433:5432 \
+    -v taskman_db:/var/lib/postgresql/data \
+    --restart=on-failure \
+    postgres:14-alpine
 
 # Check if docker-compose up was successful
-docker_compose_exit_code=$?
-if [ $docker_compose_exit_code -ne 0 ]; then
-    echo "Failed to start Docker containers. Exiting."
-    exit $docker_compose_exit_code
+docker_run_exit_code=$?
+if [ $docker_run_exit_code -ne 0 ]; then
+    echo "Failed to start PostgreSQL container. Exiting."
+    exit $docker_run_exit_code
 fi
 
 # Modify this line as needed for your package manager (pip, poetry, etc.)

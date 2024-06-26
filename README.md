@@ -194,7 +194,7 @@ Requirements to run from docker container
     
 1. Download and place this [docker-compose](https://github.com/dmkael/python-project-52/blob/main/taskman_docker/compose.yml) file in any empty directory
    _You can define your own port for service in compose.yml if needed_
-3. Create __.env__ file inside that directory and specify 5 variables in created __.env__ file (by any text editor):
+3. Create __.env__ file inside that directory and specify the following 5 variables in the __.env__ file using any text editor:
    - __DB_USER__ - any username for database server
    - __DB_PASSWORD__ - any password for database
    - __DB_NAME__ - any database name
@@ -205,6 +205,6 @@ Requirements to run from docker container
    docker-compose -f compose.yml up
    ```
 
-5. Service should start and be available on [localhost](http://localhost:8000/). To stop the service press __CTRL+C__ or stop containers through Docker Desktop or by Docker CLI.
+5. Service should start and be available on [localhost:8000](http://localhost:8000/) (if port was not edited). To stop the service press __CTRL+C__ or stop containers through Docker Desktop or by Docker CLI.
 
 </details>

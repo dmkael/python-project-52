@@ -27,7 +27,7 @@ services:
       DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@db/${DB_NAME}
     ports:
       - "8000:8000"
-    command: bash -c "python manage.py migrate && make gunicorn"
+    command: bash -c "while !</dev/tcp/db/5432; do sleep 1; done; python manage.py migrate && make gunicorn"
 
 volumes:
   taskman_db:

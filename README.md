@@ -188,22 +188,23 @@ To clean the rest just delete folder __python-project-52__
 
 Requirements to run from docker container
 
-- Installed Docker Desktop ([Download](https://www.docker.com/products/docker-desktop/))
+- Docker Desktop ([Download](https://www.docker.com/products/docker-desktop/))
 - (OPTIONAL) Account and active API-key for the error collector service ([Rollbar](https://rollbar.com/))
 
     
 1. Download and place this [docker-compose](https://github.com/dmkael/python-project-52/blob/main/taskman_docker/compose.yml) file in any empty directory
-2. Create __.env__ file inside that directory and specify 5 variables in created __.env__ file (by any text editor):
+   _You can define your own port for service in compose.yml if needed_
+3. Create __.env__ file inside that directory and specify 5 variables in created __.env__ file (by any text editor):
    - __DB_USER__ - any username for database server
    - __DB_PASSWORD__ - any password for database
    - __DB_NAME__ - any database name
    - __SECRET_KEY__ - any secret key
    - __ROLLBAR_ACCESS_TOKEN__ - active API-token or any value if service is not necessary
-3. Navigate by CLI to that directory and run command:
+4. Navigate by CLI to that directory and run command:
    ```
    docker-compose -f compose.yml up
    ```
 
-4. Service should start and be available on [localhost](http://localhost:8000/). To stop the service press __CTRL+C__ or stop containers through Docker Desktop or by Docker CLI.
+5. Service should start and be available on [localhost](http://localhost:8000/). To stop the service press __CTRL+C__ or stop containers through Docker Desktop or by Docker CLI.
 
 </details>

@@ -1,4 +1,4 @@
-dev:
+dev: compose-up
 	python manage.py runserver 0.0.0.0:8000
 PORT ?= 8000
 gunicorn:
@@ -24,3 +24,5 @@ test-coverage:
 collect-static:
 	poetry run python manage.py collectstatic --no-input
 setup: install migrate collect-static
+compose-up:
+	docker-compose -f taskman_docker/compose.yml up -d

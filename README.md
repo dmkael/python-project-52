@@ -203,5 +203,7 @@ Requirements to run from docker container
    ```
    docker-compose -f compose.yml up
    ```
-    
+
+4. Service should start and be available on [localhost](http://localhost:8000/). To stop the service press __CTRL+C__ or stop containers through Docker Desktop or by Docker CLI.
+
 </details>

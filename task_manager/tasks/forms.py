@@ -25,3 +25,7 @@ class TaskForm(forms.ModelForm):
             'executor': forms.Select(),
             'labels': forms.SelectMultiple(),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update({'autofocus': True})

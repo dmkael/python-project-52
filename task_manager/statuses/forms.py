@@ -10,3 +10,7 @@ class StatusForm(forms.ModelForm):
         error_messages = {'name': {
             "unique": _("A status with that name already exists.")
         }}
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update({'autofocus': True})

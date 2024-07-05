@@ -194,12 +194,15 @@ Requirements to run from docker container
     
 1. Download and place this [docker-compose](https://raw.githubusercontent.com/dmkael/python-project-52/main/taskman_docker/compose.yml) file in any empty directory
    _You can define your own port for service in compose.yml if needed_
-3. Create __.env__ file inside that directory and specify the following 5 variables in the __.env__ file using any text editor:
-   - __DB_USER__ - any username for database server
-   - __DB_PASSWORD__ - any password for database
-   - __DB_NAME__ - any database name
-   - __SECRET_KEY__ - any secret key
-   - __ROLLBAR_ACCESS_TOKEN__ - active API-token or any value if service is not necessary
+3. Create __.env__ file inside that directory and specify the following 6 variables in the __.env__ file using any text editor:
+   ```
+   DB_USER='my_user'
+   DB_PASSWORD='my_password'
+   DB_NAME='my_database'
+   SECRET_KEY='my_secret_key'
+   ROLLBAR_ACCESS_TOKEN='my_rollbar_API_token'
+   SERVICE_PORT='8000'
+   ```
 4. Navigate by CLI to that directory and run command:
    ```
    docker-compose -f compose.yml up

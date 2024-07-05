@@ -192,7 +192,7 @@ Requirements to run from docker container
 - (OPTIONAL) Account and active API-key for the error collector service ([Rollbar](https://rollbar.com/))
 
     
-1. Download and place this [docker-compose](https://github.com/dmkael/python-project-52/blob/main/taskman_docker/compose.yml) file in any empty directory
+1. Download and place this [docker-compose](https://raw.githubusercontent.com/dmkael/python-project-52/main/taskman_docker/compose.yml) file in any empty directory
    _You can define your own port for service in compose.yml if needed_
 3. Create __.env__ file inside that directory and specify the following 5 variables in the __.env__ file using any text editor:
    - __DB_USER__ - any username for database server
